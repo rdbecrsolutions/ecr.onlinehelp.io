@@ -49,6 +49,7 @@
 <li class="nav-item"><a class="nav-link collapsed" href="11-protocolli-xon-xoff-ecr-e-specifiche.html"><i class="bi bi-journal-text"></i><span>Protocolli XON-XOFF, ECR e specifiche RT v11</span></a></li>
 <li class="nav-item"><a class="nav-link collapsed" href="12-aggiornamento-firmware.html"><i class="bi bi-journal-text"></i><span>Aggiornamento firmware e software</span></a></li>
 <li class="nav-item"><a class="nav-link collapsed" href="13-tabelle-e-codici.html"><i class="bi bi-journal-text"></i><span>Tabelle e codici</span></a></li>
+<li class="nav-item"><a class="nav-link collapsed" href="14-errori-e-soluzioni.html"><i class="bi bi-journal-text"></i><span>Errori e soluzioni</span></a></li>
 </ul>
 </aside>
 <main id="main" class="main">
@@ -80,6 +81,10 @@
 <h6 class="ecr-sub">Reparti</h6>
 <p>Un reparto registra una vendita a importo libero. Si digita l'importo e si preme il tasto del reparto (REP.). I tasti REP. sono visibili nelle figure della tastiera. Con quantità si digita la quantità, si preme X, si digita il prezzo unitario e si preme il tasto REP.</p>
 <div class="ecr-callout ecr-diff"><div class="ecr-callout-title"><i class="bi bi-arrow-left-right"></i> Differenze tra i modelli</div><div class="ecr-callout-body"><ul><li>Smarty evo+: 40 reparti.</li><li>Smarty evo, Smarty Plus, Smarty Tour+ e Jolly: 20 reparti.</li><li>Zero Plus: 8 reparti.</li></ul></div></div>
+<h6 class="ecr-sub">Superamento del limite di reparto</h6>
+<p>Ogni reparto può avere un importo massimo per battuta. Se l'importo supera il limite, la cassa chiede un codice di autorizzazione.</p>
+<ol><li>Digitare l'importo che supera il limite e premere il tasto del reparto.</li><li>Quando la cassa chiede il codice, digitare il codice di autorizzazione (predefinito 99999) e premere MENU.</li></ol>
+<div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>l'autorizzazione al superamento va abilitata in programmazione. Vedi la sezione <a href="07-programmazione.html">Autorizzazioni</a> del capitolo Programmazione.</p></div></div>
 <h6 class="ecr-sub">Articoli PLU</h6>
 <p>Un articolo PLU registra una vendita con prezzo e descrizione memorizzati. Si digita il codice e si preme il tasto PLU.</p>
 <p>Il codice PLU fino a 5 cifre richiama l'articolo per numero; con più cifre il registratore cerca l'articolo per codice a barre. Se per l'articolo si digita un prezzo, questo prevale su quello memorizzato; altrimenti si usa il prezzo memorizzato.</p>
@@ -100,7 +105,15 @@
 <div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>il tasto diretto (m) richiama la voce successiva a quella di MOD.NUM. (M): m 1 corrisponde a M 2, cioè -% (ART).</p></div></div>
 <h6 class="ecr-sub">Sconti e maggiorazioni</h6>
 <p>Gli sconti e le maggiorazioni si applicano con i modificatori da 2 a 9. Gli sconti sull'articolo agiscono sulla riga selezionata. Gli sconti sul subtotale agiscono sull'importo complessivo.</p>
+<p>Gli sconti si possono anche applicare con queste sequenze. Dopo il valore si preme PREZZO, poi il numero del modificatore, poi N.MOD.</p>
+<div class="table-responsive"><table class="table table-bordered table-sm ecr-table"><thead><tr><th>Sconto</th><th>Sequenza</th></tr></thead><tbody><tr><td>Percentuale su una battuta</td><td>battere l'articolo sul reparto, digitare la percentuale (per esempio 10), PREZZO, 2, N.MOD.</td></tr><tr><td>Percentuale sul subtotale</td><td>battere gli articoli, SUBTOTALE, digitare la percentuale (per esempio 20), PREZZO, 3, N.MOD.</td></tr><tr><td>Valore su una battuta</td><td>battere l'articolo sul reparto, digitare l'importo (per esempio 500 per 5,00 €), PREZZO, 4, N.MOD.</td></tr><tr><td>Valore sul subtotale</td><td>battere gli articoli, SUBTOTALE, digitare l'importo (per esempio 1000 per 10,00 €), PREZZO, 5, N.MOD.</td></tr></tbody></table></div>
 <p>Le opzioni di arrotondamento sono descritte nella sezione <a href="#opzioni-di-vendita">Opzioni di vendita</a>.</p>
+<h6 class="ecr-sub">Acconti</h6>
+<p>L'acconto registra un pagamento anticipato su un bene o su un servizio. L'importo versato in acconto viene poi detratto dal saldo.</p>
+<p><strong>Acconto su bene</strong></p>
+<ol><li>Digitare 935 e premere MENU.</li><li>Inserire l'importo dell'acconto, premere il reparto e il tipo di pagamento. Lo scontrino si chiude.</li><li>Alla consegna del bene, battere l'importo totale del bene e premere il reparto.</li><li>Digitare l'importo dell'acconto già versato, premere PREZZO, poi digitare 15 e premere N.MOD. (modificatore ACCONTO).</li><li>Chiudere lo scontrino riscuotendo il saldo.</li></ol>
+<p><strong>Acconto su servizio</strong></p>
+<ol><li>Digitare 939 e premere MENU.</li><li>Inserire l'importo totale del servizio e premere il reparto.</li><li>Digitare l'importo effettivamente pagato in acconto e premere il tasto di pagamento (contanti o elettronico).</li><li>Per la parte ancora da pagare premere NON RISCOSSO.</li><li>Per incassare il saldo, digitare l'importo rimanente, premere il reparto e il tipo di pagamento utilizzato.</li></ol>
 <h6 class="ecr-sub">Pagamenti e resto</h6>
 <p>Il pagamento chiude la vendita. Si premono i tasti di pagamento (ad esempio CASSA, BANCOMAT, TICKET e NON RISCOSSO, come nelle figure). Se il pagamento supera il totale in contanti, il registratore mostra il resto.</p>
 <p>Se il tipo di pagamento non consente il resto, il registratore segnala DIVIETO RESTO.</p>

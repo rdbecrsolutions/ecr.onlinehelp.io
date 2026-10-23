@@ -48,6 +48,7 @@
 <li><a href="07-programmazione.html#clienti"><i class="bi bi-circle"></i><span>Clienti</span></a></li>
 <li><a href="07-programmazione.html#cassieri"><i class="bi bi-circle"></i><span>Cassieri</span></a></li>
 <li><a href="07-programmazione.html#iva"><i class="bi bi-circle"></i><span>IVA</span></a></li>
+<li><a href="07-programmazione.html#codici-ateco"><i class="bi bi-circle"></i><span>Codici ATECO</span></a></li>
 <li><a href="07-programmazione.html#messaggio-pubblicitario"><i class="bi bi-circle"></i><span>Messaggio pubblicitario</span></a></li>
 <li><a href="07-programmazione.html#cortesia"><i class="bi bi-circle"></i><span>Cortesia</span></a></li>
 <li><a href="07-programmazione.html#opzioni-generali"><i class="bi bi-circle"></i><span>Opzioni generali</span></a></li>
@@ -71,6 +72,7 @@
 <li class="nav-item"><a class="nav-link collapsed" href="11-protocolli-xon-xoff-ecr-e-specifiche.html"><i class="bi bi-journal-text"></i><span>Protocolli XON-XOFF, ECR e specifiche RT v11</span></a></li>
 <li class="nav-item"><a class="nav-link collapsed" href="12-aggiornamento-firmware.html"><i class="bi bi-journal-text"></i><span>Aggiornamento firmware e software</span></a></li>
 <li class="nav-item"><a class="nav-link collapsed" href="13-tabelle-e-codici.html"><i class="bi bi-journal-text"></i><span>Tabelle e codici</span></a></li>
+<li class="nav-item"><a class="nav-link collapsed" href="14-errori-e-soluzioni.html"><i class="bi bi-journal-text"></i><span>Errori e soluzioni</span></a></li>
 </ul>
 </aside>
 <main id="main" class="main">
@@ -105,13 +107,25 @@
 <section class="section" id="pagamenti"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Pagamenti</h5>
 <p>Ogni pagamento ha descrizione, autorizzazione, subtotale, apertura cassetto, massimo, massimo resto, tipo di resto, POS e tipo.</p>
 <p>I pagamenti disponibili sono 5 su Zero Plus e 10 sugli altri modelli.</p>
-<div class="ecr-callout ecr-diff"><div class="ecr-callout-title"><i class="bi bi-arrow-left-right"></i> Differenze tra i modelli</div><div class="ecr-callout-body"><ul><li>Zero Plus: 5 pagamenti.</li><li>Smarty evo+: campo doppia altezza.</li></ul></div></div></div></div></div></div></section>
+<div class="ecr-callout ecr-diff"><div class="ecr-callout-title"><i class="bi bi-arrow-left-right"></i> Differenze tra i modelli</div><div class="ecr-callout-body"><ul><li>Zero Plus: 5 pagamenti.</li><li>Smarty evo+: campo doppia altezza.</li></ul></div></div>
+<h6 class="ecr-sub">Nuovo tipo di pagamento</h6>
+<p>Per aggiungere un tipo di pagamento che non è in elenco, per esempio BONIFICO:</p>
+<ol><li>Digitare 804 e premere MENU.</li><li>Scegliere un record non utilizzato, per esempio 8, e premere MENU.</li><li>Impostare la descrizione, per esempio BONIFICO.</li><li>Scorrere con le frecce fino al tipo di pagamento e impostare NON RISCOSSO.</li><li>Uscire dalla programmazione.</li></ol>
+<p>Per assegnare il pagamento a un tasto, vedi la sottosezione Tasti diretti della sezione <a href="#tastiera">Tastiera</a>.</p></div></div></div></div></section>
 <section class="section" id="clienti"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Clienti</h5>
 <p>L'anagrafica clienti contiene fino a 500 clienti. La voce 852 cancella l'anagrafica.</p></div></div></div></div></section>
 <section class="section" id="cassieri"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Cassieri</h5>
 <div class="ecr-callout ecr-diff"><div class="ecr-callout-title"><i class="bi bi-arrow-left-right"></i> Differenze tra i modelli</div><div class="ecr-callout-body"><ul><li>Smarty evo+: gestione cassieri abilitata, con 8 cassieri. Ogni cassiere ha descrizione, abilitazione e codice. Le opzioni 18 e 19 dipendono da questa funzione.</li><li>Altri modelli: la voce 808 non è presente.</li></ul></div></div></div></div></div></div></section>
 <section class="section" id="iva"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">IVA</h5>
 <p>Il menu IVA contiene 6 aliquote. Sono disponibili 7 nature di esenzione: N1, N2, N3, N4, N5, N6 e VI. Le sigle e le descrizioni sono nel capitolo <a href="13-tabelle-e-codici.html">Tabelle e codici</a>.</p></div></div></div></div></section>
+<section class="section" id="codici-ateco"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Codici ATECO</h5>
+<p>Il registratore può memorizzare fino a 3 codici ATECO. Per programmarli la cassa deve essere collegata a internet.</p>
+<ol><li>Digitare 818 e premere MENU.</li><li>Selezionare il numero del codice da programmare (1, 2 o 3) e premere MENU.</li><li>Digitare il codice ATECO e premere MENU.</li><li>La cassa stampa e invia automaticamente una chiusura. Serve a verificare che il codice esista.</li></ol>
+<p>Al termine della programmazione il primo codice programmato è attivo.</p>
+<p>Per scegliere il codice da usare in una vendita, digitare il suo numero (1, 2 o 3) e premere SUBTOTALE prima di iniziare la vendita. Con 0 e SUBTOTALE, fuori dalla vendita, la cassa mostra il codice attivo.</p>
+<p>La funzione 820 regola il comportamento dei codici:</p>
+<ul><li>STAMPA ATECO (predefinito 0): stampa il codice attivo nell'appendice del documento commerciale.</li><li>ATECO DEF.AUTO: 0 (predefinito) mantiene il codice attivo finché non ne viene impostato un altro. 1 riporta il codice al primo programmato al termine di ogni vendita.</li></ul>
+<p>In chiusura i corrispettivi sono riportati separatamente per ogni codice ATECO.</p></div></div></div></div></section>
 <section class="section" id="messaggio-pubblicitario"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Messaggio pubblicitario</h5>
 <div class="ecr-callout ecr-diff"><div class="ecr-callout-title"><i class="bi bi-arrow-left-right"></i> Differenze tra i modelli</div><div class="ecr-callout-body"><ul><li>Smarty evo+: 4 messaggi pubblicitari.</li><li>Altri modelli: la voce 810 non è presente.</li></ul></div></div></div></div></div></div></section>
 <section class="section" id="cortesia"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Cortesia</h5>
@@ -145,12 +159,17 @@
 <p>La voce 853 configura i report inviati via mail. La voce 855 configura i report mail per l'utente. La voce 856 stampa la programmazione.</p>
 <div class="ecr-callout ecr-diff"><div class="ecr-callout-title"><i class="bi bi-arrow-left-right"></i> Differenze tra i modelli</div><div class="ecr-callout-body"><ul><li>Altezza font (854): tutti i modelli tranne Zero Plus.</li><li>Smarty evo+: l'altezza del font dipende dall'opzione 9 (taglio carta).</li></ul></div></div></div></div></div></div></section>
 <section class="section" id="tastiera"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Tastiera</h5>
-<p>La voce 869 configura la tastiera. È disponibile su tutti i modelli tranne Zero Plus.</p></div></div></div></div></section>
+<p>La voce 869 configura la tastiera. È disponibile su tutti i modelli tranne Zero Plus.</p>
+<h6 class="ecr-sub">Tasti diretti</h6>
+<p>I tasti diretti si programmano con la voce 869. La sequenza generale è:</p>
+<ol><li>Digitare 869 e premere MENU due volte.</li><li>Premere il tasto fisico da programmare e premere MENU.</li><li>Con le frecce scorrere fino alla voce (COMANDO, MODIFICATORE o PAGAMENTO) e premere MENU.</li><li>Digitare il numero della funzione e premere MENU.</li><li>Uscire dalla programmazione.</li></ol>
+<div class="table-responsive"><table class="table table-bordered table-sm ecr-table"><thead><tr><th>Tasto diretto</th><th>Voce</th><th>Numero</th></tr></thead><tbody><tr><td>Fuori servizio</td><td>COMANDO</td><td>909</td></tr><tr><td>Ristampa dell'ultimo scontrino</td><td>COMANDO</td><td>199</td></tr><tr><td>Chiusura Z fiscale</td><td>COMANDO</td><td>001</td></tr><tr><td>Prova acquisto</td><td>COMANDO</td><td>311</td></tr><tr><td>Annullo dell'intero scontrino</td><td>MODIFICATORE</td><td>99</td></tr><tr><td>Sconto percentuale su una battuta</td><td>MODIFICATORE</td><td>2</td></tr><tr><td>Sconto percentuale sul subtotale</td><td>MODIFICATORE</td><td>3</td></tr><tr><td>Sconto a valore su una battuta</td><td>MODIFICATORE</td><td>4</td></tr><tr><td>Sconto a valore sul subtotale</td><td>MODIFICATORE</td><td>5</td></tr><tr><td>Pagamento personalizzato</td><td>PAGAMENTO</td><td>numero del pagamento, per esempio 8</td></tr></tbody></table></div></div></div></div></div></section>
 <section class="section" id="shortcut"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Shortcut</h5>
 <p>La voce 870 configura i tasti shortcut a shift. Sono programmabili 9 shortcut.</p>
 <div class="ecr-callout ecr-diff"><div class="ecr-callout-title"><i class="bi bi-arrow-left-right"></i> Differenze tra i modelli</div><div class="ecr-callout-body"><ul><li>Solo Jolly.</li></ul></div></div></div></div></div></div></section>
 <section class="section" id="autorizzazioni"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Autorizzazioni</h5>
-<p>La voce 888 imposta le autorizzazioni. Sono programmabili 12 autorizzazioni. L'elenco dei codici di autorizzazione è nel capitolo <a href="08-funzioni-di-servizio.html">Funzioni di servizio</a>.</p></div></div></div></div></section>
+<p>La voce 888 imposta le autorizzazioni. Sono programmabili 12 autorizzazioni. L'elenco dei codici di autorizzazione è nel capitolo <a href="08-funzioni-di-servizio.html">Funzioni di servizio</a>.</p>
+<p>L'autorizzazione numero 4 abilita il superamento del limite di un reparto. Si imposta con valore 1 e una password, predefinita 99999. Vedi <a href="03-primi-passi-e-vendita.html">Superamento del limite di reparto</a>.</p></div></div></div></div></section>
 <section class="section" id="spegnimento-automatico"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Spegnimento automatico</h5>
 <p>La voce 899 imposta lo spegnimento automatico dopo un periodo di inattività. Si sceglie NO, SI oppure PARZ. Con SI o PARZ. si imposta il tempo in secondi, fino a 9999. Il minimo è 10 secondi su Tour+ e Jolly, 5 secondi sugli altri modelli.</p>
 <div class="ecr-callout ecr-diff"><div class="ecr-callout-title"><i class="bi bi-arrow-left-right"></i> Differenze tra i modelli</div><div class="ecr-callout-body"><ul><li>Tour+ e Jolly: dopo il tempo, il menu chiede anche l'illuminazione dello schermo (ON, OFF o TEMPO) e lo stand-by (NO o SI). Con lo stand-by attivo si imposta un tempo, che non può superare il tempo di spegnimento.</li><li>Altri modelli: solo spegnimento automatico.</li></ul></div></div></div></div></div></div></section>

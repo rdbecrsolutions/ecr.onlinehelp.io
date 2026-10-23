@@ -45,6 +45,7 @@
 <li><a href="05-lotteria-istantanea.html#richiesta-dei-codici"><i class="bi bi-circle"></i><span>Richiesta dei codici</span></a></li>
 <li><a href="05-lotteria-istantanea.html#trasmissione-dei-codici"><i class="bi bi-circle"></i><span>Trasmissione dei codici</span></a></li>
 <li><a href="05-lotteria-istantanea.html#opzioni-di-invio-differito"><i class="bi bi-circle"></i><span>Opzioni di invio differito</span></a></li>
+<li><a href="05-lotteria-istantanea.html#lotteria-per-pagamento-differito"><i class="bi bi-circle"></i><span>Lotteria per pagamento differito</span></a></li>
 <li><a href="05-lotteria-istantanea.html#stampa-dei-codici-sullo-scontrino"><i class="bi bi-circle"></i><span>Stampa dei codici sullo scontrino</span></a></li>
 </ul></li>
 <li class="nav-item"><a class="nav-link collapsed" href="06-chiusure-e-rapporti.html"><i class="bi bi-journal-text"></i><span>Chiusure e rapporti</span></a></li>
@@ -55,6 +56,7 @@
 <li class="nav-item"><a class="nav-link collapsed" href="11-protocolli-xon-xoff-ecr-e-specifiche.html"><i class="bi bi-journal-text"></i><span>Protocolli XON-XOFF, ECR e specifiche RT v11</span></a></li>
 <li class="nav-item"><a class="nav-link collapsed" href="12-aggiornamento-firmware.html"><i class="bi bi-journal-text"></i><span>Aggiornamento firmware e software</span></a></li>
 <li class="nav-item"><a class="nav-link collapsed" href="13-tabelle-e-codici.html"><i class="bi bi-journal-text"></i><span>Tabelle e codici</span></a></li>
+<li class="nav-item"><a class="nav-link collapsed" href="14-errori-e-soluzioni.html"><i class="bi bi-journal-text"></i><span>Errori e soluzioni</span></a></li>
 </ul>
 </aside>
 <main id="main" class="main">
@@ -107,6 +109,10 @@
 <p>La funzione 821 imposta il comportamento dell'invio differito. Richiede l'autorizzazione di programmazione.</p>
 <ul><li>Opzione 3, INVIO LOTT CON CHIUS: invia la lotteria insieme alla trasmissione della chiusura.</li><li>Opzione 4, richiedi conferma dopo immissione id Lott: chiede una conferma dopo l'inserimento dell'identificativo della lotteria.</li></ul>
 <p>La funzione 844 (MAX GIORNI PER TRASM.) imposta il numero massimo di giorni per la trasmissione.</p></div></div></div></div></section>
+<section class="section" id="lotteria-per-pagamento-differito"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Lotteria per pagamento differito</h5>
+<p>Quando il cliente partecipa alla lotteria ma il pagamento non avviene subito, si registra il codice del cliente così:</p>
+<ol><li>Battere i reparti della vendita.</li><li>Premere CLIENTE, inserire il codice lotteria del cliente (8 caratteri) e premere di nuovo CLIENTE.</li><li>Chiudere lo scontrino con pagamento elettronico.</li></ol>
+<div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>il tipo di pagamento deve essere tra quelli abilitati per la lotteria, vedi <a href="#requisiti">Requisiti</a>. Con la configurazione predefinita è il pagamento elettronico.</p></div></div></div></div></div></div></section>
 <section class="section" id="stampa-dei-codici-sullo-scontrino"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Stampa dei codici sullo scontrino</h5>
 <p>Lo scontrino riporta il codice lotteria solo se sono rispettate le condizioni della sezione <a href="#requisiti">Requisiti</a>.</p>
 <p>I codici in attesa di trasmissione vengono stampati con la dicitura CODICE LOTTERIA seguita dal codice fiscale.</p>

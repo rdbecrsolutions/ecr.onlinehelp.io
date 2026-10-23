@@ -52,6 +52,7 @@
 <li class="nav-item"><a class="nav-link collapsed" href="11-protocolli-xon-xoff-ecr-e-specifiche.html"><i class="bi bi-journal-text"></i><span>Protocolli XON-XOFF, ECR e specifiche RT v11</span></a></li>
 <li class="nav-item"><a class="nav-link collapsed" href="12-aggiornamento-firmware.html"><i class="bi bi-journal-text"></i><span>Aggiornamento firmware e software</span></a></li>
 <li class="nav-item"><a class="nav-link collapsed" href="13-tabelle-e-codici.html"><i class="bi bi-journal-text"></i><span>Tabelle e codici</span></a></li>
+<li class="nav-item"><a class="nav-link collapsed" href="14-errori-e-soluzioni.html"><i class="bi bi-journal-text"></i><span>Errori e soluzioni</span></a></li>
 </ul>
 </aside>
 <main id="main" class="main">
@@ -89,7 +90,10 @@
 <p>L'intestazione della fattura dipende dal modello. Le differenze sono nel blocco sotto.</p>
 <div class="ecr-callout ecr-warn"><div class="ecr-callout-title"><i class="bi bi-exclamation-triangle"></i> Attenzione</div><div class="ecr-callout-body"><p>la fattura senza scontrino richiede il servizio telematico. Senza servizio telematico il registratore segnala un errore.</p></div></div>
 <div class="ecr-callout ecr-diff"><div class="ecr-callout-title"><i class="bi bi-arrow-left-right"></i> Differenze tra i modelli</div><div class="ecr-callout-body"><ul><li>Jolly, Smarty evo e Smarty evo+: l'intestazione è FATTURA ELETTRONICA.</li><li>Zero Plus, Smarty Plus e Tour+: l'intestazione è FATTURA INTERNA.</li><li>Smarty evo+: ha la taglierina automatica, attivabile con l'opzione 9 (TAGLIO CARTA).</li></ul></div></div>
-<div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>nessuno degli altri cinque modelli in scope ha la taglierina automatica. Sugli altri modelli l'opzione 9 non compare.</p></div></div></div></div></div></div></section>
+<div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>nessuno degli altri cinque modelli in scope ha la taglierina automatica. Sugli altri modelli l'opzione 9 non compare.</p></div></div>
+<h6 class="ecr-sub">Scontrino con la dicitura SEGUIRA' FATTURA</h6>
+<p>Questa procedura stampa la dicitura SEGUIRA' FATTURA sotto lo scontrino, quando la fattura verrà emessa in un secondo momento.</p>
+<ol><li>In 820 [menu] abilitare l'opzione STAMPA PAGAMENTI. Senza questa opzione la dicitura non viene stampata.</li><li>Premere CLIENTE, inserire la partita IVA o il codice fiscale del cliente e confermare con CLIENTE.</li><li>Battere i reparti. Al termine digitare 0 e premere CLIENTE.</li><li>Chiudere lo scontrino con PAGAMENTO NON RISCOSSO.</li></ol></div></div></div></div></section>
 <section class="section" id="annullo-e-reso-di-scontrini"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Annullo e reso di scontrini</h5>
 <h6 class="ecr-sub">Annullo dell'ultimo scontrino</h6>
 <p>La funzione 929 annulla l'ultimo scontrino emesso. Richiede il servizio telematico attivo.</p>
@@ -103,7 +107,9 @@
 <p>Con la matricola fiscale, il registratore chiede il numero dello scontrino (RIF SCONTRINO, fino a 9999) e il numero di chiusura (RIF AZZ, fino a 2199).</p>
 <p>Il registratore mostra RESO: AUTO oppure RESO: MANUALE.</p>
 <div class="ecr-callout ecr-warn"><div class="ecr-callout-title"><i class="bi bi-exclamation-triangle"></i> Attenzione</div><div class="ecr-callout-body"><p>il reso non è consentito quando è attiva la modalità DCR a SSN. Il registratore segnala un errore dedicato.</p></div></div>
-<div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>da confermare il significato delle sigle VR e ND.</p></div></div></div></div></div></div></section>
+<div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>da confermare il significato delle sigle VR e ND.</p></div></div>
+<h6 class="ecr-sub">Prova acquisto</h6>
+<p>La funzione 311 stampa un documento non fiscale intitolato PROVA ACQUISTO, con gli articoli battuti. Il documento non ha valore fiscale. Si usa per verificare una vendita senza emettere uno scontrino fiscale.</p></div></div></div></div></section>
 <section class="section" id="documenti-xml-e-fattura-elettronica"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Documenti XML e fattura elettronica</h5>
 <h6 class="ecr-sub">Esportazione delle fatture</h6>
 <p>La funzione 204 esporta le fatture su chiavetta USB.</p>
