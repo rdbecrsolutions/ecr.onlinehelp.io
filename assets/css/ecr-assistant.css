@@ -169,6 +169,22 @@
   white-space: pre-wrap;
 }
 
+.ecra-ai-hint {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.ecra-ai-text {
+  margin: 0;
+}
+
+.ecra-ai-note {
+  margin: 8px 0 0;
+  font-size: 12px;
+  color: #6b7280;
+}
+
 .ecra-foot {
   margin: 0;
   padding: 6px 14px 10px;

@@ -1,7 +1,7 @@
 /*
  * Assistente della guida: cerca nei paragrafi di assistant-index.js (generato da build_assistant.py).
- * Il pulsante "Risposta completa con AI" compare solo se llmUrl è valorizzato e invia domanda e brani
- * trovati a quell'endpoint. L'endpoint deve custodire la chiave API lato server: la chiave non va qui.
+ * Il pulsante "Rispondi con AI" compare se localAi è attivo (modello nel browser, ecr-local-ai.js) oppure se
+ * llmUrl è valorizzato (endpoint proprio, che custodisce la chiave API lato server: la chiave non va qui).
  */
 (function () {
   'use strict';
@@ -9,7 +9,7 @@
   if (window.__ecraAssistant) return;
   window.__ecraAssistant = true;
 
-  var CONFIG = Object.assign({ llmUrl: '' }, window.ECR_ASSISTANT_CONFIG || {});
+  var CONFIG = Object.assign({ llmUrl: '', localAi: false }, window.ECR_ASSISTANT_CONFIG || {});
   var MAX_RESULTS = 4;
   var STOP = new Set(['il', 'lo', 'la', 'le', 'gli', 'i', 'un', 'una', 'uno', 'di', 'da', 'del', 'della', 'dei', 'delle',
     'degli', 'e', 'o', 'per', 'con', 'che', 'come', 'in', 'a', 'su', 'al', 'alla', 'ai', 'nel', 'nella', 'sono', 'quale',
@@ -214,30 +214,72 @@
     lastResult = search(q);
     lastResult.q = q;
     renderResults(q, lastResult);
-    ui.llm.hidden = !(CONFIG.llmUrl && lastResult.hits.length);
+    ui.llm.hidden = !(aiEnabled() && lastResult.hits.length);
     ui.answer.textContent = '';
   }
 
+  function aiEnabled() {
+    return !!CONFIG.llmUrl || (CONFIG.localAi && !!window.ecrLocalAi);
+  }
+
+  function showAi(text, note) {
+    ui.answer.textContent = '';
+    var p = document.createElement('p');
+    p.className = 'ecra-ai-text';
+    p.textContent = text;
+    ui.answer.appendChild(p);
+    if (note) {
+      var n = document.createElement('p');
+      n.className = 'ecra-ai-note';
+      n.textContent = note;
+      ui.answer.appendChild(n);
+    }
+  }
+
+  function passagesOf(res) {
+    return res.hits.map(function (c) {
+      return { title: c.t, heading: c.h, text: c.x, url: new URL(urlOf(c), location.href).href };
+    });
+  }
+
   function askAi() {
-    if (!CONFIG.llmUrl || !lastResult || !lastResult.hits.length) return;
-    ui.answer.textContent = 'Elaborazione in corso…';
-    var payload = {
-      question: lastResult.q,
-      passages: lastResult.hits.map(function (c) {
-        return { title: c.t, heading: c.h, text: c.x, url: new URL(urlOf(c), location.href).href };
-      })
-    };
+    if (!aiEnabled() || !lastResult || !lastResult.hits.length) return;
+    if (CONFIG.llmUrl) askRemote(passagesOf(lastResult));
+    else askLocal(passagesOf(lastResult));
+  }
+
+  function askLocal(passages) {
+    var ai = window.ecrLocalAi;
+    if (!ai.supported()) {
+      showAi('Questo browser non supporta l\'AI nel browser (serve WebGPU). Usa la risposta estratta sopra.');
+      return;
+    }
+    ui.ai.disabled = true;
+    showAi('Preparazione…');
+    ai.ask(lastResult.q, passages, function (msg) { showAi(msg); }).then(function (text) {
+      showAi(text || 'Nessuna risposta disponibile.',
+        'Risposta generata nel browser: verificala nelle sezioni indicate sopra.');
+    }).catch(function (err) {
+      showAi('Risposta AI non disponibile (' + (err && err.message ? err.message : 'errore')
+        + '). Usa la risposta estratta sopra.');
+    }).finally(function () {
+      ui.ai.disabled = false;
+    });
+  }
+
+  function askRemote(passages) {
+    showAi('Elaborazione in corso…');
     fetch(CONFIG.llmUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
+      body: JSON.stringify({ question: lastResult.q, passages: passages })
     }).then(function (r) {
       if (!r.ok) throw new Error('HTTP ' + r.status);
       return r.json();
     }).then(function (d) {
-      ui.answer.textContent = d.answer || 'Nessuna risposta disponibile.';
+      showAi(d.answer || 'Nessuna risposta disponibile.');
     }).catch(function () {
-      ui.answer.textContent = 'Risposta AI non disponibile. Usa i risultati qui sopra.';
+      showAi('Risposta AI non disponibile. Usa i risultati qui sopra.');
     });
   }
 
@@ -260,6 +302,8 @@
       + '<div class="ecra-results" aria-live="polite"><p class="ecra-empty">Scrivi una domanda: l\'assistente '
       + 'risponde con le frasi della guida e indica le sezioni da cui le ricava.</p></div>'
       + '<div class="ecra-llm" hidden><button type="button" class="ecra-ai">Risposta completa con AI</button>'
+      + '<p class="ecra-ai-hint" hidden>Al primo uso scarica un modello di circa 0,7 GB, poi lo tiene nel browser. '
+      + 'Domanda e brani restano sul dispositivo.</p>'
       + '<div class="ecra-answer" aria-live="polite"></div></div>'
       + '<p class="ecra-foot">Risposte ricavate dai testi della guida, in aggiornamento continuo.</p>'
       + '</section>';
@@ -271,6 +315,8 @@
     ui.results = root.querySelector('.ecra-results');
     ui.llm = root.querySelector('.ecra-llm');
     ui.answer = root.querySelector('.ecra-answer');
+    ui.ai = root.querySelector('.ecra-ai');
+    ui.hint = root.querySelector('.ecra-ai-hint');
 
     ui.fab.addEventListener('click', function () { setOpen(ui.panel.hidden); });
     root.querySelector('.ecra-close').addEventListener('click', function () { setOpen(false); });
@@ -282,7 +328,11 @@
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && !ui.panel.hidden) setOpen(false);
     });
-    ui.llm.hidden = !CONFIG.llmUrl;
+    ui.llm.hidden = !aiEnabled();
+    if (CONFIG.localAi && !CONFIG.llmUrl) {
+      ui.ai.textContent = 'Rispondi con AI';
+      ui.hint.hidden = false;
+    }
   }
 
   function init() {
