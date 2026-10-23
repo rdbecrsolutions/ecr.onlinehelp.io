@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Protocolli XON-XOFF, ECR e specifiche RT v11 - Guida ai registratori telematici - Manuali ECR</title>
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link href="../assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link href="../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/ecr-guide.css" rel="stylesheet">
+</head>
+<body>
+<header id="header" class="header fixed-top d-flex align-items-center">
+  <div class="d-flex align-items-center justify-content-between">
+    <a href="index.html" class="logo d-flex align-items-center">
+      <img src="../assets/img/Icon.png" alt="">
+      <span class="d-none d-lg-block">Manuali ECR</span>
+    </a>
+    <i class="bi bi-list toggle-sidebar-btn"></i>
+  </div>
+</header>
+<aside id="sidebar" class="sidebar">
+<ul class="sidebar-nav" id="sidebar-nav">
+<li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-grid"></i><span>Guida ai registratori telematici</span></a></li>
+<li class="nav-item"><a class="nav-link collapsed" href="01-introduzione-e-modelli.html"><i class="bi bi-journal-text"></i><span>Introduzione e modelli</span></a></li>
+<li class="nav-item"><a class="nav-link collapsed" href="02-installazione-e-collegamenti.html"><i class="bi bi-journal-text"></i><span>Installazione e collegamenti</span></a></li>
+<li class="nav-item"><a class="nav-link collapsed" href="03-primi-passi-e-vendita.html"><i class="bi bi-journal-text"></i><span>Primi passi e vendita</span></a></li>
+<li class="nav-item"><a class="nav-link collapsed" href="04-documenti-fiscali-e-fattura.html"><i class="bi bi-journal-text"></i><span>Documenti fiscali e fattura</span></a></li>
+<li class="nav-item"><a class="nav-link collapsed" href="05-lotteria-istantanea.html"><i class="bi bi-journal-text"></i><span>Lotteria istantanea</span></a></li>
+<li class="nav-item"><a class="nav-link collapsed" href="06-chiusure-e-rapporti.html"><i class="bi bi-journal-text"></i><span>Chiusure e rapporti</span></a></li>
+<li class="nav-item"><a class="nav-link collapsed" href="07-programmazione.html"><i class="bi bi-journal-text"></i><span>Programmazione</span></a></li>
+<li class="nav-item"><a class="nav-link collapsed" href="08-funzioni-di-servizio.html"><i class="bi bi-journal-text"></i><span>Funzioni di servizio</span></a></li>
+<li class="nav-item"><a class="nav-link collapsed" href="09-protezione-del-parco.html"><i class="bi bi-journal-text"></i><span>Protezione del parco</span></a></li>
+<li class="nav-item"><a class="nav-link collapsed" href="10-connettivita-pos-e-dongle.html"><i class="bi bi-journal-text"></i><span>Connettività, POS e dongle</span></a></li>
+<li class="nav-item"><a class="nav-link" href="11-protocolli-xon-xoff-ecr-e-specifiche.html"><i class="bi bi-journal-text"></i><span>Protocolli XON-XOFF, ECR e specifiche RT v11</span></a>
+<ul class="nav-content">
+<li><a href="11-protocolli-xon-xoff-ecr-e-specifiche.html#panoramica"><i class="bi bi-circle"></i><span>Panoramica</span></a></li>
+<li><a href="11-protocolli-xon-xoff-ecr-e-specifiche.html#protocollo-xon-xoff-ed-estensioni"><i class="bi bi-circle"></i><span>Protocollo XON-XOFF ed estensioni</span></a></li>
+<li><a href="11-protocolli-xon-xoff-ecr-e-specifiche.html#protocollo-ecr"><i class="bi bi-circle"></i><span>Protocollo ECR</span></a></li>
+<li><a href="11-protocolli-xon-xoff-ecr-e-specifiche.html#specifiche-rt-versione-11"><i class="bi bi-circle"></i><span>Specifiche RT versione 11</span></a></li>
+</ul></li>
+<li class="nav-item"><a class="nav-link collapsed" href="12-aggiornamento-firmware.html"><i class="bi bi-journal-text"></i><span>Aggiornamento firmware e software</span></a></li>
+<li class="nav-item"><a class="nav-link collapsed" href="13-tabelle-e-codici.html"><i class="bi bi-journal-text"></i><span>Tabelle e codici</span></a></li>
+</ul>
+</aside>
+<main id="main" class="main">
+<div class="pagetitle">
+  <h1>Protocolli XON-XOFF, ECR e specifiche RT v11</h1>
+  <nav>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="index.html">Guida ai registratori telematici</a></li>
+      <li class="breadcrumb-item active">Protocolli XON-XOFF, ECR e specifiche RT v11</li>
+    </ol>
+  </nav>
+</div>
+<section class="section" id="panoramica"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Panoramica</h5>
+<p>Questo capitolo descrive i protocolli con cui il registratore riceve comandi da un PC o da un sistema esterno. Descrive anche le specifiche della versione 11, valide per Jolly, Smarty evo e Smarty evo+.</p></div></div></div></div></section>
+<section class="section" id="protocollo-xon-xoff-ed-estensioni"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Protocollo XON-XOFF ed estensioni</h5>
+<p>Il protocollo XON-XOFF invia al registratore un flusso di caratteri. Il registratore esegue i comandi nell'ordine di ricezione. Le sequenze di estensione usano la stessa porta e sono descritte in questa stessa sezione.</p>
+<h6 class="ecr-sub">Attivazione e porte</h6>
+<p>La sequenza 781 attiva il protocollo XON-XOFF sulla porta scelta. Le porte disponibili sono USB, seriale e LAN. Nelle versioni con modem sono disponibili anche WiFi e BLE.</p>
+<div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>Con il dongle collegato, la porta seriale non può essere usata per XON-XOFF. Il registratore segnala un errore dongle/WiFi.</p></div></div>
+<p>La sequenza 720 attiva il collegamento con il PC per il caricamento e lo scarico dei dati.</p>
+<h6 class="ecr-sub">Formato dei comandi</h6>
+<ul><li>Il testo tra apici viene stampato così com'è.</li><li>La quantità si scrive con parte intera, punto decimale e asterisco finale, nel formato <code>int.dec*</code>.</li><li>Il prezzo è introdotto dal carattere <code>H</code>.</li><li>Ogni comando termina con un terminatore, che è l'ultimo carattere del comando.</li><li>Se passano più di 5 secondi tra due caratteri, il registratore scarta il comando in corso.</li><li>I caratteri CR e LF vengono ignorati e non vengono ripetuti.</li><li>Dopo un errore, il registratore accetta solo <code>K</code> (cancellazione) e <code>p</code> (pagamento POS offline).</li><li>Il buffer di ricezione XON-XOFF è di 8.000 caratteri, sia per USB ed Ethernet sia per la porta RS232.</li></ul>
+<h6 class="ecr-sub">Terminatori</h6>
+<div class="table-responsive"><table class="table table-bordered table-sm ecr-table"><thead><tr><th>Carattere</th><th>Funzione</th></tr></thead><tbody><tr><td><code>@</code></td><td>Messaggio</td></tr><tr><td><code>P</code></td><td>PLU</td></tr><tr><td><code>R</code></td><td>Reparto</td></tr><tr><td><code>M</code></td><td>Modificatori</td></tr><tr><td><code>T</code></td><td>Mezzo di pagamento. Chiude il comando di vendita</td></tr><tr><td><code>G</code></td><td>Cliente</td></tr><tr><td><code>^</code></td><td>Disegno</td></tr><tr><td><code>=</code></td><td>Subtotale</td></tr><tr><td><code>K</code></td><td>Cancellazione. Con errore attivo, avvia il timer di cancellazione automatica</td></tr><tr><td><code>#</code></td><td>Inserimento di un codice numerico</td></tr><tr><td><code>O</code></td><td>Operatore (solo con cassieri abilitati)</td></tr><tr><td><code>F</code>, <code>f</code></td><td>Funzioni speciali. <code>f</code> è usata per i rapporti di lettura</td></tr><tr><td><code>j</code>, <code>J</code></td><td>Apertura e chiusura di uno scontrino non fiscale</td></tr><tr><td><code>c</code>, <code>x</code>, <code>y</code>, <code>z</code>, <code>Y</code></td><td>Posizione della chiave: REG, X, MGR, Z, OFF</td></tr><tr><td><code>a</code></td><td>Apertura del cassetto</td></tr><tr><td>0x17</td><td>Sospende l'elaborazione fino alla fine dello scontrino</td></tr><tr><td><code>d</code></td><td>La riga successiva viene stampata a doppia altezza</td></tr><tr><td><code>B</code>, <code>Z</code></td><td>Stampa di un codice a barre</td></tr><tr><td><code>%</code></td><td>Scrive sul display</td></tr><tr><td><code>l</code></td><td>Avanzamento di riga</td></tr><tr><td><code>A</code></td><td>Abilita la tastiera</td></tr><tr><td><code>D</code></td><td>Disabilita la tastiera</td></tr><tr><td><code>X</code></td><td>Messaggio di inizio scontrino</td></tr><tr><td><code>!</code></td><td>Riavvio del registratore (solo test)</td></tr><tr><td><code>p</code></td><td>Pagamento POS in modalità offline</td></tr></tbody></table></div>
+<h6 class="ecr-sub">Eco e piè di pagina</h6>
+<ul><li>Con l'opzione 16 attiva, il registratore ripete al PC i comandi ricevuti.</li><li>Con l'opzione 39 attiva, con l'eco attiva e nessun comando in corso, viene ripetuto solo il tasto <code>K</code>.</li><li>Con l'opzione 17 attiva, il piè di pagina viene inviato quando il comando di chiusura è <code>T</code>. Il piè di pagina è un blocco di 36 byte: STX, 32 byte di dati, 2 cifre esadecimali di checksum XOR e ETX.</li><li>I dati del piè di pagina sono la data e l'ora nel formato <code>GG-MM-20AA HH:MM SC.</code>, seguite da un contatore.</li><li>Il registratore tenta l'invio fino a 3 volte. Per ogni tentativo attende fino a 10 secondi l'ACK.</li></ul>
+<div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>il formato del contatore del piè di pagina può cambiare in base allo stato del registratore. Da confermare per i casi senza servizio telematico attivo.</p></div></div>
+<h6 class="ecr-sub">Opzioni XON-XOFF</h6>
+<div class="table-responsive"><table class="table table-bordered table-sm ecr-table"><thead><tr><th>Opzione</th><th>Effetto</th></tr></thead><tbody><tr><td>16</td><td>Eco dei comandi ricevuti</td></tr><tr><td>17</td><td>Invio del piè di pagina dopo il comando <code>T</code></td></tr><tr><td>34</td><td>I dati XON-XOFF ricevuti non vengono elaborati mentre uno scontrino è aperto</td></tr><tr><td>39</td><td>Con eco attiva, ripete solo il tasto <code>K</code></td></tr><tr><td>45</td><td>Registra il traffico XON-XOFF in un file di log</td></tr></tbody></table></div>
+<h6 class="ecr-sub">Errori e cancellazione</h6>
+<p>Dopo un errore, il registratore entra in stato di errore. Il tasto <code>K</code> avvia il timer di cancellazione automatica. Il timer scade dopo 6 secondi e cancella l'errore.</p>
+<h6 class="ecr-sub">Sequenze di simulazione 702-707</h6>
+<p>Le sequenze 702-707 avviano la modalità di simulazione. Usano un formato diverso dai comandi di vendita XON-XOFF. Non unire le due sintassi.</p>
+<div class="table-responsive"><table class="table table-bordered table-sm ecr-table"><thead><tr><th>Sequenza</th><th>Funzione</th></tr></thead><tbody><tr><td>702</td><td>Eco completo, con stampa dei dati</td></tr><tr><td>703</td><td>Eco dei soli errori</td></tr><tr><td>704</td><td>Fine del collegamento. Libera la porta e disattiva XON-XOFF</td></tr><tr><td>707</td><td>Eco dei totali</td></tr></tbody></table></div>
+<p>Le sequenze 702, 703 e 707 richiedono l'autorizzazione comune.</p>
+<div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>le sequenze 705, 706, 782, 784 e 785 non sono descritte in questa guida.</p></div></div>
+<h6 class="ecr-sub">Costanti e tempi</h6>
+<div class="table-responsive"><table class="table table-bordered table-sm ecr-table"><thead><tr><th>Costante</th><th>Valore</th><th>Uso</th></tr></thead><tbody><tr><td>XON</td><td>0x11 (DC1)</td><td>Ripresa della trasmissione</td></tr><tr><td>XOFF</td><td>0x13 (DC3)</td><td>Sospensione della trasmissione</td></tr><tr><td>STX</td><td>0x02</td><td>Inizio del blocco piè di pagina</td></tr><tr><td>ETX</td><td>0x03</td><td>Fine del blocco piè di pagina</td></tr><tr><td>ACK</td><td>0x06</td><td>Conferma di ricezione del piè di pagina</td></tr></tbody></table></div>
+<div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>i tempi del protocollo sono: 5 secondi tra due caratteri, 6 secondi per la cancellazione automatica, 10 secondi per ogni ACK.</p></div></div></div></div></div></div></section>
+<section class="section" id="protocollo-ecr"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Protocollo ECR</h5>
+<p>Il protocollo ECR è un canale a messaggi con inizio, contatore, identificativo, comando, dati, checksum e fine. È il protocollo usato dai gestionali di cassa per inviare comandi e leggere lo stato del registratore.</p>
+<p>Il protocollo ECR è attivo quando non sono in corso XON-XOFF, simulazione o caricamento dati. Non è attivo quando la porta seriale è usata da un'altra periferica.</p>
+<h6 class="ecr-sub">Struttura del messaggio</h6>
+<div class="table-responsive"><table class="table table-bordered table-sm ecr-table"><thead><tr><th>Campo</th><th>Lunghezza</th><th>Contenuto</th></tr></thead><tbody><tr><td>STX</td><td>1</td><td>Carattere 0x02</td></tr><tr><td>CNT</td><td>2</td><td>Contatore di sessione, in cifre</td></tr><tr><td>IDEN</td><td>1</td><td>Identificativo del prodotto. Per questi modelli è <code>D</code></td></tr><tr><td>Comando</td><td>4</td><td>Codice del comando, in cifre</td></tr><tr><td>Dati</td><td>variabile</td><td>Dati del comando o della risposta</td></tr><tr><td>CKS</td><td>2</td><td>Checksum, in cifre</td></tr><tr><td>ETX</td><td>1</td><td>Carattere 0x03</td></tr></tbody></table></div>
+<p>Tra STX ed ETX devono essere presenti almeno 9 caratteri.</p>
+<div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>il valore <code>E</code> nel campo IDEN non è accettato in questa configurazione. Gli altri valori generano l'errore "IDEN ERR".</p></div></div>
+<h6 class="ecr-sub">Checksum</h6>
+<p>Il checksum è la somma dei valori dei byte, dal campo CNT all'ultimo byte dei dati, modulo 100. È scritto in due cifre.</p>
+<p>Esempio: CNT <code>01</code>, IDEN <code>D</code>, comando <code>0101</code>. La somma è 359. Il checksum è <code>59</code>. Il messaggio completo è:</p>
+<p><code>02 30 31 44 30 31 30 31 35 39 03</code></p>
+<h6 class="ecr-sub">Contatore di sessione</h6>
+<ul><li>Il registratore incrementa il contatore CNT per ogni messaggio inviato. La sequenza è 1-99, poi 0.</li><li>Il contatore riparte da zero quando il protocollo viene riattivato.</li><li>Se arriva una richiesta con lo stesso CNT dell'ultima richiesta elaborata, e il valore non è zero, il registratore ripete la risposta precedente. Il comando non viene eseguito di nuovo.</li></ul>
+<h6 class="ecr-sub">Tempi del protocollo</h6>
+<ul><li>Dopo STX, il registratore attende il messaggio per 200 millisecondi.</li><li>Ogni carattere ricevuto riavvia un timer di 100 millisecondi.</li><li>Dopo l'invio della richiesta all'applicazione, il registratore attende la risposta per 20 secondi.</li></ul>
+<div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>il registratore non attende l'ACK dopo una risposta ECR. Non esiste quindi una ritrasmissione per mancato ACK.</p></div></div>
+<h6 class="ecr-sub">Risposte</h6>
+<ul><li>La risposta positiva contiene il comando (4 caratteri), il campo operatore (2 caratteri, se presente nella richiesta) e i dati.</li><li>La risposta di errore, con IDEN <code>D</code>, non contiene il comando. Contiene il testo <code>ERR</code> seguito dal messaggio di errore, allineato a sinistra su 16 caratteri.</li><li>Un codice di errore sconosciuto genera il testo <code>ERR. SCONOSCIUTO</code>.</li><li>Se il registratore è in errore, i comandi che non sono ammessi in errore ricevono la risposta di errore.</li><li>Se il registratore non si trova in uno stato compatibile con il comando, la risposta è errore di sequenza.</li></ul>
+<h6 class="ecr-sub">Comandi ammessi in errore</h6>
+<p>Alcuni comandi vengono eseguiti anche quando il registratore è in errore. Tra questi: 1088, 1138, 3217, 4201.</p>
+<h6 class="ecr-sub">Stati del registratore</h6>
+<p>Lo stato è composto da bit. Ogni comando definisce gli stati in cui è ammesso.</p>
+<div class="table-responsive"><table class="table table-bordered table-sm ecr-table"><thead><tr><th>Bit</th><th>Stato</th><th>Significato</th></tr></thead><tbody><tr><td>0x01</td><td>Chiuso</td><td>Giornata chiusa</td></tr><tr><td>0x02</td><td>Aperto</td><td>Giornata aperta</td></tr><tr><td>0x04</td><td>Scontrino</td><td>Scontrino fiscale aperto</td></tr><tr><td>0x08</td><td>Pagamento parziale</td><td>Pagamento in corso, totale non chiuso</td></tr><tr><td>0x10</td><td>Pagamento completato</td><td>Pagamento completo o scontrino annullato, da chiudere</td></tr><tr><td>0x20</td><td>Non fiscale</td><td>Scontrino non fiscale</td></tr><tr><td>0x40</td><td>Rapporto</td><td>Rapporto in corso</td></tr></tbody></table></div>
+<p>La vendita comprende gli stati scontrino, pagamento parziale e pagamento completato.</p>
+<h6 class="ecr-sub">Comandi principali</h6>
+<div class="table-responsive"><table class="table table-bordered table-sm ecr-table"><thead><tr><th>Comando</th><th>Funzione</th></tr></thead><tbody><tr><td>100</td><td>Inizializzazione. Restituisce i parametri del registratore, tra cui numero di aliquote IVA, esenzioni, reparti e PLU esplicativi (7 cifre)</td></tr><tr><td>101</td><td>Cancellazione dell'errore. Esegue l'azione del tasto <code>C</code> e annulla la fattura senza scontrino in attesa</td></tr><tr><td>102</td><td>Lettura dell'errore. Restituisce l'errore in corso, oppure OK</td></tr><tr><td>300</td><td>Gestione del protocollo XON-XOFF</td></tr><tr><td>1138</td><td>Stato del registratore</td></tr><tr><td>3217</td><td>Matricola</td></tr></tbody></table></div>
+<div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>da confermare il formato dei dati del comando 300.</p></div></div>
+<h6 class="ecr-sub">Stato del registratore (1138)</h6>
+<p>La risposta contiene, dopo il campo operatore:</p>
+<ol><li>Tipo registratore: <code>E</code> per la versione ambulante (Jolly), <code>I</code> per Smarty evo e Smarty evo+.</li><li>Stato principale: <code>1</code>. Diventa <code>2</code> quando il registratore è in servizio telematico.</li><li>Stato secondario: <code>9</code> dismesso, <code>8</code> in attesa di servizio, <code>7</code> attivato, <code>6</code> censito, <code>5</code> serializzato, <code>4</code> non serializzato. In servizio telematico vale <code>7</code>.</li><li>Giornata: <code>1</code> se aperta, <code>0</code> se chiusa.</li><li>Sospensione NWP: <code>1</code> se attiva, <code>0</code> se non attiva.</li><li>Numero di revisione del firmware, in 4 cifre.</li><li>Modalità demo: <code>1</code> se attiva, <code>0</code> se non attiva.</li></ol>
+<h6 class="ecr-sub">Matricola (3217)</h6>
+<p>La matricola completa è composta da 11 caratteri:</p>
+<div class="table-responsive"><table class="table table-bordered table-sm ecr-table"><thead><tr><th>Posizione</th><th>Contenuto</th></tr></thead><tbody><tr><td>1-2</td><td>Codice del fabbricante</td></tr><tr><td>3</td><td>Tipo di registratore: <code>I</code> o <code>E</code></td></tr><tr><td>4-5</td><td>Codice del modello</td></tr><tr><td>6-11</td><td>Numero progressivo</td></tr></tbody></table></div>
+<p>La risposta del comando 3217 contiene 10 caratteri, nell'ordine: numero progressivo (6), codice del modello (2), codice del fabbricante (2). Il tipo di registratore non viene inviato.</p>
+<div class="ecr-callout ecr-diff"><div class="ecr-callout-title"><i class="bi bi-arrow-left-right"></i> Differenze tra i modelli</div><div class="ecr-callout-body"><ul><li><strong>Jolly (JL)</strong>: la risposta 1138 contiene il tipo <code>E</code>, perché è la versione ambulante. Smarty evo e Smarty evo+ inviano <code>I</code>.</li></ul></div></div>
+<h6 class="ecr-sub">Impostazioni della porta seriale</h6>
+<p>La porta seriale usa per default 9600 baud, 8 bit dati, nessuna parità e 1 bit di stop. Il menu di programmazione permette di cambiare:</p>
+<ul><li>velocità: da 1200 a 115200 baud;</li><li>parità: nessuna, pari o dispari;</li><li>bit dati: 8 o 7;</li><li>bit di stop: 1 o 2.</li></ul>
+<p>Vedi <a href="07-programmazione.html">Programmazione</a>.</p></div></div></div></div></section>
+<section class="section" id="specifiche-rt-versione-11"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Specifiche RT versione 11</h5>
+<p>La versione 11 è attiva su Jolly, Smarty evo e Smarty evo+. Gli altri modelli non hanno queste funzioni. Le funzioni descritte in questa sezione sono uguali per i tre modelli, salvo le differenze di configurazione indicate alla fine della sezione.</p>
+<h6 class="ecr-sub">Memoria fiscale e memoria residua</h6>
+<p>Il registratore controlla lo spazio libero delle memorie fiscali: totali, invio dei corrispettivi, eventi, attivazioni e giornale elettronico.</p>
+<ul><li>Con spazio libero pari o inferiore al 10%, il display mostra l'avviso <code>MEM.RES.:</code> con la percentuale libera. L'avviso compare una volta per memoria.</li><li>Con spazio libero pari o inferiore al 2%, l'avviso compare a ogni controllo.</li><li>Con la memoria piena, l'operazione che richiede la memoria non viene completata.</li></ul>
+<p>Il giornale elettronico (GE) segue la stessa logica, con soglie del 10% e del 2%.</p>
+<p>La stampa della memoria residua riporta, per la memoria fiscale, la percentuale libera e il numero di registrazioni usate e disponibili, nel formato <code>SPAZIO LIBERO IN MF</code>. Per il giornale elettronico riporta la memoria residua.</p>
+<div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>da confermare il messaggio esatto mostrato quando un'operazione viene bloccata dalla memoria piena.</p></div></div>
+<h6 class="ecr-sub">Fatture automatiche</h6>
+<p>L'opzione 61 (INV. FATT. AUTO) è nel gruppo 8 delle opzioni.</p>
+<p>Quando l'opzione è attiva, alla chiusura fiscale il registratore invia le fatture emesse e non ancora inviate. Il messaggio di stampa è <code>INVIO FATTURE</code>.</p>
+<p>Con la versione 11 sono disponibili anche le sequenze:</p>
+<ul><li>532: invio delle fatture;</li><li>533: esito dell'invio delle fatture.</li></ul>
+<div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>da confermare in quali condizioni l'opzione 61 viene impostata automaticamente all'avvio del registratore.</p></div></div>
+<h6 class="ecr-sub">Nota di credito</h6>
+<p>La nota di credito è un documento distinto dalla fattura. Nel giornale elettronico ha il tipo 23. Il tipo 23 si usa quando il documento è una nota di credito. Altrimenti il documento è una fattura ordinaria.</p>
+<p>La nota di credito non coincide con la pratica di reso.</p>
+<div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>da confermare la procedura con cui si emette una nota di credito.</p></div></div>
+<h6 class="ecr-sub">Tipi di documento aggiunti nel giornale elettronico</h6>
+<div class="table-responsive"><table class="table table-bordered table-sm ecr-table"><thead><tr><th>Tipo</th><th>Documento</th></tr></thead><tbody><tr><td>17</td><td>Censimento</td></tr><tr><td>18</td><td>Messaggi ADE</td></tr><tr><td>19</td><td>Richiesta attributo</td></tr><tr><td>20</td><td>Evento</td></tr><tr><td>21</td><td>Ripristino</td></tr><tr><td>22</td><td>Intestazione</td></tr><tr><td>23</td><td>Nota di credito</td></tr></tbody></table></div>
+<h6 class="ecr-sub">Differenze tra i modelli</h6>
+<p>Le funzioni della versione 11 sono identiche su Jolly, Smarty evo e Smarty evo+. Le differenze di configurazione sono queste:</p>
+<div class="ecr-callout ecr-diff"><div class="ecr-callout-title"><i class="bi bi-arrow-left-right"></i> Differenze tra i modelli</div><div class="ecr-callout-body"><ul><li><strong>Jolly (JL)</strong>: intestazione memorizzata nella memoria fiscale; versione ambulante con tipo <code>E</code>; tastiera a 30 tasti; buffer di 150 record; nessun cassiere; nessun messaggio pubblicitario.</li><li><strong>Smarty evo+ (SX)</strong>: revisione firmware 1.3.03; cassieri abilitati, fino a 8; messaggio pubblicitario; 4 righe di cortesia (Smarty evo: 1); 40 rapporti (Smarty evo: 20); 4 messaggi TSO; doppio prezzo; doppia altezza degli articoli; taglierina e talloni (non presenti su Smarty evo).</li></ul></div></div>
+<p>Il codice di Smarty evo+ è <code>SX</code>. Il tipo di registratore è <code>I</code>. Il display ha 2 righe. La tastiera ha 40 tasti, come Smarty evo. I PLU esplicativi sono 10000 e il buffer è di 130 record, come Smarty evo.</p>
+<div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>da confermare. Le parti normative della versione 11 non sono descritte in questo capitolo: approvazione dei modelli, certificati del fabbricante e del dispositivo, servizi del Sistema AE, colloquio con la Tessera Sanitaria, regole per i pagamenti elettronici e modalità demo. Il formato di esportazione XML della memoria di riepilogo è da confermare.</p></div></div>
+<p>Per la gestione del firmware e degli aggiornamenti, vedi <a href="12-aggiornamento-firmware.html">Aggiornamento firmware</a>. Per la gestione dei documenti fiscali e delle fatture, vedi <a href="04-documenti-fiscali-e-fattura.html">Documenti fiscali e fattura</a> e <a href="06-chiusure-e-rapporti.html">Chiusure e rapporti</a>.</p></div></div></div></div></section>
+<section class="section"><nav class="ecr-pager d-flex justify-content-between align-items-center flex-wrap gap-2"><a class="btn btn-outline-primary btn-sm" href="10-connettivita-pos-e-dongle.html"><i class="bi bi-arrow-left"></i> Connettività, POS e dongle</a><a class="btn btn-outline-secondary btn-sm" href="index.html">Indice</a><a class="btn btn-outline-primary btn-sm" href="12-aggiornamento-firmware.html">Aggiornamento firmware e software <i class="bi bi-arrow-right"></i></a></nav></section>
+</main>
+<footer id="footer" class="footer">
+  <div class="copyright">Manuali ECR</div>
+</footer>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+<script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/main.js"></script>
+<!-- ecr-assistant -->
+<link rel="stylesheet" href="../assets/css/ecr-assistant.css">
+<script>window.ECR_ASSISTANT_ROOT="";</script>
+<script src="../assets/js/assistant-index.js"></script>
+<script src="../assets/js/ecr-assistant.js" defer></script>
+<!-- /ecr-assistant -->
+</body>
+</html>

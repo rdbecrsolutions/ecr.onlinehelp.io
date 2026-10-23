@@ -1,0 +1,96 @@
+/* Stili aggiuntivi per le guide ECR, oltre al tema EditRemote (style.css) */
+
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+.ecr-sub {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1.25rem 0 0.5rem;
+  color: #012970;
+}
+
+.ecr-figure {
+  text-align: center;
+  margin: 1.25rem auto;
+}
+
+.ecr-figure img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.ecr-figure figcaption {
+  font-size: 0.85rem;
+  color: #6c757d;
+  margin-top: 0.5rem;
+}
+
+.ecr-table {
+  font-size: 0.92rem;
+}
+
+.ecr-table th {
+  background: #f4f7fc;
+}
+
+.ecr-code {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 0.75rem;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+}
+
+.ecr-callout {
+  border-left: 4px solid #4154f1;
+  background: #f4f7fc;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+}
+
+.ecr-callout-title {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.ecr-callout-body > :last-child {
+  margin-bottom: 0;
+}
+
+.ecr-diff {
+  border-left-color: #ff771d;
+  background: #fff7f0;
+}
+
+.ecr-diff .ecr-callout-title i {
+  color: #ff771d;
+}
+
+.ecr-note {
+  border-left-color: #2eca6a;
+  background: #f1fbf5;
+}
+
+.ecr-note .ecr-callout-title i {
+  color: #2eca6a;
+}
+
+.ecr-warn {
+  border-left-color: #dc3545;
+  background: #fdf2f3;
+}
+
+.ecr-warn .ecr-callout-title i {
+  color: #dc3545;
+}
+
+.ecr-pager {
+  margin-top: 1rem;
+}
