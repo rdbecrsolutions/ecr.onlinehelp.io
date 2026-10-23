@@ -1,12 +1,13 @@
 /*
- * Risposta generata nel browser con WebLLM (vendor/web-llm). La libreria e il modello si caricano solo
- * alla prima richiesta; domanda e brani restano sul dispositivo. Richiede WebGPU.
+ * Risposta generata nel browser con WebLLM (@mlc-ai/web-llm 0.2.86, da CDN jsDelivr). La libreria e il
+ * modello si caricano solo alla prima richiesta; domanda e brani restano sul dispositivo. Richiede WebGPU.
  */
 (function () {
   'use strict';
 
   if (window.ecrLocalAi) return;
 
+  var LIBRARY_URL = 'https://cdn.jsdelivr.net/npm/@mlc-ai/web-llm@0.2.86/lib/index.js';
   var MODEL_ID = 'Llama-3.2-1B-Instruct-q4f16_1-MLC';
   var SYSTEM = 'Sei l\'assistente della guida ai registratori telematici EDIT. Rispondi in italiano, in modo breve '
     + 'e preciso, usando solo i brani forniti. Se i brani non contengono la risposta, dillo chiaramente e invita a '
@@ -19,15 +20,10 @@
     return !!navigator.gpu;
   }
 
-  function libraryUrl() {
-    var s = document.querySelector('script[src*="ecr-local-ai.js"]');
-    return new URL('../vendor/web-llm/index.js', s ? s.src : location.href).href;
-  }
-
   function getEngine(onStatus) {
     if (engine) return Promise.resolve(engine);
     if (loading) return loading;
-    loading = import(libraryUrl()).then(function (webllm) {
+    loading = import(LIBRARY_URL).then(function (webllm) {
       return webllm.CreateMLCEngine(MODEL_ID, {
         initProgressCallback: function (r) {
           onStatus(r.text || 'Caricamento del modello in corso…');
