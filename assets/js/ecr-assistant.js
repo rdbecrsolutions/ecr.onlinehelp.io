@@ -14,7 +14,8 @@
   var STOP = new Set(['il', 'lo', 'la', 'le', 'gli', 'i', 'un', 'una', 'uno', 'di', 'da', 'del', 'della', 'dei', 'delle',
     'degli', 'e', 'o', 'per', 'con', 'che', 'come', 'in', 'a', 'su', 'al', 'alla', 'ai', 'nel', 'nella', 'sono', 'quale',
     'quali', 'quando', 'dove', 'cosa', 'si', 'mi', 'ti', 'ci', 'posso', 'devo', 'non', 'se', 'ho', 'ha', 'sul', 'sulla',
-    'anche', 'dal', 'dalla', 'fra', 'tra', 'fare', 'faccio']);
+    'anche', 'dal', 'dalla', 'fra', 'tra', 'fare', 'faccio', 'quanti', 'quante', 'quanto', 'quanta', 'quali',
+    'impostare', 'impostato', 'imposto', 'usare', 'serve', 'servono']);
 
   var index = [];
   var ui = {};
@@ -90,6 +91,14 @@
       if (s > 0) scored.push({ c: c, s: s });
     });
     scored.sort(function (a, b) { return b.s - a.s; });
+    var idf = {};
+    terms.forEach(function (t) {
+      var df = 0;
+      index.forEach(function (c) {
+        if (countIn(c._w, t) || countIn(c._h, t) || countIn(c._t, t)) df++;
+      });
+      idf[t] = Math.log(1 + index.length / (1 + df));
+    });
     var seen = {};
     var hits = [];
     for (var i = 0; i < scored.length && hits.length < MAX_RESULTS; i++) {
@@ -99,7 +108,7 @@
       seen[key] = true;
       hits.push(c);
     }
-    return { terms: terms, hits: hits };
+    return { terms: terms, hits: hits, answer: answerOf(hits, terms, idf) };
   }
 
   function urlOf(c) {
@@ -116,6 +125,50 @@
     var start = pos > 90 ? pos - 90 : 0;
     var end = Math.min(c.x.length, start + 260);
     return (start > 0 ? '…' : '') + c.x.slice(start, end) + (end < c.x.length ? '…' : '');
+  }
+
+  function sentencesOf(text) {
+    return (text.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || []).map(function (s) { return s.trim(); }).filter(Boolean);
+  }
+
+  // Risposta estratta: le frasi dei passaggi trovati che contengono più termini della domanda.
+  // Ogni termine pesa in base alla sua rarità (idf), così i termini generici contano meno.
+  function answerOf(hits, terms, idf) {
+    var cands = [];
+    hits.forEach(function (c, rank) {
+      var headHit = terms.some(function (t) { return countIn(c._h, t) > 0; });
+      sentencesOf(c.x).forEach(function (s, order) {
+        var w = words(s);
+        var weight = 0;
+        var matched = 0;
+        terms.forEach(function (t) {
+          if (countIn(w, t) > 0) {
+            weight += idf[t];
+            matched++;
+          }
+        });
+        if (!matched) return;
+        cands.push({
+          text: s,
+          score: weight + (headHit ? 0.5 : 0) + (rank === 0 ? 0.5 : 0),
+          rank: rank,
+          order: order,
+          c: c
+        });
+      });
+    });
+    cands.sort(function (a, b) { return b.score - a.score || a.rank - b.rank || a.order - b.order; });
+    var chosen = [];
+    for (var i = 0; i < cands.length && chosen.length < 3; i++) {
+      var dup = chosen.some(function (x) { return x.text === cands[i].text; });
+      if (!dup) chosen.push(cands[i]);
+    }
+    if (!chosen.length) return null;
+    chosen.sort(function (a, b) { return a.rank - b.rank || a.order - b.order; });
+    return {
+      text: chosen.map(function (x) { return x.text; }).join(' '),
+      source: chosen[0].c
+    };
   }
 
   function highlight(text, terms) {
@@ -142,7 +195,13 @@
         + 'per esempio il nome del menu o della funzione.</p>';
       return;
     }
-    ui.results.innerHTML = res.hits.map(function (c) {
+    var answer = res.answer
+      ? '<div class="ecra-answer-box"><p class="ecra-answer-text">' + highlight(res.answer.text, res.terms) + '</p>'
+        + '<a class="ecra-answer-link" href="' + esc(urlOf(res.answer.source)) + '">Vai alla sezione: '
+        + esc(res.answer.source.h || res.answer.source.t) + '</a></div>'
+      : '<p class="ecra-empty">Nella guida non trovo una risposta diretta. Controlla le sezioni qui sotto.</p>';
+    var sources = '<p class="ecra-sources-title">Sezioni collegate</p>';
+    ui.results.innerHTML = answer + sources + res.hits.map(function (c) {
       return '<a class="ecra-hit" href="' + esc(urlOf(c)) + '">'
         + '<span class="ecra-hit-title">' + esc(c.h || c.t) + '</span>'
         + (c.h && c.t ? '<span class="ecra-hit-page">' + esc(c.t) + '</span>' : '')
@@ -199,7 +258,7 @@
       + '<form class="ecra-form"><input type="search" class="ecra-input" aria-label="Domanda" '
       + 'placeholder="Es.: come si fa un annullo?"><button type="submit" class="ecra-send">Cerca</button></form>'
       + '<div class="ecra-results" aria-live="polite"><p class="ecra-empty">Scrivi una domanda: l\'assistente '
-      + 'cerca nei testi della guida e mostra le sezioni pertinenti.</p></div>'
+      + 'risponde con le frasi della guida e indica le sezioni da cui le ricava.</p></div>'
       + '<div class="ecra-llm" hidden><button type="button" class="ecra-ai">Risposta completa con AI</button>'
       + '<div class="ecra-answer" aria-live="polite"></div></div>'
       + '<p class="ecra-foot">Risposte ricavate dai testi della guida, in aggiornamento continuo.</p>'

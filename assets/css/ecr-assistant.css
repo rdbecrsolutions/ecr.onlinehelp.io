@@ -90,6 +90,41 @@
   color: #6b7280;
 }
 
+.ecra-answer-box {
+  margin: 4px 0 10px;
+  padding: 10px 12px;
+  background: #f1f6ff;
+  border-left: 3px solid #2a6fdb;
+  border-radius: 6px;
+}
+
+.ecra-answer-text {
+  margin: 0 0 6px;
+}
+
+.ecra-answer-link {
+  font-size: 13px;
+  color: #1f4f9e;
+  text-decoration: none;
+}
+
+.ecra-answer-link:hover {
+  text-decoration: underline;
+}
+
+.ecra-answer-box mark {
+  padding: 0;
+  background: #fff1a8;
+}
+
+.ecra-sources-title {
+  margin: 6px 0 0;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+
 .ecra-hit {
   display: block;
   padding: 8px 0;
