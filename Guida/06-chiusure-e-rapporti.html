@@ -34,7 +34,7 @@
 <li class="nav-item"><a class="nav-link collapsed" href="02-installazione-e-collegamenti.html"><i class="bi bi-journal-text"></i><span>Installazione e collegamenti</span></a></li>
 <li class="nav-item"><a class="nav-link collapsed" href="03-primi-passi-e-vendita.html"><i class="bi bi-journal-text"></i><span>Primi passi e vendita</span></a></li>
 <li class="nav-item"><a class="nav-link collapsed" href="04-documenti-fiscali-e-fattura.html"><i class="bi bi-journal-text"></i><span>Documenti fiscali e fattura</span></a></li>
-<li class="nav-item"><a class="nav-link collapsed" href="05-lotteria-istantanea.html"><i class="bi bi-journal-text"></i><span>Lotteria istantanea</span></a></li>
+<li class="nav-item"><a class="nav-link collapsed" href="05-lotteria-istantanea.html"><i class="bi bi-journal-text"></i><span>Lotteria</span></a></li>
 <li class="nav-item"><a class="nav-link" href="06-chiusure-e-rapporti.html"><i class="bi bi-journal-text"></i><span>Chiusure e rapporti</span></a>
 <ul class="nav-content">
 <li><a href="06-chiusure-e-rapporti.html#panoramica"><i class="bi bi-circle"></i><span>Panoramica</span></a></li>
@@ -93,7 +93,7 @@
 <ul><li><strong>M.F. IN ESAURIMENTO:</strong> la stampa avvisa quando restano meno di 60 chiusure disponibili nella memoria fiscale.</li><li><strong>M.F. ESAURITA:</strong> la memoria fiscale non ha più chiusure disponibili.</li><li><strong>G.E. IN ESAURIMENTO:</strong> la stampa avvisa quando le linee di stampa residue del GE scendono sotto 10.000.</li></ul></div></div></div></div></section>
 <section class="section" id="chiusura-lotteria"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Chiusura lotteria</h5>
 <p>La chiusura lotteria si esegue con <code>022 [MENU]</code>. Richiede il servizio telematico e la presenza di documenti della lotteria da chiudere. Non è disponibile in modalità DEMO.</p>
-<p>Per il funzionamento completo vedere <a href="05-lotteria-istantanea.html">Lotteria degli scontrini istantanea</a>.</p></div></div></div></div></section>
+<p>Per il funzionamento completo vedere <a href="05-lotteria-istantanea.html">Lotteria</a>.</p></div></div></div></div></section>
 <section class="section" id="letture-della-memoria-fiscale"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Letture della memoria fiscale</h5>
 <p>Le letture della memoria fiscale non sono disponibili in modalità DEMO.</p>
 <div class="table-responsive"><table class="table table-bordered table-sm ecr-table"><thead><tr><th>Sequenza</th><th>Lettura</th></tr></thead><tbody><tr><td><code>181 [MENU]</code></td><td>Globale: riepilogo di tutta la memoria fiscale</td></tr><tr><td><code>182 [MENU]</code></td><td>Per numero di azzeramento: chiede DA AZZER. e A AZZER.</td></tr><tr><td><code>183 [MENU]</code></td><td>Per data: chiede DALLA DATA e ALLA DATA</td></tr><tr><td><code>184 [MENU]</code></td><td>Cumulativa per data: lettura cumulativa del periodo indicato</td></tr><tr><td><code>185 [MENU]</code></td><td>Intestazioni registrate in memoria fiscale</td></tr><tr><td><code>186 [MENU]</code></td><td>Eventi per data</td></tr><tr><td><code>188 [MENU]</code></td><td>Report della memoria rimanente</td></tr></tbody></table></div>
@@ -110,7 +110,7 @@
 <h6 class="ecr-sub">Letture di un GE vecchio (200)</h6>
 <p>La funzione 200 (LETT. VECCHIO GE) apre un Giornale Elettronico diverso da quello in uso, salvato su una scheda micro-SD. Serve per consultare le letture di un GE precedente, per esempio dopo la sostituzione della scheda. Il GE vecchio è aperto in sola lettura: il registratore non scrive dati su di esso.</p>
 <p>La funzione:</p>
-<ul><li>non è disponibile in modalità DEMO;</li><li>non è disponibile durante la partecipazione alla lotteria istantanea né con un'operazione in corso, come acconto, fattura riepilogativa, pratica di reso o annullo di scontrino;</li><li>richiede l'autorizzazione Letture (codice 11111).</li></ul>
+<ul><li>non è disponibile in modalità DEMO;</li><li>non è disponibile durante la partecipazione alla lotteria né con un'operazione in corso, come acconto, fattura riepilogativa, pratica di reso o annullo di scontrino;</li><li>richiede l'autorizzazione Letture (codice 11111).</li></ul>
 <p>Procedura:</p>
 <ol><li>Digitare <code>200 [MENU]</code>. Il display mostra LETT. VECCHIO GE e chiede di inserire il GE.</li><li>Inserire nella micro-SD la scheda del GE vecchio e premere [MENU]. Se la scheda contiene il GE in uso, la cassa chiede di cambiarla (CAMBIARE GE). Se la scheda non contiene un GE valido o non appartiene a questo registratore, la cassa segnala un errore e chiede un'altra scheda.</li><li>Scegliere la lettura con i tasti freccia su e giù. Premere [MENU] per eseguire la lettura visualizzata.</li><li>Per chiudere la funzione premere CLEAR. Il display chiede di ripristinare il GE in uso: reinserire la scheda del GE in uso e premere [MENU].</li></ol>
 <p>Per annullare prima di aprire il GE vecchio, premere CLEAR con il GE in uso inserito.</p>
@@ -140,7 +140,7 @@
 <p>Le funzioni di trasmissione sono disponibili solo in servizio telematico.</p>
 <p>Il registratore non trasmette nella fascia oraria di non trasmissione. In quel periodo la richiesta viene rifiutata e il registratore segnala l'errore della fascia oraria.</p>
 <div class="table-responsive"><table class="table table-bordered table-sm ecr-table"><thead><tr><th>Sequenza</th><th>Funzione</th></tr></thead><tbody><tr><td><code>500 [MENU]</code></td><td>Trasmissione dei corrispettivi</td></tr><tr><td><code>501 [MENU]</code></td><td>Trasmissione di un singolo corrispettivo</td></tr><tr><td><code>502 [MENU]</code></td><td>Esportazione in XML dei documenti da trasmettere</td></tr><tr><td><code>503 [MENU]</code></td><td>Esportazione delle chiusure</td></tr><tr><td><code>511 [MENU]</code></td><td>Report delle trasmissioni, globale</td></tr><tr><td><code>512 [MENU]</code></td><td>Report delle trasmissioni per numero</td></tr><tr><td><code>513 [MENU]</code></td><td>Report delle trasmissioni per date</td></tr><tr><td><code>514 [MENU]</code></td><td>Report degli azzeramenti da trasmettere</td></tr><tr><td><code>520 [MENU]</code></td><td>Sospensione dell'invio per un periodo inattivo</td></tr></tbody></table></div>
-<p>Per la trasmissione della lotteria, sequenze 504–510, vedere <a href="05-lotteria-istantanea.html">Lotteria degli scontrini istantanea</a>.</p>
+<p>Per la trasmissione della lotteria differita, sequenze 504–509, vedere <a href="05-lotteria-istantanea.html#lotteria-differita-trasmissione">Lotteria differita: trasmissione</a>. Il report dei codici della lotteria istantanea è la sequenza 510.</p>
 <p>Per la configurazione della connessione, vedere <a href="10-connettivita-pos-e-dongle.html">Connettività POS e dongle</a>.</p></div></div></div></div></section>
 <section class="section" id="attivazione-del-servizio-telematico"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Attivazione del servizio telematico</h5>
 <p>Eseguire <code>907 [MENU]</code> per mettere in servizio il registratore.</p>
@@ -154,7 +154,7 @@
 <ul><li>è attivo un periodo di sospensione dell'invio;</li><li>ci sono corrispettivi da trasmettere con l'invio bloccato;</li><li>il registratore non è ancora serializzato;</li><li>il registratore è in servizio telematico e ci sono chiusure fiscali non ancora trasmesse;</li><li>ci sono documenti della lotteria in attesa di chiusura o di trasmissione.</li></ul>
 <p>Uscendo dalla modalità DEMO, il registratore ripristina lo stato precedente e azzera i totali giornalieri.</p>
 <p>In DEMO sono disponibili le chiusure 001 e 003, i rapporti 101, 102, 103, 110, 111, 198 e 199. Non sono disponibili le letture della memoria fiscale, le letture del GE dalla 191 alla 197 e la chiusura lotteria 022.</p></div></div></div></div></section>
-<section class="section"><nav class="ecr-pager d-flex justify-content-between align-items-center flex-wrap gap-2"><a class="btn btn-outline-primary btn-sm" href="05-lotteria-istantanea.html"><i class="bi bi-arrow-left"></i> Lotteria istantanea</a><a class="btn btn-outline-secondary btn-sm" href="index.html">Indice</a><a class="btn btn-outline-primary btn-sm" href="07-programmazione.html">Programmazione <i class="bi bi-arrow-right"></i></a></nav></section>
+<section class="section"><nav class="ecr-pager d-flex justify-content-between align-items-center flex-wrap gap-2"><a class="btn btn-outline-primary btn-sm" href="05-lotteria-istantanea.html"><i class="bi bi-arrow-left"></i> Lotteria</a><a class="btn btn-outline-secondary btn-sm" href="index.html">Indice</a><a class="btn btn-outline-primary btn-sm" href="07-programmazione.html">Programmazione <i class="bi bi-arrow-right"></i></a></nav></section>
 </main>
 <footer id="footer" class="footer">
   <div class="copyright">Manuali ECR</div>
