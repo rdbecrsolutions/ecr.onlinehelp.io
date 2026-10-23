@@ -16,6 +16,13 @@ section[id] {
   margin: 1.25rem auto;
 }
 
+.ecr-video video {
+  max-width: 100%;
+  max-height: 560px;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+}
+
 .ecr-figure img {
   max-width: 100%;
   height: auto;

@@ -40,6 +40,7 @@
 <li><a href="05-lotteria-istantanea.html#requisiti"><i class="bi bi-circle"></i><span>Requisiti</span></a></li>
 <li><a href="05-lotteria-istantanea.html#attivazione"><i class="bi bi-circle"></i><span>Attivazione</span></a></li>
 <li><a href="05-lotteria-istantanea.html#parametri"><i class="bi bi-circle"></i><span>Parametri</span></a></li>
+<li><a href="05-lotteria-istantanea.html#modifica-della-data-di-inizio"><i class="bi bi-circle"></i><span>Modifica della data di inizio</span></a></li>
 <li><a href="05-lotteria-istantanea.html#report-dei-codici"><i class="bi bi-circle"></i><span>Report dei codici</span></a></li>
 <li><a href="05-lotteria-istantanea.html#richiesta-dei-codici"><i class="bi bi-circle"></i><span>Richiesta dei codici</span></a></li>
 <li><a href="05-lotteria-istantanea.html#trasmissione-dei-codici"><i class="bi bi-circle"></i><span>Trasmissione dei codici</span></a></li>
@@ -80,7 +81,12 @@
 <p>La funzione 822 chiede questi parametri, nell'ordine:</p>
 <ul><li>AVVISO CODICI: intervallo dell'avviso sui codici. Valori: 1 ORA, NO, 6 ORE, 3 ORE. Predefinito: NO.</li></ul>
 <div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>l'avviso segnala sul display che i codici sono esauriti quando uno scontrino ne richiederebbe uno. Con 1 ORA, 3 ORE o 6 ORE il messaggio si ripete al massimo con quella frequenza. Con NO non viene mostrato.</p></div></div>
-<ul><li>PAGAMENTI: tipi di pagamento che generano un codice. Scelte: CONTANTI, ELETTRONICO, NON RISCOSSO, TICKET, SCONTO A PAGARE. Predefinito: solo ELETTRONICO.</li><li>IMPORTO: importo minimo dello scontrino. Predefinito: 1,00 €.</li><li>DATA INIZIO: data di inizio della lotteria, nel formato GG-MM-AA. Predefinito: 16-10-23. Il registratore chiede la conferma.</li></ul></div></div></div></div></section>
+<ul><li>PAGAMENTI: tipi di pagamento che generano un codice. Scelte: CONTANTI, ELETTRONICO, NON RISCOSSO, TICKET, SCONTO A PAGARE. Predefinito: solo ELETTRONICO.</li><li>IMPORTO: importo minimo dello scontrino. Predefinito: 1,00 €.</li><li>DATA INIZIO: data di inizio della lotteria, nel formato GG-MM-AA. Predefinito: 16-10-23. Il registratore chiede la conferma. Per cambiarla vedi <a href="#modifica-della-data-di-inizio">Modifica della data di inizio</a>.</li></ul></div></div></div></div></section>
+<section class="section" id="modifica-della-data-di-inizio"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Modifica della data di inizio</h5>
+<p>La data di inizio stabilisce da quale giorno la lotteria considera gli scontrini. Si cambia con la funzione 822, al parametro DATA INIZIO.</p>
+<ol><li>Digitare 822 e premere ESEGUE per passare ai parametri successivi, fino a DATA INIZIO. Il display mostra la data attuale nel formato GG-MM-AA.</li><li>Digitare la nuova data senza trattini, con 6 cifre: per il 1 gennaio 2024 si digita 010124.</li><li>Premere ESEGUE. Il display mostra CONFERMA? seguito dalla data digitata.</li><li>Premere ESEGUE per confermare. Premere C per tornare alla digitazione e correggere la data.</li><li>Il registratore stampa la configurazione con la nuova data di inizio.</li></ol>
+<div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>se la data non ha 6 cifre il registratore segnala un errore e ripete la richiesta. La funzione non confronta la data con quella attuale: la data digitata viene accettata così com'è.</p></div></div>
+<figure class="ecr-figure ecr-video"><video controls playsinline preload="metadata" src="video/822_spostamento_data.mp4">Il browser non supporta il video.</video><figcaption>Modifica della data di inizio con la funzione 822, procedura su Smarty Plus</figcaption></figure></div></div></div></div></section>
 <section class="section" id="report-dei-codici"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Report dei codici</h5>
 <p>La funzione 510 stampa il report dei codici. Non richiede il servizio telematico.</p>
 <p>Il report chiede il tipo (TIPO RAPPORTO) tra ULTIMO, TRA DATE e GLOBALE. Chiede poi il dettaglio (DETTAGLIO) tra SEMPLICE e COMPLETO. Il report non è fiscale.</p>
