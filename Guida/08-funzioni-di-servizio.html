@@ -40,7 +40,6 @@
 <li class="nav-item"><a class="nav-link" href="08-funzioni-di-servizio.html"><i class="bi bi-journal-text"></i><span>Funzioni di servizio</span></a>
 <ul class="nav-content">
 <li><a href="08-funzioni-di-servizio.html#panoramica"><i class="bi bi-circle"></i><span>Panoramica</span></a></li>
-<li><a href="08-funzioni-di-servizio.html#codici-di-autorizzazione"><i class="bi bi-circle"></i><span>Codici di autorizzazione</span></a></li>
 <li><a href="08-funzioni-di-servizio.html#test-di-sistema"><i class="bi bi-circle"></i><span>Test di sistema</span></a></li>
 <li><a href="08-funzioni-di-servizio.html#censimento-fiscalizzazione-e-attivazione"><i class="bi bi-circle"></i><span>Censimento, fiscalizzazione e attivazione</span></a></li>
 <li><a href="08-funzioni-di-servizio.html#modalita-demo-e-blocco-configurazione"><i class="bi bi-circle"></i><span>Modalità demo e blocco configurazione</span></a></li>
@@ -72,10 +71,7 @@
   </nav>
 </div>
 <section class="section" id="panoramica"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Panoramica</h5>
-<p>Le funzioni di servizio servono per verificare il registratore, aggiornarne il software e gestire i dati del tecnico. Alcune funzioni richiedono un codice di autorizzazione, indicato nella tabella seguente. Per cosa fa ogni sequenza di servizio, vedi la <a href="13-tabelle-e-codici.html#tavola-delle-sequenze">Tavola delle sequenze</a>.</p></div></div></div></div></section>
-<section class="section" id="codici-di-autorizzazione"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Codici di autorizzazione</h5>
-<div class="table-responsive"><table class="table table-bordered table-sm ecr-table"><thead><tr><th>Codice</th><th>Funzione</th></tr></thead><tbody><tr><td>00000</td><td>Azzeramenti</td></tr><tr><td>11111</td><td>Letture</td></tr><tr><td>22222</td><td>Apertura cassetto</td></tr><tr><td>33333</td><td>Modificatori</td></tr><tr><td>44444</td><td>Tender</td></tr><tr><td>55555</td><td>Visita fiscale e intervento tecnico</td></tr><tr><td>66666</td><td>Configurazione GE</td></tr><tr><td>77777</td><td>Comunicazione</td></tr><tr><td>88888</td><td>Programmazione</td></tr><tr><td>99999</td><td>Superamento limiti e annullamento</td></tr><tr><td>61616</td><td>Configurazione da PC</td></tr><tr><td>89921</td><td>Riservato</td></tr></tbody></table></div>
-<p>I codici sono le dodici autorizzazioni gestite dalla voce 888 del menu di programmazione, descritta nel capitolo <a href="07-programmazione.html">Programmazione</a>.</p></div></div></div></div></section>
+<p>Le funzioni di servizio servono per verificare il registratore, aggiornarne il software e gestire i dati del tecnico. Alcune funzioni richiedono un codice di autorizzazione. I codici non sono riportati in questa guida: vengono forniti dal centro di assistenza. Per cosa fa ogni sequenza di servizio, vedi la <a href="13-tabelle-e-codici.html#tavola-delle-sequenze">Tavola delle sequenze</a>. I codici sono le dodici autorizzazioni gestite dalla voce 888 del menu di programmazione, descritta nel capitolo <a href="07-programmazione.html">Programmazione</a>.</p></div></div></div></div></section>
 <section class="section" id="test-di-sistema"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Test di sistema</h5>
 <p>I test verificano i componenti del registratore. Si avviano dal menu con il codice indicato.</p>
 <div class="table-responsive"><table class="table table-bordered table-sm ecr-table"><thead><tr><th>Codice</th><th>Test</th></tr></thead><tbody><tr><td>400</td><td>Test ciclico</td></tr><tr><td>401</td><td>USB</td></tr><tr><td>402</td><td>Giornale elettronico (GE)</td></tr><tr><td>403</td><td>Memoria fiscale (MF)</td></tr><tr><td>404</td><td>Orologio (RTC)</td></tr><tr><td>405</td><td>Beeper</td></tr><tr><td>406</td><td>Stampante</td></tr><tr><td>407</td><td>Seriali</td></tr><tr><td>408</td><td>RAM</td></tr><tr><td>409</td><td>Batteria</td></tr><tr><td>410</td><td>Display</td></tr><tr><td>411</td><td>Tastiera</td></tr><tr><td>412</td><td>Rete</td></tr><tr><td>413</td><td>Batteria ambulante</td></tr><tr><td>414</td><td>RAM continua</td></tr><tr><td>415</td><td>Scheda SD</td></tr><tr><td>420</td><td>Test di produzione</td></tr><tr><td>421</td><td>Test stampa scontrini continua</td></tr></tbody></table></div>
@@ -97,28 +93,22 @@
 <p>Il registratore ha tre voci di aggiornamento:</p>
 <ul><li><strong>970 Aggiornamento firmware da remoto:</strong> aggiorna il firmware ricevuto da remoto.</li><li><strong>978 Aggiornamento software fiscale:</strong> aggiorna il software da una chiavetta USB.</li><li><strong>979 Aggiornamento software non fiscale:</strong> aggiorna il software senza modifiche fiscali.</li></ul>
 <h6 class="ecr-sub">Aggiornamento software fiscale (978)</h6>
-<p>La voce 978 richiede il codice Visita fiscale (55555).</p>
-<p>Prima dell'aggiornamento devono essere vere queste condizioni:</p>
-<ul><li>i totali giornalieri sono azzerati;</li><li>non ci sono documenti della lotteria in sospeso.</li></ul>
-<p>Il registratore cerca sulla chiavetta USB un file con estensione <code>.ECS</code>. Il nome del file inizia con il prefisso del modello:</p>
-<div class="table-responsive"><table class="table table-bordered table-sm ecr-table"><thead><tr><th>Modello</th><th>Prefisso</th></tr></thead><tbody><tr><td>Zero Plus</td><td>ZERPL</td></tr><tr><td>Smarty Plus</td><td>SMPL</td></tr><tr><td>Tour+</td><td>TOURP</td></tr><tr><td>Jolly</td><td>JOLLY</td></tr><tr><td>Smarty evo</td><td>SMEVO</td></tr><tr><td>Smarty evo+</td><td>SMEVP</td></tr></tbody></table></div>
-<p>Il registratore segnala un errore se il file è di un altro modello, se l'intestazione del file non è valida, se la password di assistenza è errata o se la chiavetta USB non è accessibile.</p>
-<div class="ecr-callout ecr-warn"><div class="ecr-callout-title"><i class="bi bi-exclamation-triangle"></i> Attenzione</div><div class="ecr-callout-body"><p>l'aggiornamento software fiscale modifica il software del registratore. Eseguirlo solo nelle condizioni indicate.</p></div></div>
-<p>Dopo il prefisso il nome può contenere qualsiasi carattere, purché termini con <code>.ECS</code>. Se sulla chiavetta ci sono più file con il prefisso del modello, ne mostra l'elenco (fino a 16) e chiede di sceglierne uno.</p></div></div></div></div></section>
+<p>La voce 978 richiede il codice di autorizzazione fornito dal centro di assistenza. Condizioni, pacchetti e messaggi sono descritti nel capitolo <a href="12-aggiornamento-firmware.html">Aggiornamento firmware</a>.</p>
+<div class="ecr-callout ecr-warn"><div class="ecr-callout-title"><i class="bi bi-exclamation-triangle"></i> Attenzione</div><div class="ecr-callout-body"><p>l'aggiornamento software fiscale modifica il software del registratore. Eseguirlo solo nelle condizioni indicate nel capitolo <a href="12-aggiornamento-firmware.html">Aggiornamento firmware</a>.</p></div></div></div></div></div></div></section>
 <section class="section" id="visita-annuale-e-interventi-tecnici"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Visita annuale e interventi tecnici</h5>
 <h6 class="ecr-sub">Visita annuale (981)</h6>
-<p>La voce 981 registra la visita annuale. Richiede il codice Visita fiscale (55555) e un registratore già fiscalizzato. Chiede la data nel formato GGMMAA.</p>
+<p>La voce 981 registra la visita annuale. Richiede il codice Visita fiscale e un registratore già fiscalizzato. Chiede la data nel formato GGMMAA.</p>
 <h6 class="ecr-sub">Registrazione intervento (982)</h6>
-<p>La voce 982 registra un intervento tecnico. Richiede il codice Visita fiscale (55555). I tipi di intervento sono elencati nel capitolo <a href="13-tabelle-e-codici.html">Tabelle e codici</a>.</p>
+<p>La voce 982 registra un intervento tecnico. Richiede il codice Visita fiscale. I tipi di intervento sono elencati nel capitolo <a href="13-tabelle-e-codici.html">Tabelle e codici</a>.</p>
 <ul><li>Il registro contiene al massimo 10 interventi. Ogni chiusura occupa un posto nel registro. Quando il registro è pieno, il registratore segnala un errore.</li><li>I tipi 03 (verifica OK) e 04 (verifica KO) richiedono la lotteria istantanea configurata nella voce 822. Senza di essa il registratore segnala un errore.</li><li>Il tipo 07 (aggiornamento software) non è accettato se la stessa revisione è già registrata.</li><li>I tipi 06 e 07 stampano la nota in testo libero.</li></ul>
 <h6 class="ecr-sub">Dati del laboratorio (983)</h6>
-<p>La voce 983 inserisce e stampa i dati del tecnico, cioè la partita IVA del laboratorio e il codice fiscale del tecnico. Richiede il codice Visita fiscale (55555).</p></div></div></div></div></section>
+<p>La voce 983 inserisce e stampa i dati del tecnico, cioè la partita IVA del laboratorio e il codice fiscale del tecnico. Richiede il codice Visita fiscale.</p></div></div></div></div></section>
 <section class="section" id="richiesta-codici-lotteria"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Richiesta codici lotteria</h5>
 <p>La voce 984 richiede i codici per la lotteria.</p></div></div></div></div></section>
 <section class="section" id="log"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Log</h5>
 <ul><li><strong>994 Invio log via mail:</strong> invia i file di log via mail.</li><li><strong>995 Esportazione log su USB:</strong> copia i file di log sulla chiavetta USB. Richiede una chiavetta inserita. Per terminare si preme CLEAR.</li><li><strong>996 Cancellazione log:</strong> cancella i file di log.</li></ul></div></div></div></div></section>
 <section class="section" id="configurazione-ge"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Configurazione GE</h5>
-<p>La voce 998 configura il giornale elettronico. Richiede il codice Configurazione GE (66666). Il GE non deve essere già inizializzato.</p></div></div></div></div></section>
+<p>La voce 998 configura il giornale elettronico. Richiede il codice di autorizzazione Configurazione GE. Il GE non deve essere già inizializzato.</p></div></div></div></div></section>
 <section class="section" id="stampa-menu"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Stampa menu</h5>
 <p>La voce 999 stampa l'elenco delle funzioni del menu.</p></div></div></div></div></section>
 <section class="section" id="inizializzazione"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Inizializzazione</h5>

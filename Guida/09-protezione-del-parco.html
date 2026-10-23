@@ -42,7 +42,6 @@
 <ul class="nav-content">
 <li><a href="09-protezione-del-parco.html#panoramica"><i class="bi bi-circle"></i><span>Panoramica</span></a></li>
 <li><a href="09-protezione-del-parco.html#ambito"><i class="bi bi-circle"></i><span>Ambito</span></a></li>
-<li><a href="09-protezione-del-parco.html#chiavetta-del-tecnico"><i class="bi bi-circle"></i><span>Chiavetta del tecnico</span></a></li>
 <li><a href="09-protezione-del-parco.html#attivazione-con-983"><i class="bi bi-circle"></i><span>Attivazione con 983</span></a></li>
 <li><a href="09-protezione-del-parco.html#codice-di-accesso"><i class="bi bi-circle"></i><span>Codice di accesso</span></a></li>
 <li><a href="09-protezione-del-parco.html#blocco-della-configurazione-con-951"><i class="bi bi-circle"></i><span>Blocco della configurazione con 951</span></a></li>
@@ -68,25 +67,18 @@
   </nav>
 </div>
 <section class="section" id="panoramica"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Panoramica</h5>
-<p>La protezione del parco limita la programmazione del registratore, la visualizzazione dei dati fiscali e la conferma del Giornale Elettronico (GE). L'accesso è protetto da una password di cinque cifre, memorizzata nel registratore, e da un file di configurazione tecnica salvato su chiavetta USB.</p>
+<p>La protezione del parco limita la programmazione del registratore, la visualizzazione dei dati fiscali e la conferma del Giornale Elettronico (GE). L'accesso è protetto da una password memorizzata nel registratore. Le credenziali e le procedure di attivazione sono riservate al centro di assistenza.</p>
 <p>La protezione permette anche di inviare via e-mail i report di stato del registratore.</p></div></div></div></div></section>
 <section class="section" id="ambito"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Ambito</h5>
 <p>La protezione è disponibile su tutti i modelli coperti da questa guida: Zero Plus, Smarty Plus, Tour+, Jolly, Smarty evo e Smarty evo+. Il comportamento è identico su tutti i modelli.</p></div></div></div></div></section>
-<section class="section" id="chiavetta-del-tecnico"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Chiavetta del tecnico</h5>
-<p>Per attivare la protezione serve una chiavetta USB con il file di configurazione tecnica. Il file contiene:</p>
-<ul><li>la partita IVA del laboratorio, di 11 caratteri;</li><li>il codice fiscale del tecnico;</li><li>la ragione sociale del laboratorio e il nome del tecnico, facoltativi;</li><li>il blocco EXTRA, cifrato in base64. Il blocco è obbligatorio dopo l'inizializzazione del registratore. Il registratore lo decifra e verifica che la partita IVA corrisponda a quella del laboratorio.</li></ul>
-<div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>il registratore crea il file quando, nelle operazioni fiscali che richiedono i dati del tecnico, sulla chiavetta non c'è un file di configurazione tecnica valido. Il tecnico inserisce partita IVA e codice fiscale e conferma il salvataggio sulla chiavetta. Il file creato contiene partita IVA e codice fiscale; ragione sociale e nome del tecnico restano vuoti. Da confermare: come creare il blocco EXTRA, che il registratore non genera.</p></div></div></div></div></div></div></section>
 <section class="section" id="attivazione-con-983"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Attivazione con 983</h5>
-<p>Eseguire <code>983 [MENU]</code> con la chiavetta USB inserita.</p>
-<p>Il registratore legge il file di configurazione tecnica e salva questi dati:</p>
-<ul><li>indirizzo e-mail per il codice OTP, cioè la password monouso;</li><li>indirizzo e-mail per i report;</li><li>password di cinque cifre;</li><li>regione.</li></ul>
-<p>Per modificare un dato già salvato serve la verifica OTP. Il codice OTP è di otto cifre numeriche.</p></div></div></div></div></section>
+<p>L'attivazione richiede una chiavetta USB con i dati del tecnico abilitato e viene eseguita dal centro di assistenza. Il registratore salva i dati di protezione: indirizzi e-mail, password e regione.</p>
+<p>Per modificare un dato già salvato serve la verifica con un codice monouso ricevuto via e-mail.</p></div></div></div></div></section>
 <section class="section" id="codice-di-accesso"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Codice di accesso</h5>
-<p>Dopo l'attivazione, la password di cinque cifre sostituisce il codice predefinito per:</p>
+<p>Dopo l'attivazione, la password impostata sostituisce il codice predefinito per:</p>
 <ul><li>la programmazione dei comandi bloccati;</li><li>la visualizzazione dei dati fiscali;</li><li>la conferma delle chiusure del GE.</li></ul></div></div></div></div></section>
 <section class="section" id="blocco-della-configurazione-con-951"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Blocco della configurazione con 951</h5>
-<p>Eseguire <code>951 [MENU]</code> con la chiavetta USB inserita per bloccare la configurazione.</p>
-<p>Il blocco richiede il file di configurazione tecnica con il blocco EXTRA. Una volta attivo, impedisce la modifica dei comandi di programmazione dalla 801 alla 899, tranne la 888.</p>
+<p>Eseguire <code>951 [MENU]</code> per bloccare la configurazione. Il blocco richiede i dati del tecnico abilitato, presenti sulla chiavetta USB. Una volta attivo, impedisce la modifica dei comandi di programmazione dalla 801 alla 899, tranne la 888.</p>
 <p>Nella schermata di blocco:</p>
 <ul><li>i tasti freccia scorrono l'elenco dei comandi;</li><li>il tasto ESEGUE salva la selezione;</li><li>il tasto CLEAR annulla senza salvare.</li></ul>
 <p>I comandi bloccati sono segnati con una X. Per la programmazione vedere <a href="07-programmazione.html">Programmazione</a>.</p></div></div></div></div></section>
@@ -99,12 +91,11 @@
 <ul><li>il motivo dell'invio, cioè l'elenco degli eventi che lo hanno generato (cambio stato, cambio intestazione, memoria fiscale o GE in esaurimento, visita periodica in scadenza, chiusure non trasmesse, intervento tecnico, inizializzazione, aggiornamento del firmware, report settimanale);</li><li>i dati del registratore: intestazione, matricola, revisione del software, stato, scadenza del certificato e della visita periodica, data dell'ultima trasmissione;</li><li>la memoria libera della memoria fiscale (azzeramenti, inizializzazioni, GE, trasmissioni, eventi, attivazioni, messa in servizio, inizio servizio) e del giornale elettronico (date e linee residue, oppure data di scadenza per i GE ricaricabili);</li><li>i dati degli eventuali interventi tecnici;</li><li>un riepilogo in formato CSV.</li></ul></div></div></div></div></section>
 <section class="section" id="disattivazione-con-986"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Disattivazione con 986</h5>
 <p>Eseguire <code>986 [MENU]</code> per disattivare la protezione.</p>
-<p>Se è salvato un indirizzo e-mail OTP, il registratore chiede il codice OTP di otto cifre. Dopo la verifica, il registratore cancella tutti i dati di protezione salvati.</p>
+<p>Se è salvato un indirizzo e-mail per la verifica, il registratore chiede il codice monouso. Dopo la verifica, il registratore cancella tutti i dati di protezione salvati.</p>
 <div class="ecr-callout ecr-warn"><div class="ecr-callout-title"><i class="bi bi-exclamation-triangle"></i> Attenzione</div><div class="ecr-callout-body"><p>la disattivazione cancella la password, gli indirizzi e-mail e la regione salvati. Dopo la disattivazione, il codice di accesso torna quello predefinito.</p></div></div></div></div></div></div></section>
 <section class="section" id="regioni"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Regioni</h5>
 <p>La regione è uno dei valori seguenti:</p>
-<ul><li>Abruzzo</li><li>Basilicata</li><li>Calabria</li><li>Campania</li><li>Emilia-Romagna</li><li>Friuli Venezia Giulia</li><li>Lazio</li><li>Liguria</li><li>Lombardia</li><li>Marche</li><li>Molise</li><li>Piemonte</li><li>Puglia</li><li>Sardegna</li><li>Sicilia</li><li>Toscana</li><li>Trentino-Alto Adige</li><li>Umbria</li><li>Valle d'Aosta</li><li>Veneto</li></ul>
-<div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>da confermare: la versione minima del software per ciascun modello. Il registratore mostra solo la revisione installata, non la versione minima richiesta.</p></div></div></div></div></div></div></section>
+<ul><li>Abruzzo</li><li>Basilicata</li><li>Calabria</li><li>Campania</li><li>Emilia-Romagna</li><li>Friuli Venezia Giulia</li><li>Lazio</li><li>Liguria</li><li>Lombardia</li><li>Marche</li><li>Molise</li><li>Piemonte</li><li>Puglia</li><li>Sardegna</li><li>Sicilia</li><li>Toscana</li><li>Trentino-Alto Adige</li><li>Umbria</li><li>Valle d'Aosta</li><li>Veneto</li></ul></div></div></div></div></section>
 <section class="section"><nav class="ecr-pager d-flex justify-content-between align-items-center flex-wrap gap-2"><a class="btn btn-outline-primary btn-sm" href="08-funzioni-di-servizio.html"><i class="bi bi-arrow-left"></i> Funzioni di servizio</a><a class="btn btn-outline-secondary btn-sm" href="index.html">Indice</a><a class="btn btn-outline-primary btn-sm" href="10-connettivita-pos-e-dongle.html">Connettività, POS e dongle <i class="bi bi-arrow-right"></i></a></nav></section>
 </main>
 <footer id="footer" class="footer">
