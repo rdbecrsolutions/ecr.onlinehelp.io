@@ -42,7 +42,7 @@
 <ul class="nav-content">
 <li><a href="09-protezione-del-parco.html#panoramica"><i class="bi bi-circle"></i><span>Panoramica</span></a></li>
 <li><a href="09-protezione-del-parco.html#ambito"><i class="bi bi-circle"></i><span>Ambito</span></a></li>
-<li><a href="09-protezione-del-parco.html#file-tecnico-dat"><i class="bi bi-circle"></i><span>File TECNICO.DAT</span></a></li>
+<li><a href="09-protezione-del-parco.html#chiavetta-del-tecnico"><i class="bi bi-circle"></i><span>Chiavetta del tecnico</span></a></li>
 <li><a href="09-protezione-del-parco.html#attivazione-con-983"><i class="bi bi-circle"></i><span>Attivazione con 983</span></a></li>
 <li><a href="09-protezione-del-parco.html#codice-di-accesso"><i class="bi bi-circle"></i><span>Codice di accesso</span></a></li>
 <li><a href="09-protezione-del-parco.html#blocco-della-configurazione-con-951"><i class="bi bi-circle"></i><span>Blocco della configurazione con 951</span></a></li>
@@ -72,22 +72,21 @@
 <p>La protezione permette anche di inviare via e-mail i report di stato del registratore.</p></div></div></div></div></section>
 <section class="section" id="ambito"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Ambito</h5>
 <p>La protezione è disponibile su tutti i modelli coperti da questa guida: Zero Plus, Smarty Plus, Tour+, Jolly, Smarty evo e Smarty evo+. Il comportamento è identico su tutti i modelli.</p></div></div></div></div></section>
-<section class="section" id="file-tecnico-dat"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">File TECNICO.DAT</h5>
-<p>Per attivare la protezione serve una chiavetta USB con il file <code>TECNICO.DAT</code>. Il file contiene:</p>
+<section class="section" id="chiavetta-del-tecnico"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Chiavetta del tecnico</h5>
+<p>Per attivare la protezione serve una chiavetta USB con il file di configurazione tecnica. Il file contiene:</p>
 <ul><li>la partita IVA del laboratorio, di 11 caratteri;</li><li>il codice fiscale del tecnico;</li><li>la ragione sociale del laboratorio e il nome del tecnico, facoltativi;</li><li>il blocco EXTRA, cifrato in base64. Il blocco è obbligatorio dopo l'inizializzazione del registratore. Il registratore lo decifra e verifica che la partita IVA corrisponda a quella del laboratorio.</li></ul>
-<div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>il registratore crea il file quando, nelle operazioni fiscali che richiedono i dati del tecnico, sulla chiavetta non c'è un <code>TECNICO.DAT</code> valido. Il tecnico inserisce partita IVA e codice fiscale e conferma il salvataggio sulla chiavetta. Il file creato contiene partita IVA e codice fiscale; ragione sociale e nome del tecnico restano vuoti. Da confermare: come creare il blocco EXTRA, che il registratore non genera.</p></div></div></div></div></div></div></section>
+<div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>il registratore crea il file quando, nelle operazioni fiscali che richiedono i dati del tecnico, sulla chiavetta non c'è un file di configurazione tecnica valido. Il tecnico inserisce partita IVA e codice fiscale e conferma il salvataggio sulla chiavetta. Il file creato contiene partita IVA e codice fiscale; ragione sociale e nome del tecnico restano vuoti. Da confermare: come creare il blocco EXTRA, che il registratore non genera.</p></div></div></div></div></div></div></section>
 <section class="section" id="attivazione-con-983"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Attivazione con 983</h5>
 <p>Eseguire <code>983 [MENU]</code> con la chiavetta USB inserita.</p>
-<p>Il registratore legge il file <code>TECNICO.DAT</code> e salva questi dati:</p>
+<p>Il registratore legge il file di configurazione tecnica e salva questi dati:</p>
 <ul><li>indirizzo e-mail per il codice OTP, cioè la password monouso;</li><li>indirizzo e-mail per i report;</li><li>password di cinque cifre;</li><li>regione.</li></ul>
 <p>Per modificare un dato già salvato serve la verifica OTP. Il codice OTP è di otto cifre numeriche.</p></div></div></div></div></section>
 <section class="section" id="codice-di-accesso"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Codice di accesso</h5>
 <p>Dopo l'attivazione, la password di cinque cifre sostituisce il codice predefinito per:</p>
-<ul><li>la programmazione dei comandi bloccati;</li><li>la visualizzazione dei dati fiscali;</li><li>la conferma delle chiusure del GE.</li></ul>
-<p>Se la chiavetta contiene <code>TECNICO.DAT</code> con il blocco EXTRA e il codice OTP è corretto, il registratore non chiede la password.</p></div></div></div></div></section>
+<ul><li>la programmazione dei comandi bloccati;</li><li>la visualizzazione dei dati fiscali;</li><li>la conferma delle chiusure del GE.</li></ul></div></div></div></div></section>
 <section class="section" id="blocco-della-configurazione-con-951"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Blocco della configurazione con 951</h5>
 <p>Eseguire <code>951 [MENU]</code> con la chiavetta USB inserita per bloccare la configurazione.</p>
-<p>Il blocco richiede il file <code>TECNICO.DAT</code> con il blocco EXTRA. Una volta attivo, impedisce la modifica dei comandi di programmazione dalla 801 alla 899, tranne la 888.</p>
+<p>Il blocco richiede il file di configurazione tecnica con il blocco EXTRA. Una volta attivo, impedisce la modifica dei comandi di programmazione dalla 801 alla 899, tranne la 888.</p>
 <p>Nella schermata di blocco:</p>
 <ul><li>i tasti freccia scorrono l'elenco dei comandi;</li><li>il tasto ESEGUE salva la selezione;</li><li>il tasto CLEAR annulla senza salvare.</li></ul>
 <p>I comandi bloccati sono segnati con una X. Per la programmazione vedere <a href="07-programmazione.html">Programmazione</a>.</p></div></div></div></div></section>
