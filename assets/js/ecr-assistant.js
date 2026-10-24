@@ -1,7 +1,7 @@
 /*
  * Assistente della guida: cerca nei paragrafi di assistant-index.js (generato da build_assistant.py).
- * Il pulsante "Rispondi con AI" compare se localAi è attivo (modello nel browser, ecr-local-ai.js) oppure se
- * llmUrl è valorizzato (endpoint proprio, che custodisce la chiave API lato server: la chiave non va qui).
+ * Il pulsante "Risposta completa con AI" compare solo se llmUrl è valorizzato: è l'endpoint del Worker
+ * (assistant/worker), che custodisce la chiave lato server. Senza llmUrl resta la sola ricerca.
  */
 (function () {
   'use strict';
@@ -9,7 +9,7 @@
   if (window.__ecraAssistant) return;
   window.__ecraAssistant = true;
 
-  var CONFIG = Object.assign({ llmUrl: '', localAi: false }, window.ECR_ASSISTANT_CONFIG || {});
+  var CONFIG = Object.assign({ llmUrl: '' }, window.ECR_ASSISTANT_CONFIG || {});
   var MAX_RESULTS = 4;
   var STOP = new Set(['il', 'lo', 'la', 'le', 'gli', 'i', 'un', 'una', 'uno', 'di', 'da', 'del', 'della', 'dei', 'delle',
     'degli', 'e', 'o', 'per', 'con', 'che', 'come', 'in', 'a', 'su', 'al', 'alla', 'ai', 'nel', 'nella', 'sono', 'quale',
@@ -219,7 +219,7 @@
   }
 
   function aiEnabled() {
-    return !!CONFIG.llmUrl || (CONFIG.localAi && !!window.ecrLocalAi);
+    return !!CONFIG.llmUrl;
   }
 
   function showAi(text, note) {
@@ -244,30 +244,11 @@
 
   function askAi() {
     if (!aiEnabled() || !lastResult || !lastResult.hits.length) return;
-    if (CONFIG.llmUrl) askRemote(passagesOf(lastResult));
-    else askLocal(passagesOf(lastResult));
-  }
-
-  function askLocal(passages) {
-    var ai = window.ecrLocalAi;
-    if (!ai.supported()) {
-      showAi('Questo browser non supporta l\'AI nel browser (serve WebGPU). Usa la risposta estratta sopra.');
-      return;
-    }
-    ui.ai.disabled = true;
-    showAi('Preparazione…');
-    ai.ask(lastResult.q, passages, function (msg) { showAi(msg); }).then(function (text) {
-      showAi(text || 'Nessuna risposta disponibile.',
-        'Risposta generata nel browser: verificala nelle sezioni indicate sopra.');
-    }).catch(function (err) {
-      showAi('Risposta AI non disponibile (' + (err && err.message ? err.message : 'errore')
-        + '). Usa la risposta estratta sopra.');
-    }).finally(function () {
-      ui.ai.disabled = false;
-    });
+    askRemote(passagesOf(lastResult));
   }
 
   function askRemote(passages) {
+    ui.ai.disabled = true;
     showAi('Elaborazione in corso…');
     fetch(CONFIG.llmUrl, {
       method: 'POST',
@@ -277,9 +258,12 @@
       if (!r.ok) throw new Error('HTTP ' + r.status);
       return r.json();
     }).then(function (d) {
-      showAi(d.answer || 'Nessuna risposta disponibile.');
+      showAi(d.answer || 'Nessuna risposta disponibile.',
+        'Risposta generata con AI: verificala nelle sezioni indicate sopra.');
     }).catch(function () {
       showAi('Risposta AI non disponibile. Usa i risultati qui sopra.');
+    }).finally(function () {
+      ui.ai.disabled = false;
     });
   }
 
@@ -302,8 +286,8 @@
       + '<div class="ecra-results" aria-live="polite"><p class="ecra-empty">Scrivi una domanda: l\'assistente '
       + 'risponde con le frasi della guida e indica le sezioni da cui le ricava.</p></div>'
       + '<div class="ecra-llm" hidden><button type="button" class="ecra-ai">Risposta completa con AI</button>'
-      + '<p class="ecra-ai-hint" hidden>Al primo uso scarica un modello di circa 0,7 GB, poi lo tiene nel browser. '
-      + 'Domanda e brani restano sul dispositivo.</p>'
+      + '<p class="ecra-ai-hint">La domanda e i brani della guida vengono inviati a un servizio esterno '
+      + 'per generare la risposta.</p>'
       + '<div class="ecra-answer" aria-live="polite"></div></div>'
       + '<p class="ecra-foot">Risposte ricavate dai testi della guida, in aggiornamento continuo.</p>'
       + '</section>';
@@ -329,10 +313,6 @@
       if (e.key === 'Escape' && !ui.panel.hidden) setOpen(false);
     });
     ui.llm.hidden = !aiEnabled();
-    if (CONFIG.localAi && !CONFIG.llmUrl) {
-      ui.ai.textContent = 'Rispondi con AI';
-      ui.hint.hidden = false;
-    }
   }
 
   function init() {
