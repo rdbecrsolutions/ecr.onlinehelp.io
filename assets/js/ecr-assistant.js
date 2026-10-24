@@ -244,12 +244,47 @@
     return !!CONFIG.llmUrl;
   }
 
+  function addInline(el, s) {
+    s.split(/\*\*([^*]+)\*\*/).forEach(function (part, i) {
+      if (!part) return;
+      if (i % 2) {
+        var b = document.createElement('strong');
+        b.textContent = part;
+        el.appendChild(b);
+      } else {
+        el.appendChild(document.createTextNode(part));
+      }
+    });
+  }
+
+  function renderAi(text) {
+    var box = document.createElement('div');
+    box.className = 'ecra-ai-text';
+    var list = null;
+    String(text).split('\n').forEach(function (line) {
+      var item = line.match(/^\s*[*-]\s+(.*)$/);
+      if (item) {
+        if (!list) {
+          list = document.createElement('ul');
+          box.appendChild(list);
+        }
+        var li = document.createElement('li');
+        addInline(li, item[1]);
+        list.appendChild(li);
+        return;
+      }
+      list = null;
+      if (!line.trim()) return;
+      var p = document.createElement('p');
+      addInline(p, line.trim());
+      box.appendChild(p);
+    });
+    return box;
+  }
+
   function showAi(text, note) {
     ui.answer.textContent = '';
-    var p = document.createElement('p');
-    p.className = 'ecra-ai-text';
-    p.textContent = text;
-    ui.answer.appendChild(p);
+    ui.answer.appendChild(renderAi(text));
     if (note) {
       var n = document.createElement('p');
       n.className = 'ecra-ai-note';

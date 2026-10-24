@@ -181,6 +181,19 @@
   margin: 0;
 }
 
+.ecra-ai-text p,
+.ecra-ai-text ul {
+  margin: 0 0 6px;
+}
+
+.ecra-ai-text ul {
+  padding-left: 18px;
+}
+
+.ecra-ai-text > :last-child {
+  margin-bottom: 0;
+}
+
 .ecra-ai-note {
   margin: 8px 0 0;
   font-size: 12px;
