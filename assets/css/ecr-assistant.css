@@ -162,6 +162,8 @@
 .ecra-llm {
   padding: 8px 14px;
   border-top: 1px solid #e5e8ed;
+  min-height: 0;
+  overflow-y: auto;
 }
 
 .ecra-answer {

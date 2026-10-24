@@ -105,10 +105,12 @@
       idf[t] = Math.log(1 + index.length / (1 + df));
     });
     var hits = pick(scored, MAX_RESULTS, Infinity);
+    // L'AI risponde con i brani della pagina aperta; le altre fonti restano nei risultati.
+    var own = scored.filter(function (s) { return s.c.s === CONFIG.site; });
     return {
       terms: terms,
       hits: hits,
-      aiHits: pick(scored, AI_PASSAGES, AI_PER_PAGE),
+      aiHits: pick(own.length ? own : scored, AI_PASSAGES, AI_PER_PAGE),
       answer: answerOf(hits, terms, idf)
     };
   }

@@ -5,16 +5,16 @@ const ALLOWED_ORIGINS = ['https://rdbecrsolutions.github.io'];
 const MAX_QUESTION_CHARS = 500;
 const MAX_PASSAGES = 8;
 const MAX_PASSAGE_CHARS = 2000;
-const MAX_ANSWER_TOKENS = 400;
+const MAX_ANSWER_TOKENS = 600;
 
 const SYSTEM_PROMPT =
-  'Sei l\'assistente di una guida online dei registratori EDIT e del software di configurazione. ' +
-  'Rispondi in italiano usando solo le informazioni dei brani forniti. Ogni brano inizia con il nome della guida o del software da cui proviene. ' +
-  'Se la domanda può essere svolta in più modi (per esempio con il software EditRemote, con KeybEDIT o direttamente sulla cassa), ' +
-  'separa la risposta in sezioni, una per ciascuno, con un titolo che indica lo strumento. ' +
-  'Riporta i nomi di menu, campi e comandi esattamente come appaiono nei brani. ' +
-  'Non dire che non puoi leggere i brani. Se un\'informazione non è nei brani, dillo e rimanda alla guida o all\'assistenza. ' +
-  'Non inventare codici, procedure o valori.';
+  'Sei l\'assistente di una guida online dei registratori EDIT (cassa ECR) e dei software EditRemote e KeybEDIT. ' +
+  'Rispondi in italiano usando solo i brani forniti. Ogni brano inizia con il nome della fonte (Guida ECR, EditRemote o KeybEDIT). ' +
+  'Regole: ' +
+  '1) Non mescolare le fonti. Se la stessa operazione è descritta da più fonti, scrivi una sezione per ogni fonte, con il nome della fonte in grassetto come titolo. ' +
+  '2) Ogni pulsante, menu o campo va attribuito solo alla fonte del brano in cui compare: non descrivere mai i pulsanti di un software come azioni sulla cassa. ' +
+  '3) Se un brano non basta per completare una sezione, scrivi solo ciò che è nei brani e rimanda alla guida. ' +
+  '4) Non inventare codici, procedure o valori. Non dire che non puoi leggere i brani.';
 
 const NOT_FOUND_ANSWER =
   'Non ho trovato una risposta sicura nei brani della guida. Prova a riformulare la domanda o consulta l\'assistenza.';
