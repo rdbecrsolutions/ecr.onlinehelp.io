@@ -243,7 +243,12 @@
   }
 
   function askAi() {
-    if (!aiEnabled() || !lastResult || !lastResult.hits.length) return;
+    if (!aiEnabled()) return;
+    if (!lastResult || lastResult.q !== ui.input.value.trim()) ask();
+    if (!lastResult.hits.length) {
+      showAi('Nessun brano trovato per questa domanda: prova con altre parole.');
+      return;
+    }
     askRemote(passagesOf(lastResult));
   }
 
@@ -312,7 +317,7 @@
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && !ui.panel.hidden) setOpen(false);
     });
-    ui.llm.hidden = !aiEnabled();
+    ui.llm.hidden = true;
   }
 
   function init() {
