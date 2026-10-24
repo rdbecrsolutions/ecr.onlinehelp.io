@@ -9,8 +9,10 @@
   if (window.__ecraAssistant) return;
   window.__ecraAssistant = true;
 
-  var CONFIG = Object.assign({ llmUrl: '' }, window.ECR_ASSISTANT_CONFIG || {});
+  var CONFIG = Object.assign({ llmUrl: '', site: '' }, window.ECR_ASSISTANT_CONFIG || {});
   var MAX_RESULTS = 4;
+  // Il sito in cui si trova l'utente ha precedenza, ma i risultati degli altri siti restano visibili.
+  var SITE_BOOST = 1.5;
   var STOP = new Set(['il', 'lo', 'la', 'le', 'gli', 'i', 'un', 'una', 'uno', 'di', 'da', 'del', 'della', 'dei', 'delle',
     'degli', 'e', 'o', 'per', 'con', 'che', 'come', 'in', 'a', 'su', 'al', 'alla', 'ai', 'nel', 'nella', 'sono', 'quale',
     'quali', 'quando', 'dove', 'cosa', 'si', 'mi', 'ti', 'ci', 'posso', 'devo', 'non', 'se', 'ho', 'ha', 'sul', 'sulla',
@@ -88,7 +90,7 @@
     var scored = [];
     index.forEach(function (c) {
       var s = score(c, terms);
-      if (s > 0) scored.push({ c: c, s: s });
+      if (s > 0) scored.push({ c: c, s: c.s === CONFIG.site ? s * SITE_BOOST : s });
     });
     scored.sort(function (a, b) { return b.s - a.s; });
     var idf = {};
@@ -112,7 +114,7 @@
   }
 
   function urlOf(c) {
-    return (window.ECR_ASSISTANT_ROOT || '') + c.p + (c.a ? '#' + encodeURIComponent(c.a) : '');
+    return c.p + (c.a ? '#' + encodeURIComponent(c.a) : '');
   }
 
   function snippetOf(c, terms) {
@@ -202,9 +204,10 @@
       : '<p class="ecra-empty">Nella guida non trovo una risposta diretta. Controlla le sezioni qui sotto.</p>';
     var sources = '<p class="ecra-sources-title">Sezioni collegate</p>';
     ui.results.innerHTML = answer + sources + res.hits.map(function (c) {
+      var where = c.h ? [c.s, c.t].filter(Boolean).join(' · ') : (c.s || '');
       return '<a class="ecra-hit" href="' + esc(urlOf(c)) + '">'
         + '<span class="ecra-hit-title">' + esc(c.h || c.t) + '</span>'
-        + (c.h && c.t ? '<span class="ecra-hit-page">' + esc(c.t) + '</span>' : '')
+        + (where ? '<span class="ecra-hit-page">' + esc(where) + '</span>' : '')
         + '<span class="ecra-snip">' + highlight(snippetOf(c, res.terms), res.terms) + '</span></a>';
     }).join('');
   }
@@ -238,7 +241,7 @@
 
   function passagesOf(res) {
     return res.hits.map(function (c) {
-      return { title: c.t, heading: c.h, text: c.x, url: new URL(urlOf(c), location.href).href };
+      return { title: (c.s ? c.s + ' - ' : '') + c.t, heading: c.h, text: c.x, url: new URL(urlOf(c), location.href).href };
     });
   }
 
