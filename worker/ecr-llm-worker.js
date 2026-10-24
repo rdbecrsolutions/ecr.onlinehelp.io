@@ -1,16 +1,20 @@
-const MODEL = '@cf/meta/llama-3.2-3b-instruct';
+const MODEL = '@cf/meta/llama-3.1-8b-instruct-fp8-fast';
 
 const ALLOWED_ORIGINS = ['https://rdbecrsolutions.github.io'];
 
 const MAX_QUESTION_CHARS = 500;
 const MAX_PASSAGES = 8;
-const MAX_PASSAGE_CHARS = 1500;
+const MAX_PASSAGE_CHARS = 2000;
 const MAX_ANSWER_TOKENS = 400;
 
 const SYSTEM_PROMPT =
-  'Sei l\'assistente di una guida online. Rispondi in italiano, in modo breve e chiaro. ' +
-  'Usa solo i brani forniti dall\'utente. Se i brani non contengono la risposta, dillo chiaramente ' +
-  'e suggerisci di consultare la guida o l\'assistenza. Non inventare codici, procedure o valori.';
+  'Sei l\'assistente di una guida online dei registratori EDIT e del software di configurazione. ' +
+  'Rispondi in italiano usando solo le informazioni dei brani forniti. Ogni brano inizia con il nome della guida o del software da cui proviene. ' +
+  'Se la domanda può essere svolta in più modi (per esempio con il software EditRemote, con KeybEDIT o direttamente sulla cassa), ' +
+  'separa la risposta in sezioni, una per ciascuno, con un titolo che indica lo strumento. ' +
+  'Riporta i nomi di menu, campi e comandi esattamente come appaiono nei brani. ' +
+  'Non dire che non puoi leggere i brani. Se un\'informazione non è nei brani, dillo e rimanda alla guida o all\'assistenza. ' +
+  'Non inventare codici, procedure o valori.';
 
 const NOT_FOUND_ANSWER =
   'Non ho trovato una risposta sicura nei brani della guida. Prova a riformulare la domanda o consulta l\'assistenza.';
@@ -75,6 +79,7 @@ export default {
           { role: 'user', content: 'Brani:\n' + context + '\n\nDomanda: ' + question },
         ],
         max_tokens: MAX_ANSWER_TOKENS,
+        temperature: 0.2,
       });
       const answer = String((result && result.response) || '').trim();
       return json({ answer: answer || NOT_FOUND_ANSWER }, 200, cors);

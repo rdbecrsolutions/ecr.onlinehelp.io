@@ -11,6 +11,9 @@
 
   var CONFIG = Object.assign({ llmUrl: '', site: '' }, window.ECR_ASSISTANT_CONFIG || {});
   var MAX_RESULTS = 4;
+  // Brani inviati al modello AI: più di quelli mostrati, al massimo AI_PER_PAGE per pagina.
+  var AI_PASSAGES = 6;
+  var AI_PER_PAGE = 2;
   // Il sito in cui si trova l'utente ha precedenza, ma i risultati degli altri siti restano visibili.
   var SITE_BOOST = 1.5;
   var STOP = new Set(['il', 'lo', 'la', 'le', 'gli', 'i', 'un', 'una', 'uno', 'di', 'da', 'del', 'della', 'dei', 'delle',
@@ -101,16 +104,29 @@
       });
       idf[t] = Math.log(1 + index.length / (1 + df));
     });
+    var hits = pick(scored, MAX_RESULTS, Infinity);
+    return {
+      terms: terms,
+      hits: hits,
+      aiHits: pick(scored, AI_PASSAGES, AI_PER_PAGE),
+      answer: answerOf(hits, terms, idf)
+    };
+  }
+
+  // Sceglie i primi risultati senza ripetere la stessa sezione e senza superare perPage brani per pagina.
+  function pick(scored, limit, perPage) {
     var seen = {};
-    var hits = [];
-    for (var i = 0; i < scored.length && hits.length < MAX_RESULTS; i++) {
+    var perUrl = {};
+    var out = [];
+    for (var i = 0; i < scored.length && out.length < limit; i++) {
       var c = scored[i].c;
       var key = c.p + '|' + c.h + '|' + c.a;
-      if (seen[key]) continue;
+      if (seen[key] || (perUrl[c.p] || 0) >= perPage) continue;
       seen[key] = true;
-      hits.push(c);
+      perUrl[c.p] = (perUrl[c.p] || 0) + 1;
+      out.push(c);
     }
-    return { terms: terms, hits: hits, answer: answerOf(hits, terms, idf) };
+    return out;
   }
 
   function urlOf(c) {
@@ -240,7 +256,7 @@
   }
 
   function passagesOf(res) {
-    return res.hits.map(function (c) {
+    return res.aiHits.map(function (c) {
       return { title: (c.s ? c.s + ' - ' : '') + c.t, heading: c.h, text: c.x, url: new URL(urlOf(c), location.href).href };
     });
   }
