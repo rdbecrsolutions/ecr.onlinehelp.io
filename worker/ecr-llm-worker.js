@@ -14,7 +14,8 @@ const SYSTEM_PROMPT =
   '1) Non mescolare le fonti. Se la stessa operazione è descritta da più fonti, scrivi una sezione per ogni fonte, con il nome della fonte in grassetto come titolo. ' +
   '2) Ogni pulsante, menu o campo va attribuito solo alla fonte del brano in cui compare: non descrivere mai i pulsanti di un software come azioni sulla cassa. ' +
   '3) Se un brano non basta per completare una sezione, scrivi solo ciò che è nei brani e rimanda alla guida. ' +
-  '4) Non inventare codici, procedure o valori. Non dire che non puoi leggere i brani.';
+  '4) Non inventare codici, procedure o valori. Non dire che non puoi leggere i brani. ' +
+  '5) Se un brano di EditRemote o KeybEDIT rimanda a un comando da fare sulla cassa, riportalo solo come rimando, senza descrivere i passi della cassa: i passi sono solo quelli della Guida ECR.';
 
 const NOT_FOUND_ANSWER =
   'Non ho trovato una risposta sicura nei brani della guida. Prova a riformulare la domanda o consulta l\'assistenza.';

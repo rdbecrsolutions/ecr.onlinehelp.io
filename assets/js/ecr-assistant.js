@@ -72,16 +72,17 @@
     });
   }
 
-  function score(c, terms) {
+  // Un termine raro (per esempio "reparti") pesa più di uno generico (per esempio "programmazione").
+  function score(c, terms, idf) {
     var total = 0;
     var matched = 0;
     terms.forEach(function (term) {
       var s = Math.min(countIn(c._w, term), 3)
         + (countIn(c._h, term) > 0 ? 4 : 0)
-        + (countIn(c._t, term) > 0 ? 1 : 0);
+        + (countIn(c._t, term) > 0 ? 3 : 0);
       if (s > 0) {
         matched++;
-        total += s;
+        total += s * idf[term];
       }
     });
     return matched ? total + matched * 2 : 0;
@@ -90,12 +91,6 @@
   function search(q) {
     var terms = queryTerms(q);
     if (!terms.length) return { terms: terms, hits: [] };
-    var scored = [];
-    index.forEach(function (c) {
-      var s = score(c, terms);
-      if (s > 0) scored.push({ c: c, s: c.s === CONFIG.site ? s * SITE_BOOST : s });
-    });
-    scored.sort(function (a, b) { return b.s - a.s; });
     var idf = {};
     terms.forEach(function (t) {
       var df = 0;
@@ -104,13 +99,19 @@
       });
       idf[t] = Math.log(1 + index.length / (1 + df));
     });
+    var scored = [];
+    index.forEach(function (c) {
+      var s = score(c, terms, idf);
+      if (s > 0) scored.push({ c: c, s: c.s === CONFIG.site ? s * SITE_BOOST : s });
+    });
+    scored.sort(function (a, b) { return b.s - a.s; });
     var hits = pick(scored, MAX_RESULTS, Infinity);
-    // L'AI risponde con i brani della pagina aperta; le altre fonti restano nei risultati.
-    var own = scored.filter(function (s) { return s.c.s === CONFIG.site; });
+    // L'AI riceve i brani migliori di tutte le fonti, con la pagina aperta in testa: le risposte
+    // possono così combinare la guida della cassa con quella dei software, separandole per fonte.
     return {
       terms: terms,
       hits: hits,
-      aiHits: pick(own.length ? own : scored, AI_PASSAGES, AI_PER_PAGE),
+      aiHits: pick(scored, AI_PASSAGES, AI_PER_PAGE),
       answer: answerOf(hits, terms, idf)
     };
   }
