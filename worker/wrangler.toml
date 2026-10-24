@@ -1,0 +1,6 @@
+name = "ecr-llm"
+main = "ecr-llm-worker.js"
+compatibility_date = "2025-01-01"
+
+[ai]
+binding = "AI"
