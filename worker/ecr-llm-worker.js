@@ -1,4 +1,4 @@
-const MODEL = '@cf/meta/llama-3.1-8b-instruct-fp8-fast';
+const MODEL = '@cf/google/gemma-4-26b-a4b-it';
 
 const ALLOWED_ORIGINS = ['https://rdbecrsolutions.github.io'];
 
@@ -80,8 +80,11 @@ export default {
         ],
         max_tokens: MAX_ANSWER_TOKENS,
         temperature: 0.2,
+        chat_template_kwargs: { enable_thinking: false },
       });
-      const answer = String((result && result.response) || '').trim();
+      const choice = result && result.choices && result.choices[0];
+      const text = (result && result.response) || (choice && choice.message && choice.message.content) || '';
+      const answer = String(text).trim();
       return json({ answer: answer || NOT_FOUND_ANSWER }, 200, cors);
     } catch (e) {
       return json({ error: 'ai_unavailable' }, 503, cors);
