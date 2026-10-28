@@ -30,7 +30,7 @@
 <aside id="sidebar" class="sidebar">
 <ul class="sidebar-nav" id="sidebar-nav">
 <li class="nav-item"><a class="nav-link collapsed" href="https://rdbecrsolutions.github.io/editremote.onlinehelp.io/"><i class="bi bi-box-arrow-up-right"></i><span>Guida EditRemote</span></a></li>
-<li class="nav-item"><a class="nav-link collapsed" href="https://rdbecrsolutions.github.io/keybedit.onlinehelp.io/"><i class="bi bi-box-arrow-up-right"></i><span>Guida KeybEDIT</span></a></li>
+<li class="nav-item" style="display:none"><a class="nav-link collapsed" href="https://rdbecrsolutions.github.io/keybedit.onlinehelp.io/"><i class="bi bi-box-arrow-up-right"></i><span>Guida KeybEDIT</span></a></li>
 <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-grid"></i><span>Guida ai registratori telematici</span></a></li>
 <li class="nav-item"><a class="nav-link collapsed" href="01-introduzione-e-modelli.html"><i class="bi bi-journal-text"></i><span>Introduzione e modelli</span></a></li>
 <li class="nav-item"><a class="nav-link collapsed" href="02-installazione-e-collegamenti.html"><i class="bi bi-journal-text"></i><span>Installazione e collegamenti</span></a></li>
@@ -54,7 +54,8 @@
 <li class="nav-item"><a class="nav-link collapsed" href="11-protocolli-xon-xoff-ecr-e-specifiche.html"><i class="bi bi-journal-text"></i><span>Protocolli XON-XOFF, ECR e specifiche RT v11</span></a></li>
 <li class="nav-item"><a class="nav-link collapsed" href="12-aggiornamento-firmware.html"><i class="bi bi-journal-text"></i><span>Aggiornamento firmware e software</span></a></li>
 <li class="nav-item"><a class="nav-link collapsed" href="13-tabelle-e-codici.html"><i class="bi bi-journal-text"></i><span>Tabelle e codici</span></a></li>
-<li class="nav-item"><a class="nav-link collapsed" href="14-errori-e-soluzioni.html"><i class="bi bi-journal-text"></i><span>Errori e soluzioni</span></a></li><li class="nav-item"><a class="nav-link collapsed" href="15-portale-edit4u.html"><i class="bi bi-journal-text"></i><span>Portale Edit4U</span></a></li>
+<li class="nav-item"><a class="nav-link collapsed" href="14-errori-e-soluzioni.html"><i class="bi bi-journal-text"></i><span>Errori e soluzioni</span></a></li>
+<li class="nav-item"><a class="nav-link collapsed" href="15-portale-edit4u.html"><i class="bi bi-journal-text"></i><span>Portale Edit4U</span></a></li>
 </ul>
 </aside>
 <main id="main" class="main">
@@ -109,8 +110,9 @@
 <h6 class="ecr-sub">Pratica di reso</h6>
 <p>La funzione 931 registra un reso. Richiede il servizio telematico attivo.</p>
 <p>Il registratore chiede il riferimento (RIF:) tra questi tipi: matricola fiscale, POS, VR, ND.</p>
-<p>Con la matricola fiscale, il registratore chiede il numero dello scontrino (RIF SCONTRINO, fino a 9999) e il numero di chiusura (RIF AZZ, fino a 2199).</p>
+<p>Con la matricola fiscale, il registratore chiede il numero dello scontrino (RIF SCONTRINO, fino a 9999), il numero di chiusura (RIF AZZ, fino a 2199) e la data (DEL GIORNO:, nel formato GG-MM-AA).</p>
 <p>Il registratore mostra RESO: AUTO oppure RESO: MANUALE.</p>
+<div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>per il reso la data viene richiesta e controllata, ma non serve a cercare lo scontrino nel giornale elettronico: la pratica di reso viene registrata in modalità manuale.</p></div></div>
 <div class="ecr-callout ecr-warn"><div class="ecr-callout-title"><i class="bi bi-exclamation-triangle"></i> Attenzione</div><div class="ecr-callout-body"><p>il reso non è consentito quando è attiva la modalità DCR a SSN. Il registratore segnala un errore dedicato.</p></div></div>
 <div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>da confermare il significato delle sigle VR e ND.</p></div></div>
 <h6 class="ecr-sub">Prova acquisto</h6>
