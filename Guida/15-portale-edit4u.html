@@ -56,7 +56,7 @@
 <li><a href="15-portale-edit4u.html#aggiornamento-da-remoto"><i class="bi bi-circle"></i><span>Aggiornamento da remoto</span></a></li>
 <li><a href="15-portale-edit4u.html#scheda-del-registratore"><i class="bi bi-circle"></i><span>La scheda del registratore</span></a></li>
 <li><a href="15-portale-edit4u.html#telemetria"><i class="bi bi-circle"></i><span>Telemetria</span></a></li>
-<li><a href="15-portale-edit4u.html#avvisi"><i class="bi bi-circle"></i><span>Avvisi automatici (*)</span></a></li>
+<li><a href="15-portale-edit4u.html#avvisi"><i class="bi bi-circle"></i><span>Avvisi ed errori</span></a></li>
 <li><a href="15-portale-edit4u.html#associazione"><i class="bi bi-circle"></i><span>Associazione del registratore</span></a></li>
 <li><a href="15-portale-edit4u.html#consigli-pratici"><i class="bi bi-circle"></i><span>Consigli pratici</span></a></li>
 </ul></li>
@@ -77,9 +77,8 @@
 <ul>
 <li><strong>Controllo:</strong> lo stato di tutti i registratori in un solo punto.</li>
 <li><strong>Aggiornamenti:</strong> programmazione e controllo dell'esito dell'aggiornamento da remoto.</li>
-<li><strong>Avvisi (*):</strong> segnalazioni su memoria, giornale e scadenze.</li>
+<li><strong>Avvisi ed errori:</strong> segnalazioni su memoria, giornale e scadenze.</li>
 </ul>
-<div class="ecr-callout ecr-warn"><div class="ecr-callout-title"><i class="bi bi-exclamation-triangle"></i> Nota (*)</div><div class="ecr-callout-body"><p>la funzionalità Avvisi non è ancora presente nel portale. È in fase di sviluppo (work in progress).</p></div></div>
 </div></div></div></div></section>
 <section class="section" id="accesso"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Accesso</h5>
 <ol>
@@ -115,6 +114,8 @@
 <li><strong>Modello:</strong> scelta dall'elenco (ad esempio Smarty Evo o One Top).</li>
 <li><strong>Progressivo FW:</strong> versione del firmware (ad esempio 25 - Release v 2.5).</li>
 <li><strong>Stato:</strong> Tutti, Online, Offline, Avviso o Errore.</li>
+<li><strong>Avviso (warning):</strong> mostra i registratori con almeno un avviso; nella griglia la segnalazione è un <strong>pallino giallo</strong>.</li>
+<li><strong>Errore:</strong> mostra i registratori con almeno un errore; nella griglia la segnalazione è un <strong>pallino rosso</strong>. I filtri includono anche le macchine con più segnalazioni contemporaneamente.</li>
 <li><strong>Cerca:</strong> applica i filtri impostati. <strong>Resetta filtri</strong> li azzera.</li>
 <li><strong>Elementi e Selezionati:</strong> conteggio dei risultati e dei registratori selezionati.</li>
 <li><strong>Seleziona tutti:</strong> seleziona i registratori del filtro corrente.</li>
@@ -167,16 +168,27 @@
 <li><strong>Memoria:</strong> percentuale della memoria di riepilogo utilizzata, numero massimo di azzeramenti gestibili e numero già effettuato, spazio occupato dal giornale elettronico e numero progressivo.</li>
 </ul>
 </div></div></div></div></section>
-<section class="section" id="avvisi"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Avvisi automatici (*)</h5>
-<p>Il portale segnala in anticipo le situazioni che richiedono attenzione:</p>
+<section class="section" id="avvisi"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Avvisi ed errori</h5>
+<p>Il <strong>pallino giallo</strong> indica un <strong>avviso (warning)</strong>: una risorsa sta per esaurirsi o una scadenza si avvicina. Il <strong>pallino rosso</strong> indica un <strong>errore</strong>: una risorsa è esaurita o il certificato della macchina è scaduto.</p>
+<h6 class="ecr-sub">Quando compare un avviso</h6>
 <ul>
-<li>Memoria fiscale in esaurimento: contattare l'assistenza.</li>
-<li>Giornale elettronico quasi pieno: pianificare un intervento.</li>
-<li>Scadenza della verifica periodica in arrivo: fissare l'appuntamento per tempo.</li>
-<li>Inizializzazioni residue basse.</li>
-<li>Chiusure da trasmettere: ci sono chiusure fiscali non ancora inviate.</li>
+<li><strong>Memoria fiscale quasi piena:</strong> resta meno del 10% dei posti per le chiusure fiscali. Ad esempio, su una capacità di 2.200 chiusure l'avviso compare da 219 posti residui in giù; con 220 posti residui non è ancora attivo. Non riguarda gli importi o il numero di scontrini.</li>
+<li><strong>Giornale elettronico:</strong> meno di 30 giorni residui; a 30 giorni l'avviso non è ancora attivo.</li>
+<li><strong>Inizializzazioni tecniche:</strong> meno di 20 ancora disponibili.</li>
+<li><strong>Certificato della macchina:</strong> scadenza entro 30 giorni, compreso il trentesimo giorno.</li>
+<li><strong>Verifica periodica:</strong> scadenza entro 30 giorni, compreso il trentesimo giorno. Contattare il tecnico per fissare l'appuntamento.</li>
 </ul>
-<div class="ecr-callout ecr-warn"><div class="ecr-callout-title"><i class="bi bi-exclamation-triangle"></i> Nota (*)</div><div class="ecr-callout-body"><p>la funzionalità Avvisi non è ancora presente nel portale. È in fase di sviluppo (work in progress).</p></div></div>
+<p>Le risorse esaurite mantengono anche l'avviso; le scadenze già superate restano segnalate. Una scadenza non impostata non viene conteggiata: l'assenza del pallino non garantisce che tutti i dati siano stati programmati.</p>
+<h6 class="ecr-sub">Quando compare un errore</h6>
+<ul>
+<li>Memoria fiscale esaurita: non ci sono più posti per nuove chiusure.</li>
+<li>Giornale elettronico esaurito secondo i controlli del registratore.</li>
+<li>Nessuna inizializzazione tecnica ancora disponibile.</li>
+<li>Certificato della macchina scaduto: l'errore compare dal giorno successivo alla data di scadenza.</li>
+</ul>
+<p>Ogni condizione attiva vale una segnalazione: due memorie esaurite costituiscono due errori; una memoria quasi piena e una verifica periodica in scadenza costituiscono due avvisi. Non è un conteggio storico: descrive la situazione dell'ultimo invio.</p>
+<p>I filtri <strong>Avviso</strong> ed <strong>Errore</strong> cercano le macchine con almeno una segnalazione, non soltanto quelle con una singola segnalazione. Una macchina può avere contemporaneamente avvisi ed errori. La verifica periodica scaduta contribuisce agli avvisi, non agli errori.</p>
+<div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Dati aggiornati</div><div class="ecr-callout-body"><p>Le segnalazioni dipendono dal software installato sul registratore e dall'ultima comunicazione ricevuta dal portale. Un registratore offline può mostrare dati non recenti. Le chiusure pendenti sono un'informazione separata e non aumentano da sole questi conteggi.</p></div></div>
 </div></div></div></div></section>
 <section class="section" id="associazione"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Associazione del registratore</h5>
 <p>Edit4U collega ogni registratore al profilo del rivenditore o del centro di assistenza corretto. La partita IVA usata dipende dalla situazione:</p>
