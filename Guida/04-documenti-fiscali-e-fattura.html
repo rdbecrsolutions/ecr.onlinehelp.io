@@ -109,10 +109,15 @@
 <figure class="ecr-figure ecr-video"><video controls playsinline preload="metadata" src="video/annullo_ND.mp4">Il browser non supporta il video.</video><figcaption>Annullo di uno scontrino con l'opzione ND</figcaption></figure>
 <h6 class="ecr-sub">Pratica di reso</h6>
 <p>La funzione 931 registra un reso. Richiede il servizio telematico attivo.</p>
-<p>Il registratore chiede il riferimento (RIF:) tra questi tipi: matricola fiscale, POS, VR, ND.</p>
-<p>Con la matricola fiscale, il registratore chiede il numero dello scontrino (RIF SCONTRINO, fino a 9999), il numero di chiusura (RIF AZZ, fino a 2199) e la data (DEL GIORNO:, nel formato GG-MM-AA).</p>
-<p>Il registratore mostra RESO: AUTO oppure RESO: MANUALE.</p>
-<div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>per il reso la data viene richiesta e controllata, ma non serve a cercare lo scontrino nel giornale elettronico: la pratica di reso viene registrata in modalità manuale.</p></div></div>
+<p>Il registratore chiede il riferimento (RIF:) con queste voci: matricola fiscale, POS, VR, ND. Se non si sceglie una voce dalla lista, chiede di digitare la matricola (MATRICOLA:).</p>
+<p>Con la matricola fiscale, o con la matricola digitata a mano, il registratore chiede:</p>
+<ol><li>il numero di chiusura (RIF. AZZ. N., fino a 2199);</li><li>il numero dello scontrino (RIF. SCONTR. N., fino a 9999);</li><li>la data (DEL GIORNO:, nel formato GG-MM-AA).</li></ol>
+<p>Con POS, VR o ND il registratore chiede solo la data (DEL GIORNO:).</p>
+<p><strong>Ricerca dello scontrino.</strong> Solo con la matricola fiscale scelta dalla lista, il registratore cerca lo scontrino nel giornale elettronico usando la data inserita. Con POS, VR, ND o con la matricola digitata a mano non c'è ricerca: la pratica viene registrata in modalità manuale.</p>
+<p>Se lo scontrino viene trovato, il registratore mostra RESO: AUTO oppure RESO: MANUALE:</p>
+<ul><li>AUTO esegue il reso automatico. Se la programmazione di reparti, tender o ATECO è cambiata dopo la vendita, il registratore segnala un errore.</li><li>MANUALE registra una pratica di reso manuale con gli estremi dello scontrino trovato.</li></ul>
+<p>Per gli scontrini di acconto di servizio la pratica è sempre manuale e il registratore non chiede la scelta.</p>
+<p>Se lo scontrino non viene trovato, la pratica manuale è ammessa solo se la data è precedente al primo documento presente nella memoria di dettaglio. In quel caso il registratore chiede PROSEGUO? e registra la pratica manuale. Altrimenti segnala un errore.</p>
 <div class="ecr-callout ecr-warn"><div class="ecr-callout-title"><i class="bi bi-exclamation-triangle"></i> Attenzione</div><div class="ecr-callout-body"><p>il reso non è consentito quando è attiva la modalità DCR a SSN. Il registratore segnala un errore dedicato.</p></div></div>
 <div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>da confermare il significato delle sigle VR e ND.</p></div></div>
 <h6 class="ecr-sub">Prova acquisto</h6>
