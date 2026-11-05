@@ -41,9 +41,10 @@
 <li><a href="04-documenti-fiscali-e-fattura.html#cliente-con-codice-fiscale-o-partita-iva"><i class="bi bi-circle"></i><span>Cliente con codice fiscale o partita IVA</span></a></li>
 <li><a href="04-documenti-fiscali-e-fattura.html#stringhe-alfanumeriche"><i class="bi bi-circle"></i><span>Stringhe alfanumeriche</span></a></li>
 <li><a href="04-documenti-fiscali-e-fattura.html#fattura"><i class="bi bi-circle"></i><span>Fattura</span></a></li>
-<li><a href="04-documenti-fiscali-e-fattura.html#annullo-e-reso-di-scontrini"><i class="bi bi-circle"></i><span>Annullo e reso di scontrini</span></a></li>
+<li><a href="04-documenti-fiscali-e-fattura.html#prova-acquisto"><i class="bi bi-circle"></i><span>Prova acquisto</span></a></li>
 <li><a href="04-documenti-fiscali-e-fattura.html#documenti-xml-e-fattura-elettronica"><i class="bi bi-circle"></i><span>Documenti XML e fattura elettronica</span></a></li>
 </ul></li>
+<li class="nav-item"><a class="nav-link collapsed" href="04b-pratiche-reso-annullo.html"><i class="bi bi-journal-text"></i><span>Pratiche di reso e annullo</span></a></li>
 <li class="nav-item"><a class="nav-link collapsed" href="05-lotteria-istantanea.html"><i class="bi bi-journal-text"></i><span>Lotteria</span></a></li>
 <li class="nav-item"><a class="nav-link collapsed" href="06-chiusure-e-rapporti.html"><i class="bi bi-journal-text"></i><span>Chiusure e rapporti</span></a></li>
 <li class="nav-item"><a class="nav-link collapsed" href="07-programmazione.html"><i class="bi bi-journal-text"></i><span>Programmazione</span></a></li>
@@ -69,7 +70,7 @@
   </nav>
 </div>
 <section class="section" id="panoramica"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Panoramica</h5>
-<p>Questo capitolo descrive il dettaglio IVA, il cliente con codice fiscale o partita IVA, la fattura, l'annullo e il reso degli scontrini, e l'esportazione e l'invio dei documenti XML.</p></div></div></div></div></section>
+<p>Questo capitolo descrive il dettaglio IVA, il cliente con codice fiscale o partita IVA, la fattura, la prova acquisto, e l'esportazione e l'invio dei documenti XML. Annullo e reso degli scontrini sono nel capitolo <a href="04b-pratiche-reso-annullo.html">Pratiche di reso e annullo</a>.</p></div></div></div></div></section>
 <section class="section" id="dettaglio-iva"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Dettaglio IVA</h5>
 <p>La funzione 313 attiva o disattiva la stampa del dettaglio IVA sullo scontrino. Quando il dettaglio è attivo, il display mostra STAMPA IVA ON.</p>
 <p>L'opzione 14 (STAMPA IVA) è nel gruppo 2 delle opzioni.</p>
@@ -98,28 +99,7 @@
 <h6 class="ecr-sub">Scontrino con la dicitura SEGUIRA' FATTURA</h6>
 <p>Questa procedura stampa la dicitura SEGUIRA' FATTURA sotto lo scontrino, quando la fattura verrà emessa in un secondo momento.</p>
 <ol><li>In 820 [menu] abilitare l'opzione STAMPA PAGAMENTI. Senza questa opzione la dicitura non viene stampata.</li><li>Premere CLIENTE, inserire la partita IVA o il codice fiscale del cliente e confermare con CLIENTE.</li><li>Battere i reparti. Al termine digitare 0 e premere CLIENTE.</li><li>Chiudere lo scontrino con PAGAMENTO NON RISCOSSO.</li></ol></div></div></div></div></section>
-<section class="section" id="annullo-e-reso-di-scontrini"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Annullo e reso di scontrini</h5>
-<h6 class="ecr-sub">Annullo dell'ultimo scontrino</h6>
-<p>La funzione 929 annulla l'ultimo scontrino emesso. Richiede il servizio telematico attivo.</p>
-<h6 class="ecr-sub">Annullo di uno scontrino precedente</h6>
-<p>La funzione 930 annulla uno scontrino già emesso. Richiede il servizio telematico attivo.</p>
-<p>Con la matricola fiscale il registratore cerca lo scontrino da annullare nel giornale elettronico. Se può annullarlo in automatico, mostra ANNULLO AUTO?. Se non lo trova, passa alla modalità ANNULLAMENTO MANUALE solo se la data precede il primo documento presente nella memoria di dettaglio; altrimenti segnala un errore.</p>
-<p>Con POS, VR o ND non c'è ricerca: l'annullo è sempre manuale.</p>
-<div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>per identificare lo scontrino il registratore chiede il riferimento (matricola fiscale, POS, VR o ND), poi la data (DEL GIORNO:). Con la matricola chiede anche il numero di chiusura (RIF. AZZ., fino a 2199) e il numero di scontrino (RIF. SCONTR., fino a 9999). Con POS, VR (vuoto a rendere) o ND (non disponibile) il riferimento è solo la data.</p></div></div>
-<figure class="ecr-figure ecr-video"><video controls playsinline preload="metadata" src="video/annullo_ND.mp4">Il browser non supporta il video.</video><figcaption>Annullo di uno scontrino con l'opzione ND</figcaption></figure>
-<h6 class="ecr-sub">Pratica di reso</h6>
-<p>La funzione 931 registra un reso. Richiede il servizio telematico attivo.</p>
-<p>Il registratore chiede il riferimento (RIF:) con queste voci: matricola fiscale, POS, VR (vuoto a rendere), ND (non disponibile). Se non si sceglie una voce dalla lista, chiede di digitare la matricola (MATRICOLA:).</p>
-<p>Con la matricola fiscale, o con la matricola digitata a mano, il registratore chiede:</p>
-<ol><li>il numero di chiusura (RIF. AZZ. N., fino a 2199);</li><li>il numero dello scontrino (RIF. SCONTR. N., fino a 9999);</li><li>la data (DEL GIORNO:, nel formato GG-MM-AA).</li></ol>
-<p>Con POS, VR o ND il registratore chiede solo la data (DEL GIORNO:).</p>
-<p><strong>Ricerca dello scontrino.</strong> Solo con la matricola fiscale scelta dalla lista, il registratore cerca lo scontrino nel giornale elettronico usando la data inserita. Con POS, VR, ND o con la matricola digitata a mano non c'è ricerca: la pratica viene registrata in modalità manuale.</p>
-<p>Se lo scontrino viene trovato, il registratore mostra RESO: AUTO oppure RESO: MANUALE:</p>
-<ul><li>AUTO esegue il reso automatico. Se la programmazione di reparti, tender o ATECO è cambiata dopo la vendita, il registratore segnala un errore.</li><li>MANUALE registra una pratica di reso manuale con gli estremi dello scontrino trovato.</li></ul>
-<p>Per gli scontrini di acconto di servizio la pratica è sempre manuale e il registratore non chiede la scelta.</p>
-<p>Se lo scontrino non viene trovato, la pratica manuale è ammessa solo se la data è precedente al primo documento presente nella memoria di dettaglio. In quel caso il registratore chiede PROSEGUO? e registra la pratica manuale. Altrimenti segnala un errore.</p>
-<div class="ecr-callout ecr-warn"><div class="ecr-callout-title"><i class="bi bi-exclamation-triangle"></i> Attenzione</div><div class="ecr-callout-body"><p>il reso non è consentito quando è attiva la modalità DCR a SSN. Il registratore segnala un errore dedicato.</p></div></div>
-<h6 class="ecr-sub">Prova acquisto</h6>
+<section class="section" id="prova-acquisto"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Prova acquisto</h5>
 <p>La funzione 311 stampa un documento non fiscale intitolato PROVA ACQUISTO, con gli articoli battuti. Il documento non ha valore fiscale. Si usa per verificare una vendita senza emettere uno scontrino fiscale.</p>
 <figure class="ecr-figure ecr-video"><video controls playsinline preload="metadata" src="video/prova_acquisto.mp4">Il browser non supporta il video.</video><figcaption>Funzionamento della prova acquisto (311)</figcaption></figure></div></div></div></div></section>
 <section class="section" id="documenti-xml-e-fattura-elettronica"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Documenti XML e fattura elettronica</h5>
@@ -137,7 +117,7 @@
 <div class="ecr-callout ecr-diff"><div class="ecr-callout-title"><i class="bi bi-arrow-left-right"></i> Differenze tra i modelli</div><div class="ecr-callout-body"><ul><li>Jolly, Smarty evo e Smarty evo+: sono disponibili le funzioni 532 e 533, l'opzione 61 (INV. FATT. AUTO) e la funzione 940 (nota di credito).</li><li>Zero Plus, Smarty Plus e Tour+: le funzioni 532 e 533, l'opzione 61 e la funzione 940 non sono disponibili.</li></ul></div></div>
 <p>La funzione 940 emette una nota di credito. L'opzione 61 invia le fatture in automatico alla chiusura fiscale.</p>
 <div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>alla chiusura fiscale, se ci sono fatture emesse e non ancora inviate, il registratore le invia al servizio telematico. Se non ci sono fatture da inviare, non parte alcun invio.</p></div></div></div></div></div></div></section>
-<section class="section"><nav class="ecr-pager d-flex justify-content-between align-items-center flex-wrap gap-2"><a class="btn btn-outline-primary btn-sm" href="03-primi-passi-e-vendita.html"><i class="bi bi-arrow-left"></i> Primi passi e vendita</a><a class="btn btn-outline-secondary btn-sm" href="index.html">Indice</a><a class="btn btn-outline-primary btn-sm" href="05-lotteria-istantanea.html">Lotteria <i class="bi bi-arrow-right"></i></a></nav></section>
+<section class="section"><nav class="ecr-pager d-flex justify-content-between align-items-center flex-wrap gap-2"><a class="btn btn-outline-primary btn-sm" href="03-primi-passi-e-vendita.html"><i class="bi bi-arrow-left"></i> Primi passi e vendita</a><a class="btn btn-outline-secondary btn-sm" href="index.html">Indice</a><a class="btn btn-outline-primary btn-sm" href="04b-pratiche-reso-annullo.html">Pratiche di reso e annullo <i class="bi bi-arrow-right"></i></a></nav></section>
 </main>
 <footer id="footer" class="footer">
   <div class="copyright">Manuali ECR</div>
