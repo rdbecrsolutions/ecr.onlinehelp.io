@@ -100,8 +100,12 @@
 <p>Il punto decimale viene gestito dall'opzione PUNTO ESPLICITO. Quando l'opzione è attiva, il separatore va digitato in modo esplicito.</p>
 <div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>con PUNTO ESPLICITO attiva, una moltiplicazione con decimali può chiudersi con PREZZO o con il tasto REP., per esempio 12.34 X 23.45 seguito da REP. Con l'opzione disattiva questa sequenza dà errore.</p></div></div>
 <h6 class="ecr-sub">Correzioni</h6>
-<p>Il tasto C cancella il valore digitato prima di confermarlo.</p>
-<p>Per annullare un articolo già registrato si usa il modificatore 1 (ANNULL.), richiamato con MOD.NUM. (M), poi si digitano prezzo e reparto dell'articolo da annullare.</p>
+<p>Il tasto C cancella il valore digitato prima di confermarlo. Non cancella gli articoli già registrati.</p>
+<h6 class="ecr-sub">Togliere l'ultimo articolo</h6>
+<p>Nello scontrino in corso:</p>
+<ol><li>Premere CORR.</li><li>Digitare reparto o PLU e il prezzo dell'articolo da togliere, come nella vendita originale.</li></ol>
+<p>Il registratore registra una voce negativa con lo stesso reparto e prezzo, quindi il totale scende. La correzione non è disponibile dopo un reso o un annullo.</p>
+<p>Per annullare un articolo già registrato si può usare anche il modificatore 1 (ANNULL.), richiamato con MOD.NUM. (M), poi si digitano prezzo e reparto dell'articolo da annullare.</p>
 <div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>ANNULL. non è disponibile dopo uno sconto o una maggiorazione sul subtotale.</p></div></div>
 <h6 class="ecr-sub">Modificatori</h6>
 <p>I modificatori applicano uno sconto, una maggiorazione, un omaggio, un acconto o un buono. Si richiamano con il tasto MOD.NUM. (M) seguito dal numero della tabella.</p>
@@ -149,6 +153,7 @@
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="../assets/js/main.js"></script>
+
 <!-- ecr-assistant -->
 <link rel="stylesheet" href="../assets/css/ecr-assistant.css">
 <script>window.ECR_ASSISTANT_CONFIG={llmUrl:"https://ecr-llm.edit-servizi4u.workers.dev",site:"Guida ECR"};</script>
