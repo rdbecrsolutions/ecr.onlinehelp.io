@@ -40,6 +40,7 @@
 <li><a href="04b-pratiche-reso-annullo.html#panoramica"><i class="bi bi-circle"></i><span>Panoramica</span></a></li>
 <li><a href="04b-pratiche-reso-annullo.html#annullo-di-scontrini"><i class="bi bi-circle"></i><span>Annullo di scontrini</span></a></li>
 <li><a href="04b-pratiche-reso-annullo.html#pratica-di-reso"><i class="bi bi-circle"></i><span>Pratica di reso</span></a></li>
+<li><a href="04b-pratiche-reso-annullo.html#correggere-scontrino-importo-errato"><i class="bi bi-circle"></i><span>Correggere uno scontrino con importo errato</span></a></li>
 <li><a href="04b-pratiche-reso-annullo.html#matricola-del-documento-originario"><i class="bi bi-circle"></i><span>Matricola del documento originario</span></a></li>
 </ul></li>
 <li class="nav-item"><a class="nav-link collapsed" href="05-lotteria-istantanea.html"><i class="bi bi-journal-text"></i><span>Lotteria</span></a></li>
@@ -69,7 +70,7 @@
   </nav>
 </div>
 <section class="section" id="panoramica"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Panoramica</h5>
-<p>Questo capitolo descrive l'annullo degli scontrini (funzioni 929 e 930), la pratica di reso (funzione 931) e la matricola del documento originario. Le funzioni richiedono il servizio telematico attivo.</p></div></div></div></div></section>
+<p>Questo capitolo descrive l'annullo degli scontrini (funzioni 929 e 930), la pratica di reso (funzione 931), la scelta tra annullo e reso per correggere uno scontrino con importo errato e la matricola del documento originario. Le funzioni richiedono il servizio telematico attivo.</p></div></div></div></div></section>
 <section class="section" id="annullo-di-scontrini"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Annullo di scontrini</h5>
 <h6 class="ecr-sub">Annullo dell'ultimo scontrino</h6>
 <p>La funzione 929 annulla l'ultimo scontrino emesso. Richiede il servizio telematico attivo.</p>
@@ -94,6 +95,15 @@
 <p>Quando la pratica è registrata, sul display compare PRATICA DI RESO. La pratica è aperta e il registratore aspetta gli articoli da rendere.</p>
 <ol><li>Non premere ESEGUI né MENÙ: il registratore passa al menu (STAMPA MENÙ) e il reso non prosegue.</li><li>Digita l'importo del primo articolo da rendere, come sullo scontrino originale. Digitalo in positivo: il registratore lo registra come reso.</li><li>Premi il tasto del reparto dell'articolo.</li><li>Ripeti i punti 2 e 3 per ogni articolo.</li><li>Chiudi la pratica con il pagamento, come per una vendita. Il pagamento chiude il documento di reso.</li></ol>
 <div class="ecr-callout ecr-warn"><div class="ecr-callout-title"><i class="bi bi-exclamation-triangle"></i> Attenzione</div><div class="ecr-callout-body"><p>il reso non è consentito quando è attiva la modalità DCR a SSN. Il registratore segnala un errore dedicato.</p></div></div></div></div></div></div></section>
+<section class="section" id="correggere-scontrino-importo-errato"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Correggere uno scontrino con importo errato</h5>
+<p>Uno scontrino già emesso non si può annullare in parte. Se il cliente ha pagato più del dovuto (per esempio 300 € invece di 30 €), hai due strade.</p>
+<p><strong>Annullo completo e nuova emissione</strong></p>
+<p>Usa questa strada quando vuoi un solo documento corretto, al posto di quello sbagliato.</p>
+<ol><li>Annulla l'intero scontrino con la funzione 930, come descritto in <a href="#annullo-di-scontrini">Annullo di scontrini</a>.</li><li>Emetti lo scontrino con l'importo corretto (30 €).</li><li>Se il pagamento era elettronico (POS), lo storno dell'importo avviene sul terminale POS.</li></ol>
+<p><strong>Reso parziale</strong></p>
+<p>Usa questa strada quando una parte dell'importo deve essere restituita al cliente.</p>
+<ol><li>Apri la pratica di reso con la funzione 931 e indica lo scontrino originale. Con POS, VR o ND il registratore chiede solo la data, e la pratica è manuale.</li><li>Digita l'importo da rendere (270 €) in positivo e premi il tasto del reparto.</li><li>Chiudi la pratica con il pagamento. Se il rimborso avviene con POS, esegui lo storno sul terminale POS.</li></ol>
+<p>Prima di chiudere la pratica, controlla sul display l'importo da rendere.</p></div></div></div></div></section>
 <section class="section" id="matricola-del-documento-originario"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Matricola del documento originario</h5>
 <p>Il campo MATRICOLA: serve a indicare la matricola fiscale del registratore che ha emesso lo scontrino originale, quando non si sceglie la matricola dalla lista RIF:. Va digitato a mano.</p>
 <p>Il campo compare quando si esce dal menu RIF: senza scegliere una voce (tasto CLEAR). Se lo scontrino è stato emesso da questo registratore, scegli invece la prima voce del menu RIF:, la matricola fiscale.</p>
