@@ -104,7 +104,13 @@
 <div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>il pagamento NON RISCOSSO può essere un tasto dedicato, programmato come SEGUIRA FATTURA (vedi <a href="07-programmazione.html#nuovo-tipo-di-pagamento">Nuovo tipo di pagamento</a>).</p></div></div></div></div></div></div></section>
 <section class="section" id="prova-acquisto"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Prova acquisto</h5>
 <p>La funzione 311 stampa un documento non fiscale intitolato PROVA ACQUISTO, con gli articoli battuti. Il documento non ha valore fiscale. Si usa per verificare una vendita senza emettere uno scontrino fiscale.</p>
-<figure class="ecr-figure ecr-video"><video controls playsinline preload="metadata" src="video/prova_acquisto.mp4">Il browser non supporta il video.</video><figcaption>Funzionamento della prova acquisto (311)</figcaption></figure></div></div></div></div></section>
+<figure class="ecr-figure ecr-video"><video controls playsinline preload="metadata" src="video/prova_acquisto.mp4">Il browser non supporta il video.</video><figcaption>Funzionamento della prova acquisto (311)</figcaption></figure>
+<h6 class="ecr-sub">Prova acquisto con QR code</h6>
+<p>Con l'opzione 57, QR prova acquisizione, attiva, la 311 stampa il documento DOCUMENTO PROVA D'ACQUISTO con un QR code al posto degli articoli. Il QR code riporta il numero, la data e la matricola dell'ultimo scontrino fiscale emesso. L'opzione è attiva di default su Smarty evo, Smarty evo+ e Jolly.</p>
+<p>Per ritrovare lo scontrino a partire dalla prova acquisto:</p>
+<ol><li>Con la cassa in attesa, senza vendite in corso, collegare alla cassa uno scanner di codici 2D.</li><li>Leggere il QR code stampato sulla prova acquisto.</li><li>La cassa ristampa lo scontrino dal Giornale elettronico.</li></ol>
+<p>Se la cassa non trova lo scontrino, oppure il QR code appartiene a un'altra cassa (matricola diversa), il display segnala un errore.</p>
+<div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>la 311 richiede almeno un articolo nel buffer di vendita, come la prova acquisto standard.</p></div></div></div></div></div></div></section>
 <section class="section" id="documenti-xml-e-fattura-elettronica"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Documenti XML e fattura elettronica</h5>
 <h6 class="ecr-sub">Esportazione delle fatture</h6>
 <p>La funzione 204 esporta le fatture su chiavetta USB.</p>
