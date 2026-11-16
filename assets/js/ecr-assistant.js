@@ -22,6 +22,23 @@
     'anche', 'dal', 'dalla', 'fra', 'tra', 'fare', 'faccio', 'quanti', 'quante', 'quanto', 'quanta', 'quali',
     'impostare', 'impostato', 'imposto', 'usare', 'serve', 'servono']);
 
+  // Termini equivalenti nella guida. Il codice C_RemoteLD è la voce 858 MENU, da cui si avvia la programmazione remota.
+  var SYNONYM_GROUPS = [
+    ['scontrino', 'scontrini', 'ricevuta', 'ricevute'],
+    ['azzeramento', 'azzeramenti', 'azzerare', 'chiusura', 'chiusure', 'chiudere'],
+    ['ristampa', 'ristampe', 'ristampare', 'ristampo', 'ristampi', 'ristampato'],
+    ['giornale', 'ge'],
+    ['remoteld', 'remota', 'remoto', '858']
+  ];
+  var SYNONYMS = {};
+  SYNONYM_GROUPS.forEach(function (group) {
+    group.forEach(function (w) { SYNONYMS[w] = group; });
+  });
+  // Sigle che si cercano come parola intera: altrimenti "rt" troverebbe "rtpos" e "ge" troverebbe "generale".
+  var EXACT_TERMS = new Set(['rt', 'ge', 'cf', 'iva']);
+  // Brani dell'AI: se il sito corrente ne ha meno di questo numero, si aggiungono brani di altre fonti.
+  var AI_MIN_PASSAGES = 3;
+
   var index = [];
   var ui = {};
   var lastResult = null;
@@ -46,9 +63,23 @@
     return t.length >= 7 ? t.slice(0, -2) : t;
   }
 
+  function alternatives(term) {
+    return SYNONYMS[term] || [term];
+  }
+
+  function stemsOf(terms) {
+    var out = [];
+    terms.forEach(function (t) {
+      alternatives(t).forEach(function (a) { out.push(stemOf(a)); });
+    });
+    return out;
+  }
+
   function termMatches(term, word) {
-    if (/\d/.test(term)) return word === term;
-    return word.indexOf(stemOf(term)) === 0;
+    return alternatives(term).some(function (alt) {
+      if (/\d/.test(alt) || EXACT_TERMS.has(alt)) return word === alt;
+      return word.indexOf(stemOf(alt)) === 0;
+    });
   }
 
   function countIn(list, term) {
@@ -66,10 +97,15 @@
     return c;
   }
 
+  // Il trattino separa le parole (RT-POS); il carattere _ resta nel token e poi viene diviso (C_RemoteLD).
   function queryTerms(q) {
-    return words(q).filter(function (t) {
-      return /\d/.test(t) || (t.length >= 3 && !STOP.has(t));
+    var out = [];
+    (normalize(q).match(/[a-z0-9_]+/g) || []).forEach(function (token) {
+      token.split('_').forEach(function (t) {
+        if (/\d/.test(t) || EXACT_TERMS.has(t) || (t.length >= 3 && !STOP.has(t))) out.push(t);
+      });
     });
+    return out;
   }
 
   // Un termine raro (per esempio "reparti") pesa più di uno generico (per esempio "programmazione").
@@ -106,14 +142,22 @@
     });
     scored.sort(function (a, b) { return b.s - a.s; });
     var hits = pick(scored, MAX_RESULTS, Infinity);
-    // L'AI riceve i brani migliori di tutte le fonti, con la pagina aperta in testa: le risposte
-    // possono così combinare la guida della cassa con quella dei software, separandole per fonte.
     return {
       terms: terms,
       hits: hits,
-      aiHits: pick(scored, AI_PASSAGES, AI_PER_PAGE),
+      aiHits: aiPassages(scored),
       answer: answerOf(hits, terms, idf)
     };
+  }
+
+  // All'AI vanno prima i brani del sito corrente; le altre fonti entrano solo se ne servono per arrivare al minimo.
+  function aiPassages(scored) {
+    if (!CONFIG.site) return pick(scored, AI_PASSAGES, AI_PER_PAGE);
+    var own = scored.filter(function (x) { return x.c.s === CONFIG.site; });
+    var others = scored.filter(function (x) { return x.c.s !== CONFIG.site; });
+    var out = pick(own, AI_PASSAGES, AI_PER_PAGE);
+    if (out.length >= AI_MIN_PASSAGES) return out;
+    return out.concat(pick(others, AI_MIN_PASSAGES - out.length, AI_PER_PAGE));
   }
 
   // Sceglie i primi risultati senza ripetere la stessa sezione e senza superare perPage brani per pagina.
@@ -139,8 +183,8 @@
   function snippetOf(c, terms) {
     var lower = c.x.toLowerCase();
     var pos = -1;
-    terms.forEach(function (t) {
-      var i = lower.indexOf(stemOf(t));
+    stemsOf(terms).forEach(function (s) {
+      var i = lower.indexOf(s);
       if (i >= 0 && (pos < 0 || i < pos)) pos = i;
     });
     var start = pos > 90 ? pos - 90 : 0;
@@ -194,7 +238,7 @@
 
   function highlight(text, terms) {
     if (!terms.length) return esc(text);
-    var re = new RegExp('(' + terms.map(function (t) { return escRe(stemOf(t)) + '\\p{L}*'; }).join('|') + ')', 'giu');
+    var re = new RegExp('(' + stemsOf(terms).map(function (s) { return escRe(s) + '\\p{L}*'; }).join('|') + ')', 'giu');
     var out = '';
     var pos = 0;
     var m;
