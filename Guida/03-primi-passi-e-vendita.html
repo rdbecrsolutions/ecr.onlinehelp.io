@@ -113,7 +113,13 @@
 <p>Gli sconti e le maggiorazioni si applicano con i modificatori da 2 a 9. Gli sconti sull'articolo agiscono sulla riga selezionata. Gli sconti sul subtotale agiscono sull'importo complessivo.</p>
 <p>Gli sconti si possono anche applicare con queste sequenze. Dopo il valore si preme PREZZO, poi il numero del modificatore, poi N.MOD.</p>
 <div class="table-responsive"><table class="table table-bordered table-sm ecr-table"><thead><tr><th>Sconto</th><th>Sequenza</th></tr></thead><tbody><tr><td>Percentuale su una battuta</td><td>battere l'articolo sul reparto, digitare la percentuale (per esempio 10), PREZZO, 2, N.MOD.</td></tr><tr><td>Percentuale sul subtotale</td><td>battere gli articoli, SUBTOTALE, digitare la percentuale (per esempio 20), PREZZO, 3, N.MOD.</td></tr><tr><td>Valore su una battuta</td><td>battere l'articolo sul reparto, digitare l'importo (per esempio 500 per 5,00 €), PREZZO, 4, N.MOD.</td></tr><tr><td>Valore sul subtotale</td><td>battere gli articoli, SUBTOTALE, digitare l'importo (per esempio 1000 per 10,00 €), PREZZO, 5, N.MOD.</td></tr></tbody></table></div>
+<div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>i numeri della tabella sono quelli da digitare prima di PREZZO e N.MOD. Nei capitoli <a href="07-programmazione.html#modificatori">Programmazione</a> e <a href="13-tabelle-e-codici.html#modificatori">Tabelle e codici</a> la colonna Tipo indica un valore interno diverso: per esempio il tipo 3 (-$ SBT) si digita con 5.</p></div></div>
 <p>Le opzioni di arrotondamento sono descritte nella sezione <a href="#opzioni-di-vendita">Opzioni di vendita</a>.</p>
+<h6 class="ecr-sub">Togliere un importo dal totale</h6>
+<p>Per togliere un importo fisso dal totale, per esempio 0,50 € su uno scontrino, si usa lo sconto a valore sul subtotale (modificatore 5, SCONTO):</p>
+<ol><li>battere gli articoli;</li><li>premere SUBTOTALE;</li><li>digitare l'importo in centesimi (per esempio 50 per 0,50 €);</li><li>premere PREZZO, poi 5, poi N.MOD.</li></ol>
+<p>Il totale scende dell'importo digitato. Lo scontrino si chiude poi con il pagamento normale.</p>
+<p>Non usare l'arrotondamento per togliere importi come 0,50 €. L'arrotondamento automatico interviene solo se il subtotale non è un multiplo di 5 centesimi, e solo con pagamento interamente in contante che copre il subtotale. Con pagamento POS o misto non interviene.</p>
 <h6 class="ecr-sub">Acconti</h6>
 <p>L'acconto registra un pagamento anticipato su un bene o su un servizio. L'importo versato in acconto viene poi detratto dal saldo.</p>
 <p><strong>Acconto su bene</strong></p>

@@ -28,7 +28,11 @@
     ['azzeramento', 'azzeramenti', 'azzerare', 'chiusura', 'chiusure', 'chiudere'],
     ['ristampa', 'ristampe', 'ristampare', 'ristampo', 'ristampi', 'ristampato'],
     ['giornale', 'ge'],
-    ['remoteld', 'remota', 'remoto', '858']
+    ['remoteld', 'remota', 'remoto', '858'],
+    ['togliere', 'tolgo', 'tolgono', 'rimuovere', 'levare', 'sottrarre'],
+    ['centesimo', 'centesimi'],
+    ['importo', 'importi', 'ammontare'],
+    ['arrotondamento', 'arrotondare', 'arrotondato']
   ];
   var SYNONYMS = {};
   SYNONYM_GROUPS.forEach(function (group) {
