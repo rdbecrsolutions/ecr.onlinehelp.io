@@ -52,6 +52,7 @@
 <li><a href="06-chiusure-e-rapporti.html#modalita-demo"><i class="bi bi-circle"></i><span>Modalità DEMO</span></a></li>
 </ul></li>
 <li class="nav-item"><a class="nav-link collapsed" href="07-programmazione.html"><i class="bi bi-journal-text"></i><span>Programmazione</span></a></li>
+<li class="nav-item"><a class="nav-link collapsed" href="07b-cassieri.html"><i class="bi bi-journal-text"></i><span>Cassieri</span></a></li>
 <li class="nav-item"><a class="nav-link collapsed" href="08-funzioni-di-servizio.html"><i class="bi bi-journal-text"></i><span>Funzioni di servizio</span></a></li>
 <li class="nav-item"><a class="nav-link collapsed" href="09-protezione-del-parco.html"><i class="bi bi-journal-text"></i><span>Protezione del parco</span></a></li>
 <li class="nav-item"><a class="nav-link collapsed" href="09b-gestione-ge.html"><i class="bi bi-journal-text"></i><span>Gestione GE</span></a></li>
@@ -82,7 +83,7 @@
 <p>I rapporti di azzeramento hanno il codice che inizia con 0. Stampano i dati e azzerano i totali.</p>
 <div class="table-responsive"><table class="table table-bordered table-sm ecr-table"><thead><tr><th>Rapporto</th><th>Lettura</th><th>Azzeramento</th><th>Disponibile in DEMO</th><th>Solo in servizio telematico</th></tr></thead><tbody><tr><td>Chiusura fiscale giornaliera</td><td>101</td><td>001</td><td>Sì</td><td>No</td></tr><tr><td>Reparti</td><td>102</td><td>non previsto</td><td>Sì</td><td>No</td></tr><tr><td>Finanziario</td><td>103</td><td>003</td><td>Sì</td><td>No</td></tr><tr><td>PLU</td><td>104</td><td>004</td><td>No</td><td>No</td></tr><tr><td>Finanziario storico</td><td>105</td><td>005</td><td>No</td><td>Sì</td></tr><tr><td>Reparti storico</td><td>106</td><td>006</td><td>No</td><td>Sì</td></tr><tr><td>Clienti</td><td>107</td><td>007</td><td>No</td><td>Sì</td></tr><tr><td>Cassieri</td><td>108</td><td>008</td><td>No</td><td>Sì</td></tr><tr><td>Flash</td><td>110</td><td>non previsto</td><td>Sì</td><td>No</td></tr><tr><td>PLU liberi</td><td>111</td><td>non previsto</td><td>Sì</td><td>No</td></tr></tbody></table></div>
 <p>La sequenza 021 è una chiusura fiscale con azzeramento, come la 001.</p>
-<div class="ecr-callout ecr-diff"><div class="ecr-callout-title"><i class="bi bi-arrow-left-right"></i> Differenze tra i modelli</div><div class="ecr-callout-body"><ul><li>Cassieri (sequenze 108 e 008): solo Smarty evo+ (EVO+). Gli altri modelli non dispongono di questi rapporti.</li></ul></div></div></div></div></div></div></section>
+<div class="ecr-callout ecr-diff"><div class="ecr-callout-title"><i class="bi bi-arrow-left-right"></i> Differenze tra i modelli</div><div class="ecr-callout-body"><ul><li>Cassieri (sequenze 108 e 008): solo Smarty evo+ (EVO+). Gli altri modelli non dispongono di questi rapporti. Vedi <a href="07b-cassieri.html">Cassieri</a>.</li></ul></div></div></div></div></div></div></section>
 <section class="section" id="come-stampare-azzeramenti-e-scontrini"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Come stampare azzeramenti e scontrini</h5>
 <h6 class="ecr-sub">Azzeramenti</h6>
 <p>Per stampare un rapporto con azzeramento digitare il suo codice dalla tabella <a href="#tipi-di-rapporto">Tipi di rapporto</a> e premere [MENU]. Per la chiusura fiscale giornaliera digitare <code>001 [MENU]</code>.</p>
@@ -168,7 +169,7 @@
 <p>Il rapporto riporta:</p>
 <ul><li>lordo progressivo, lordo giornaliero e netto;</li><li>pratiche di reso e pratiche di annullo, con importi e numero;</li><li>importo riscosso e importo non riscosso;</li><li>imponibile, aliquota e IVA per ogni aliquota.</li></ul>
 <h6 class="ecr-sub">Rapporti storici</h6>
-<p>I rapporti storici 105, 106 e 107 sono disponibili solo in servizio telematico. Il rapporto cassieri 108 segue la stessa regola.</p>
+<p>I rapporti storici 105, 106 e 107 sono disponibili solo in servizio telematico. Il rapporto cassieri 108 segue la stessa regola. Vedi <a href="07b-cassieri.html">Cassieri</a>.</p>
 <h6 class="ecr-sub">Rapporto PLU liberi</h6>
 <p>Eseguire <code>111 [MENU]</code> per stampare il rapporto dei PLU liberi.</p></div></div></div></div></section>
 <section class="section" id="rapporto-flash"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Rapporto flash</h5>

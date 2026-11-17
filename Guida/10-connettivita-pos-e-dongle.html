@@ -39,6 +39,7 @@
 <li class="nav-item"><a class="nav-link collapsed" href="05-lotteria-istantanea.html"><i class="bi bi-journal-text"></i><span>Lotteria</span></a></li>
 <li class="nav-item"><a class="nav-link collapsed" href="06-chiusure-e-rapporti.html"><i class="bi bi-journal-text"></i><span>Chiusure e rapporti</span></a></li>
 <li class="nav-item"><a class="nav-link collapsed" href="07-programmazione.html"><i class="bi bi-journal-text"></i><span>Programmazione</span></a></li>
+<li class="nav-item"><a class="nav-link collapsed" href="07b-cassieri.html"><i class="bi bi-journal-text"></i><span>Cassieri</span></a></li>
 <li class="nav-item"><a class="nav-link collapsed" href="08-funzioni-di-servizio.html"><i class="bi bi-journal-text"></i><span>Funzioni di servizio</span></a></li>
 <li class="nav-item"><a class="nav-link collapsed" href="09-protezione-del-parco.html"><i class="bi bi-journal-text"></i><span>Protezione del parco</span></a></li>
 <li class="nav-item"><a class="nav-link collapsed" href="09b-gestione-ge.html"><i class="bi bi-journal-text"></i><span>Gestione GE</span></a></li>
@@ -70,7 +71,10 @@
 <section class="section" id="panoramica"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Panoramica</h5>
 <p>Questo capitolo descrive i collegamenti di rete del registratore e il dongle Wi-Fi esterno. Il collegamento con il terminale di pagamento POS è descritto nel capitolo <a href="10b-collegamento-rt-pos.html">Collegamento RT-POS</a>.</p></div></div></div></div></section>
 <section class="section" id="collegamenti-di-rete"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Collegamenti di rete</h5>
-<p>Il registratore comunica in rete tramite cavo Ethernet (LAN), tramite Wi-Fi oppure tramite il dongle Wi-Fi esterno, dove previsto. I parametri di rete si impostano con la funzione 833. Per le altre funzioni di programmazione vedere <a href="07-programmazione.html">Programmazione</a>.</p></div></div></div></div></section>
+<p>Il registratore comunica in rete tramite cavo Ethernet (LAN), tramite Wi-Fi oppure tramite il dongle Wi-Fi esterno, dove previsto. I parametri di rete si impostano con la funzione 833. Per le altre funzioni di programmazione vedere <a href="07-programmazione.html">Programmazione</a>.</p>
+<h6 class="ecr-sub">DNS</h6>
+<p>Il DNS è il servizio che traduce i nomi dei server in indirizzi di rete. Il comportamento dipende dal tipo di collegamento:</p>
+<ul><li><strong>Ethernet (LAN):</strong> con DHCP attivo, il registratore usa i DNS forniti dal router. Senza DHCP resta attivo il DNS predefinito, <strong>208.67.222.222</strong> (OpenDNS).</li><li><strong>Wi-Fi:</strong> il DNS è gestito dal modulo Wi-Fi, che non viene configurato dal registratore. In modalità automatica, al termine del DHCP il modulo usa i DNS del router. I valori predefiniti del modulo sono <strong>208.67.222.222</strong> (OpenDNS), <strong>114.114.114.114</strong> e <strong>8.8.8.8</strong> (Google).</li><li>Una configurazione DNS manuale salvata nel modulo Wi-Fi ha la precedenza sui DNS ricevuti dal DHCP.</li></ul></div></div></div></div></section>
 <section class="section" id="dongle-wi-fi-e-d-it"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Dongle Wi-Fi E.D.it</h5>
 <p>Il dongle Wi-Fi E.D.it è un accessorio esterno che collega il registratore alla rete Wi-Fi.</p>
 <div class="ecr-callout ecr-diff"><div class="ecr-callout-title"><i class="bi bi-arrow-left-right"></i> Differenze tra i modelli</div><div class="ecr-callout-body"><ul><li><strong>Smarty evo, Smarty evo+ e Jolly:</strong> il dongle esterno non è previsto. Il Wi-Fi è gestito dal modulo di rete interno del registratore.</li></ul></div></div>
