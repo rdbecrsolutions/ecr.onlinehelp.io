@@ -1,6 +1,8 @@
 /* Stili aggiuntivi per le guide ECR, oltre al tema EditRemote (style.css) */
 
-section[id] {
+section[id],
+.ecr-sub[id],
+.ecr-sub2[id] {
   scroll-margin-top: 80px;
 }
 
@@ -100,4 +102,22 @@ section[id] {
 
 .ecr-pager {
   margin-top: 1rem;
+}
+
+/* Sommario laterale: sottotitoli (h6.ecr-sub) e titoletti (.ecr-sub2) sotto le sezioni del capitolo */
+.sidebar-nav .nav-content ul {
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav .nav-content ul a {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.3;
+  padding: 6px 0 6px 56px;
+}
+
+.sidebar-nav .nav-content ul ul a {
+  font-size: 12px;
+  padding: 4px 0 4px 72px;
 }

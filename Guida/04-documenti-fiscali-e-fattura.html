@@ -38,12 +38,27 @@
 <ul class="nav-content">
 <li><a href="04-documenti-fiscali-e-fattura.html#panoramica"><i class="bi bi-circle"></i><span>Panoramica</span></a></li>
 <li><a href="04-documenti-fiscali-e-fattura.html#dettaglio-iva"><i class="bi bi-circle"></i><span>Dettaglio IVA</span></a></li>
-<li><a href="04-documenti-fiscali-e-fattura.html#cliente-con-codice-fiscale-o-partita-iva"><i class="bi bi-circle"></i><span>Cliente con codice fiscale o partita IVA</span></a></li>
+<li><a href="04-documenti-fiscali-e-fattura.html#cliente-con-codice-fiscale-o-partita-iva"><i class="bi bi-circle"></i><span>Cliente con codice fiscale o partita IVA</span></a>
+<ul>
+<li><a href="04-documenti-fiscali-e-fattura.html#da-tastiera"><i class="bi bi-circle"></i><span>Da tastiera</span></a></li>
+<li><a href="04-documenti-fiscali-e-fattura.html#scontrino-parlante-dal-gestionale"><i class="bi bi-circle"></i><span>Scontrino parlante dal gestionale</span></a></li>
+</ul></li>
 <li><a href="04-documenti-fiscali-e-fattura.html#stringhe-alfanumeriche"><i class="bi bi-circle"></i><span>Stringhe alfanumeriche</span></a></li>
-<li><a href="04-documenti-fiscali-e-fattura.html#fattura"><i class="bi bi-circle"></i><span>Fattura</span></a></li>
+<li><a href="04-documenti-fiscali-e-fattura.html#fattura"><i class="bi bi-circle"></i><span>Fattura</span></a>
+<ul>
+<li><a href="04-documenti-fiscali-e-fattura.html#seguira-fattura"><i class="bi bi-circle"></i><span>Scontrino con la dicitura SEGUIRA' FATTURA</span></a></li>
+</ul></li>
 <li><a href="04-documenti-fiscali-e-fattura.html#dcr-a-ssn"><i class="bi bi-circle"></i><span>Documento DCR a SSN</span></a></li>
-<li><a href="04-documenti-fiscali-e-fattura.html#prova-acquisto"><i class="bi bi-circle"></i><span>Prova acquisto</span></a></li>
-<li><a href="04-documenti-fiscali-e-fattura.html#documenti-xml-e-fattura-elettronica"><i class="bi bi-circle"></i><span>Documenti XML e fattura elettronica</span></a></li>
+<li><a href="04-documenti-fiscali-e-fattura.html#prova-acquisto"><i class="bi bi-circle"></i><span>Prova acquisto</span></a>
+<ul>
+<li><a href="04-documenti-fiscali-e-fattura.html#prova-acquisto-con-qr-code"><i class="bi bi-circle"></i><span>Prova acquisto con QR code</span></a></li>
+</ul></li>
+<li><a href="04-documenti-fiscali-e-fattura.html#documenti-xml-e-fattura-elettronica"><i class="bi bi-circle"></i><span>Documenti XML e fattura elettronica</span></a>
+<ul>
+<li><a href="04-documenti-fiscali-e-fattura.html#esportazione-delle-fatture"><i class="bi bi-circle"></i><span>Esportazione delle fatture</span></a></li>
+<li><a href="04-documenti-fiscali-e-fattura.html#esportazione-della-memoria-fiscale-in-xml"><i class="bi bi-circle"></i><span>Esportazione della memoria fiscale in XML</span></a></li>
+<li><a href="04-documenti-fiscali-e-fattura.html#invio-delle-fatture"><i class="bi bi-circle"></i><span>Invio delle fatture</span></a></li>
+</ul></li>
 </ul></li>
 <li class="nav-item"><a class="nav-link collapsed" href="04b-pratiche-reso-annullo.html"><i class="bi bi-journal-text"></i><span>Pratiche di reso e annullo</span></a></li>
 <li class="nav-item"><a class="nav-link collapsed" href="05-lotteria-istantanea.html"><i class="bi bi-journal-text"></i><span>Lotteria</span></a></li>
@@ -80,12 +95,12 @@
 <p>L'opzione 14 (STAMPA IVA) è nel gruppo 2 delle opzioni.</p>
 <p>Il dettaglio IVA viene stampato sullo scontrino in corso. Per stamparlo su tutti gli scontrini successivi occorre attivare l'opzione 14.</p></div></div></div></div></section>
 <section class="section" id="cliente-con-codice-fiscale-o-partita-iva"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Cliente con codice fiscale o partita IVA</h5>
-<p>Il cliente si inserisce con il tasto CLIENTE (G), oppure dal gestionale con lo scontrino parlante. In entrambi i casi il codice viene stampato a fine scontrino.</p><h6 class="ecr-sub">Da tastiera</h6><ol><li>Premere il tasto CLIENTE (G).</li><li>Digitare il codice: partita IVA (11 cifre) oppure codice fiscale (16 caratteri).</li><li>Premere CLIENTE.</li></ol>
+<p>Il cliente si inserisce con il tasto CLIENTE (G), oppure dal gestionale con lo scontrino parlante. In entrambi i casi il codice viene stampato a fine scontrino.</p><h6 class="ecr-sub" id="da-tastiera">Da tastiera</h6><ol><li>Premere il tasto CLIENTE (G).</li><li>Digitare il codice: partita IVA (11 cifre) oppure codice fiscale (16 caratteri).</li><li>Premere CLIENTE.</li></ol>
 <p>Il registratore controlla il codice. Se è valido mostra == CODICE OK ==. Se non è valido mostra CODICE ERRATO.</p>
 <p>Un codice valido imposta la stampa del dato sullo scontrino. Il codice viene cercato nell'archivio dei clienti.</p>
 <div class="ecr-callout ecr-warn"><div class="ecr-callout-title"><i class="bi bi-exclamation-triangle"></i> Attenzione</div><div class="ecr-callout-body"><p>il cliente non si può inserire mentre è in corso una fattura senza scontrino. Il registratore segnala un errore di sequenza.</p></div></div>
 <div class="ecr-callout ecr-warn"><div class="ecr-callout-title"><i class="bi bi-exclamation-triangle"></i> Attenzione</div><div class="ecr-callout-body"><p>con la modalità DCR a SSN attiva (vedi <a href="#dcr-a-ssn">Documento DCR a SSN</a>), il codice fiscale o la partita IVA non si possono inserire. Il registratore segnala un errore di sequenza.</p></div></div>
-<p>Con il servizio telematico attivo, un codice non valido può essere letto come codice lotteria. Il comportamento è descritto nel capitolo <a href="05-lotteria-istantanea.html#lotteria-differita-partecipazione">Lotteria</a>.</p><h6 class="ecr-sub">Scontrino parlante dal gestionale</h6><p>Il gestionale invia il codice via XON-XOFF, poi il comando <code>39F</code>:</p><ol><li>Il codice fiscale (16 caratteri) o la partita IVA (11 cifre), tra apici, seguito dal terminatore <code>@</code>.</li><li>Il comando <code>39F</code> (Attiva scontrino parlante), prima della chiusura dello scontrino.</li></ol><p>Con <code>39F</code> il codice viene stampato a fine scontrino, come da tastiera. Senza <code>39F</code> il codice non viene stampato a fine scontrino.</p><div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>se il testo tra apici non è un codice fiscale o una partita IVA valida, il registratore lo stampa come messaggio normale e non come cliente.</p></div></div><p>I caratteri del protocollo sono descritti nel capitolo <a href="11-protocolli-xon-xoff-ecr-e-specifiche.html#protocollo-xon-xoff-ed-estensioni">Protocolli XON-XOFF</a>.</p></div></div></div></div></section>
+<p>Con il servizio telematico attivo, un codice non valido può essere letto come codice lotteria. Il comportamento è descritto nel capitolo <a href="05-lotteria-istantanea.html#lotteria-differita-partecipazione">Lotteria</a>.</p><h6 class="ecr-sub" id="scontrino-parlante-dal-gestionale">Scontrino parlante dal gestionale</h6><p>Il gestionale invia il codice via XON-XOFF, poi il comando <code>39F</code>:</p><ol><li>Il codice fiscale (16 caratteri) o la partita IVA (11 cifre), tra apici, seguito dal terminatore <code>@</code>.</li><li>Il comando <code>39F</code> (Attiva scontrino parlante), prima della chiusura dello scontrino.</li></ol><p>Con <code>39F</code> il codice viene stampato a fine scontrino, come da tastiera. Senza <code>39F</code> il codice non viene stampato a fine scontrino.</p><div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>se il testo tra apici non è un codice fiscale o una partita IVA valida, il registratore lo stampa come messaggio normale e non come cliente.</p></div></div><p>I caratteri del protocollo sono descritti nel capitolo <a href="11-protocolli-xon-xoff-ecr-e-specifiche.html#protocollo-xon-xoff-ed-estensioni">Protocolli XON-XOFF</a>.</p></div></div></div></div></section>
 <section class="section" id="stringhe-alfanumeriche"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Stringhe alfanumeriche</h5>
 <p>Le stringhe sono righe di testo libero da stampare sullo scontrino. Si possono inserire fino a 3 stringhe. Ogni stringa può contenere fino a 30 caratteri.</p>
 <p>Se è in corso uno scontrino, la stringa viene stampata subito. Altrimenti viene memorizzata e stampata sullo scontrino successivo. La stringa si conferma con il tasto MENU (ESEGUE).</p>
@@ -121,14 +136,14 @@
 <p>Se la cassa non trova lo scontrino, oppure il QR code appartiene a un'altra cassa (matricola diversa), il display segnala un errore.</p>
 <div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>la 311 richiede almeno un articolo nel buffer di vendita, come la prova acquisto standard.</p></div></div></div></div></div></div></section>
 <section class="section" id="documenti-xml-e-fattura-elettronica"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Documenti XML e fattura elettronica</h5>
-<h6 class="ecr-sub">Esportazione delle fatture</h6>
+<h6 class="ecr-sub" id="esportazione-delle-fatture">Esportazione delle fatture</h6>
 <p>La funzione 204 esporta le fatture su chiavetta USB.</p>
 <p>Sui modelli Jolly, Smarty evo e Smarty evo+ la funzione richiede la partita IVA a 11 cifre o il codice fiscale a 16 caratteri nei dati aziendali. Sugli altri modelli la funzione chiede una data e poi esporta i documenti dalla scheda SD o dalla chiavetta USB. Lo scontrino riporta EXPORT XML FATTURE e l'intervallo di date.</p>
 <div class="ecr-callout ecr-diff"><div class="ecr-callout-title"><i class="bi bi-arrow-left-right"></i> Differenze tra i modelli</div><div class="ecr-callout-body"><ul><li>Jolly, Smarty evo e Smarty evo+: esportazione con controllo di partita IVA o codice fiscale nei dati aziendali.</li><li>Zero Plus, Smarty Plus e Tour+: esportazione dopo la richiesta di una data.</li></ul></div></div>
-<h6 class="ecr-sub">Esportazione della memoria fiscale in XML</h6>
+<h6 class="ecr-sub" id="esportazione-della-memoria-fiscale-in-xml">Esportazione della memoria fiscale in XML</h6>
 <p>Le funzioni 211, 212 e 213 esportano la memoria fiscale in formato XML su chiavetta USB. Sono disponibili su tutti i modelli.</p>
 <ul><li>211: esporta tutta la memoria fiscale.</li><li>212: chiede una data.</li><li>213: chiede l'intervallo di chiusure da esportare, fino al numero 2200.</li></ul>
-<h6 class="ecr-sub">Invio delle fatture</h6>
+<h6 class="ecr-sub" id="invio-delle-fatture">Invio delle fatture</h6>
 <p>La funzione 530 invia le fatture per email. Richiede la configurazione del server di posta.</p>
 <p>La funzione 531 stampa il report delle fatture inviate, con il messaggio REPORT FATTURE INVIATE (NUM). Richiede la partita IVA o il codice fiscale aziendale e il registratore già fiscalizzato.</p>
 <p>La funzione 532 invia le fatture al servizio telematico. La funzione 533 chiede l'esito dell'ultimo invio. Entrambe richiedono il servizio telematico attivo e la funzione di trasmissione fatture abilitata.</p>

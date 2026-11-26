@@ -41,8 +41,18 @@
 <li><a href="02-installazione-e-collegamenti.html#alimentazione"><i class="bi bi-circle"></i><span>Alimentazione</span></a></li>
 <li><a href="02-installazione-e-collegamenti.html#batteria-interna"><i class="bi bi-circle"></i><span>Batteria interna</span></a></li>
 <li><a href="02-installazione-e-collegamenti.html#ethernet-a1"><i class="bi bi-circle"></i><span>Ethernet (A1)</span></a></li>
-<li><a href="02-installazione-e-collegamenti.html#usb"><i class="bi bi-circle"></i><span>USB</span></a></li>
-<li><a href="02-installazione-e-collegamenti.html#seriale-rs232-a3"><i class="bi bi-circle"></i><span>Seriale RS232 (A3)</span></a></li>
+<li><a href="02-installazione-e-collegamenti.html#usb"><i class="bi bi-circle"></i><span>USB</span></a>
+<ul>
+<li><a href="02-installazione-e-collegamenti.html#pen-drive-a2"><i class="bi bi-circle"></i><span>Pen-drive (A2)</span></a></li>
+<li><a href="02-installazione-e-collegamenti.html#pc-a4"><i class="bi bi-circle"></i><span>PC (A4)</span></a></li>
+</ul></li>
+<li><a href="02-installazione-e-collegamenti.html#seriale-rs232-a3"><i class="bi bi-circle"></i><span>Seriale RS232 (A3)</span></a>
+<ul>
+<li><a href="02-installazione-e-collegamenti.html#piedinatura-del-connettore-rj45-rs232-a3"><i class="bi bi-circle"></i><span>Piedinatura del connettore RJ45 RS232 (A3)</span></a></li>
+<li><a href="02-installazione-e-collegamenti.html#cavo-di-collegamento-al-pc"><i class="bi bi-circle"></i><span>Cavo di collegamento al PC</span></a></li>
+<li><a href="02-installazione-e-collegamenti.html#cavo-di-collegamento-allo-scanner"><i class="bi bi-circle"></i><span>Cavo di collegamento allo scanner</span></a></li>
+<li><a href="02-installazione-e-collegamenti.html#configurazione-della-porta-seriale-menu-832"><i class="bi bi-circle"></i><span>Configurazione della porta seriale (menu 832)</span></a></li>
+</ul></li>
 <li><a href="02-installazione-e-collegamenti.html#canali-di-comunicazione"><i class="bi bi-circle"></i><span>Canali di comunicazione</span></a></li>
 <li><a href="02-installazione-e-collegamenti.html#installazione"><i class="bi bi-circle"></i><span>Installazione</span></a></li>
 <li><a href="02-installazione-e-collegamenti.html#prima-accensione"><i class="bi bi-circle"></i><span>Prima accensione</span></a></li>
@@ -108,30 +118,30 @@
 <p>Il connettore RJ45 A1 supporta reti Ethernet standard 10/100 Mbps.</p>
 <div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>da confermare il tipo di cavo per il collegamento no-autosense.</p></div></div></div></div></div></div></section>
 <section class="section" id="usb"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">USB</h5>
-<h6 class="ecr-sub">Pen-drive (A2)</h6>
+<h6 class="ecr-sub" id="pen-drive-a2">Pen-drive (A2)</h6>
 <p>Il connettore USB tipo A (A2) accetta una pen-drive standard. La pen-drive serve per l'aggiornamento del software: vedere <a href="12-aggiornamento-firmware.html">Aggiornamento firmware</a>.</p>
-<h6 class="ecr-sub">PC (A4)</h6>
+<h6 class="ecr-sub" id="pc-a4">PC (A4)</h6>
 <p>Il connettore USB tipo mini B (A4) collega il PC. Usare un cavo con connettore USB tipo A dal lato PC e mini B dal lato registratore.</p>
 <p>Il collegamento USB appare al PC come porta seriale virtuale.</p>
 <div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>da confermare il driver da installare sul PC.</p></div></div></div></div></div></div></section>
 <section class="section" id="seriale-rs232-a3"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Seriale RS232 (A3)</h5>
 <p>Il connettore RJ45 RS232 (A3) collega un PC, un lettore di codici a barre o un terzo display su torretta. La periferica si sceglie dal menu 832 [menu], descritto più avanti.</p>
 <figure class="ecr-figure"><img src="img/te-evo-p09-02.png" alt="Connettori della scheda processor, con modulo Wi-Fi montato" loading="lazy"><figcaption>Connettori della scheda processor, con modulo Wi-Fi montato</figcaption></figure>
-<h6 class="ecr-sub">Piedinatura del connettore RJ45 RS232 (A3)</h6>
+<h6 class="ecr-sub" id="piedinatura-del-connettore-rj45-rs232-a3">Piedinatura del connettore RJ45 RS232 (A3)</h6>
 <figure class="ecr-figure"><img src="img/rs232-rj45-pinout.jpg" alt="Connettore RJ45 RS232 (A3) con la numerazione dei pin" loading="lazy"><figcaption>Connettore RJ45 RS232 (A3): numerazione dei pin</figcaption></figure>
 <div class="table-responsive"><table class="table table-bordered table-sm ecr-table"><thead><tr><th>Pin</th><th>Segnale</th></tr></thead><tbody><tr><td>1</td><td>Schermo</td></tr><tr><td>2</td><td>TX, uscita dati dal registratore</td></tr><tr><td>3</td><td>RX, ingresso dati nel registratore</td></tr><tr><td>4</td><td>DTR, con tensione di +5 V</td></tr><tr><td>5</td><td>Non usato</td></tr><tr><td>6</td><td>RTS</td></tr><tr><td>7</td><td>GND, massa del segnale</td></tr><tr><td>8</td><td>CTS</td></tr></tbody></table></div>
-<h6 class="ecr-sub">Cavo di collegamento al PC</h6>
+<h6 class="ecr-sub" id="cavo-di-collegamento-al-pc">Cavo di collegamento al PC</h6>
 <p>Il cavo ha un connettore RJ45 da inserire in A3 e un connettore HARTING a 9 poli dall'altro lato. La lunghezza è di circa 100 cm (±5 cm). Il connettore a 9 poli si collega di solito a un convertitore USB-seriale.</p>
 <div class="table-responsive"><table class="table table-bordered table-sm ecr-table"><thead><tr><th>RJ45 (A3)</th><th>Segnale</th><th>HARTING 9 poli</th></tr></thead><tbody><tr><td>1</td><td>Schermo</td><td>Carcassa del connettore</td></tr><tr><td>2</td><td>TX</td><td>2</td></tr><tr><td>3</td><td>RX</td><td>3</td></tr><tr><td>4</td><td>DTR, +5 V</td><td>Non collegato</td></tr><tr><td>5</td><td>Non usato</td><td>Non collegato</td></tr><tr><td>6</td><td>RTS</td><td>4</td></tr><tr><td>7</td><td>GND</td><td>5</td></tr><tr><td>8</td><td>CTS</td><td>6</td></tr></tbody></table></div>
 <figure class="ecr-figure"><img src="img/cavo-pc-schema.svg" alt="Schema del cavo di collegamento al PC: pin del connettore RJ45 collegati ai pin del connettore a 9 poli" loading="lazy"><figcaption>Schema del cavo di collegamento al PC</figcaption></figure>
 <div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>Nel connettore a 9 poli i pin 7 e 8 sono collegati tra loro. I pin 1 e 9 non sono usati.</p></div></div>
 <p>Per terminare il collegamento con il PC eseguire 704 [menu].</p>
-<h6 class="ecr-sub">Cavo di collegamento allo scanner</h6>
+<h6 class="ecr-sub" id="cavo-di-collegamento-allo-scanner">Cavo di collegamento allo scanner</h6>
 <p>Il cavo ha un connettore RJ45 da inserire in A3 e un connettore a 9 poli maschio dall'altro lato, da collegare al connettore a 9 poli femmina dello scanner.</p>
 <div class="table-responsive"><table class="table table-bordered table-sm ecr-table"><thead><tr><th>RJ45 (A3)</th><th>Segnale</th><th>9 poli maschio</th></tr></thead><tbody><tr><td>3</td><td>RX</td><td>2</td></tr><tr><td>1</td><td>GND</td><td>5</td></tr></tbody></table></div>
 <figure class="ecr-figure"><img src="img/cavo-scanner-schema.svg" alt="Schema del cavo di collegamento allo scanner: pin del plug 8 poli collegati ai pin del connettore a 9 poli" loading="lazy"><figcaption>Schema del cavo di collegamento allo scanner</figcaption></figure>
 <div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>Uscire sempre dalla modalità PC con 704 [menu].</p></div></div>
-<h6 class="ecr-sub">Configurazione della porta seriale (menu 832)</h6>
+<h6 class="ecr-sub" id="configurazione-della-porta-seriale-menu-832">Configurazione della porta seriale (menu 832)</h6>
 <p>Il menu 832 [menu] PROGR. SERIALI associa la porta RS232 a una periferica. Le periferiche disponibili sono:</p>
 <ul><li>PC;</li><li>SCANNER, il lettore di codici a barre;</li><li>TORRETTA, il terzo display esterno;</li><li>POS.</li></ul>
 <p>È abilitata una sola periferica alla volta. Abilitandone una, le altre si disattivano.</p>

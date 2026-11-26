@@ -46,8 +46,17 @@
 <li class="nav-item"><a class="nav-link" href="10-connettivita-pos-e-dongle.html"><i class="bi bi-journal-text"></i><span>Connettività e dongle</span></a>
 <ul class="nav-content">
 <li><a href="10-connettivita-pos-e-dongle.html#panoramica"><i class="bi bi-circle"></i><span>Panoramica</span></a></li>
-<li><a href="10-connettivita-pos-e-dongle.html#collegamenti-di-rete"><i class="bi bi-circle"></i><span>Collegamenti di rete</span></a></li>
-<li><a href="10-connettivita-pos-e-dongle.html#dongle-wi-fi-e-d-it"><i class="bi bi-circle"></i><span>Dongle Wi-Fi E.D.it</span></a></li>
+<li><a href="10-connettivita-pos-e-dongle.html#collegamenti-di-rete"><i class="bi bi-circle"></i><span>Collegamenti di rete</span></a>
+<ul>
+<li><a href="10-connettivita-pos-e-dongle.html#dns"><i class="bi bi-circle"></i><span>DNS</span></a></li>
+</ul></li>
+<li><a href="10-connettivita-pos-e-dongle.html#dongle-wi-fi-e-d-it"><i class="bi bi-circle"></i><span>Dongle Wi-Fi E.D.it</span></a>
+<ul>
+<li><a href="10-connettivita-pos-e-dongle.html#collegamento-al-registratore"><i class="bi bi-circle"></i><span>Collegamento al registratore</span></a></li>
+<li><a href="10-connettivita-pos-e-dongle.html#configurazione-della-rete-con-833"><i class="bi bi-circle"></i><span>Configurazione della rete con 833</span></a></li>
+<li><a href="10-connettivita-pos-e-dongle.html#parametri-wi-fi"><i class="bi bi-circle"></i><span>Parametri Wi-Fi</span></a></li>
+<li><a href="10-connettivita-pos-e-dongle.html#uso-con-registratore-a-batteria"><i class="bi bi-circle"></i><span>Uso con registratore a batteria</span></a></li>
+</ul></li>
 </ul></li>
 <li class="nav-item"><a class="nav-link collapsed" href="10b-collegamento-rt-pos.html"><i class="bi bi-journal-text"></i><span>Collegamento RT-POS</span></a></li>
 <li class="nav-item"><a class="nav-link collapsed" href="11-protocolli-xon-xoff-ecr-e-specifiche.html"><i class="bi bi-journal-text"></i><span>Protocolli XON-XOFF, ECR e specifiche RT v11</span></a></li>
@@ -72,25 +81,25 @@
 <p>Questo capitolo descrive i collegamenti di rete del registratore e il dongle Wi-Fi esterno. Il collegamento con il terminale di pagamento POS è descritto nel capitolo <a href="10b-collegamento-rt-pos.html">Collegamento RT-POS</a>.</p></div></div></div></div></section>
 <section class="section" id="collegamenti-di-rete"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Collegamenti di rete</h5>
 <p>Il registratore comunica in rete tramite cavo Ethernet (LAN), tramite Wi-Fi oppure tramite il dongle Wi-Fi esterno, dove previsto. I parametri di rete si impostano con la funzione 833. Per le altre funzioni di programmazione vedere <a href="07-programmazione.html">Programmazione</a>.</p>
-<h6 class="ecr-sub">DNS</h6>
+<h6 class="ecr-sub" id="dns">DNS</h6>
 <p>Il DNS è il servizio che traduce i nomi dei server in indirizzi di rete. Il comportamento dipende dal tipo di collegamento:</p>
 <ul><li><strong>Ethernet (LAN):</strong> con DHCP attivo, il registratore usa i DNS forniti dal router. Senza DHCP resta attivo il DNS predefinito, <strong>208.67.222.222</strong> (OpenDNS).</li><li><strong>Wi-Fi:</strong> il DNS è gestito dal modulo Wi-Fi, che non viene configurato dal registratore. In modalità automatica, al termine del DHCP il modulo usa i DNS del router. I valori predefiniti del modulo sono <strong>208.67.222.222</strong> (OpenDNS), <strong>114.114.114.114</strong> e <strong>8.8.8.8</strong> (Google).</li><li>Una configurazione DNS manuale salvata nel modulo Wi-Fi ha la precedenza sui DNS ricevuti dal DHCP.</li></ul></div></div></div></div></section>
 <section class="section" id="dongle-wi-fi-e-d-it"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Dongle Wi-Fi E.D.it</h5>
 <p>Il dongle Wi-Fi E.D.it è un accessorio esterno che collega il registratore alla rete Wi-Fi.</p>
 <div class="ecr-callout ecr-diff"><div class="ecr-callout-title"><i class="bi bi-arrow-left-right"></i> Differenze tra i modelli</div><div class="ecr-callout-body"><ul><li><strong>Smarty evo, Smarty evo+ e Jolly:</strong> il dongle esterno non è previsto. Il Wi-Fi è gestito dal modulo di rete interno del registratore.</li></ul></div></div>
 <div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>da confermare la versione software minima per il dongle nei modelli Zero Plus, Smarty Plus e Smarty Tour+: non esiste un riferimento di versione per questo accessorio.</p></div></div>
-<h6 class="ecr-sub">Collegamento al registratore</h6>
+<h6 class="ecr-sub" id="collegamento-al-registratore">Collegamento al registratore</h6>
 <p>Il dongle ha un connettore RJ45 e un connettore USB. Il collegamento al registratore segue lo schema della scheda.</p>
 <p>Il dongle si collega alla porta seriale COM1 del registratore, che ne rileva la presenza. Quando il Wi-Fi è connesso e ha un indirizzo IP, uno dei due LED resta acceso fisso; in caso contrario lampeggia.</p>
 <div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>da confermare il tipo di cavo e il colore dei LED.</p></div></div>
-<h6 class="ecr-sub">Configurazione della rete con 833</h6>
+<h6 class="ecr-sub" id="configurazione-della-rete-con-833">Configurazione della rete con 833</h6>
 <ol><li>Digitare <strong>833</strong> e confermare.</li><li>Se il cavo Ethernet è collegato e il dongle è presente, compare il menu <strong>TIPO</strong>. Scegliere <strong>LAN</strong> oppure <strong>WIFI</strong>.</li><li>Se il cavo non è collegato e il dongle è presente, il registratore passa direttamente alla configurazione Wi-Fi.</li><li>Se il dongle non è presente, si configura la rete LAN.</li></ol>
-<h6 class="ecr-sub">Parametri Wi-Fi</h6>
+<h6 class="ecr-sub" id="parametri-wi-fi">Parametri Wi-Fi</h6>
 <ol><li>Se il Wi-Fi è già connesso, compare <strong>CAMB. RETE?</strong>:<ul><li><strong>SI:</strong> il registratore cerca le reti disponibili.</li><li><strong>NO:</strong> il registratore non cambia rete e passa ai parametri DHCP.</li></ul></li><li>Se il Wi-Fi non è connesso, il registratore cerca direttamente le reti.</li><li>Scegliere la rete dall'elenco <strong>RETE:</strong>. Se non vengono trovate reti, il display mostra "NESSUNA RETE TROVATA".</li><li>Digitare la <strong>PASSWORD</strong> della rete e confermare.</li><li>Impostare <strong>WIFI DHCP</strong> su SI oppure NO. Con DHCP su NO si impostano indirizzo IP, netmask e gateway.</li></ol>
 <p>In caso di errore di connessione il display mostra <strong>PASSWORD ERRATA</strong>, <strong>TIMEOUT CONN.</strong> oppure <strong>WIFI MODEM ERROR</strong>.</p>
 <p>Il registratore vede solo le reti Wi-Fi a 2,4 GHz. Se la rete cercata, per esempio l'hotspot di un telefono, non compare nell'elenco, vedere <a href="14-errori-e-soluzioni.html#rete-wi-fi">Rete Wi-Fi</a> in Errori e soluzioni.</p>
 <div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>se il Wi-Fi ha XON-XOFF attivo, il display mostra <strong>XON-XOFF ATTIVO</strong>. Se la SIM è attiva, il display mostra <strong>SIM.TAST.ATTIVA</strong>.</p></div></div>
-<h6 class="ecr-sub">Uso con registratore a batteria</h6>
+<h6 class="ecr-sub" id="uso-con-registratore-a-batteria">Uso con registratore a batteria</h6>
 <p>Il funzionamento a batteria riguarda i registratori ambulanti.</p>
 <div class="ecr-callout ecr-diff"><div class="ecr-callout-title"><i class="bi bi-arrow-left-right"></i> Differenze tra i modelli</div><div class="ecr-callout-body"><ul><li><strong>Smarty Tour+ e Jolly:</strong> sono registratori ambulanti e possono funzionare a batteria.</li><li><strong>Zero Plus, Smarty Plus, Smarty evo e Smarty evo+:</strong> non prevedono il funzionamento a batteria.</li></ul></div></div>
 <p>Con alimentazione a batteria, se il Wi-Fi non è richiesto, il registratore spegne il dongle per risparmiare energia. Per la trasmissione, il registratore prova prima la porta Ethernet e, se il cavo non è collegato, passa al Wi-Fi.</p>

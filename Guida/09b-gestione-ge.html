@@ -46,9 +46,12 @@
 <ul class="nav-content">
 <li><a href="09b-gestione-ge.html#panoramica"><i class="bi bi-circle"></i><span>Panoramica</span></a></li>
 <li><a href="09b-gestione-ge.html#configurazione-ge"><i class="bi bi-circle"></i><span>Configurazione GE</span></a></li>
-<li><a href="09b-gestione-ge.html#tipologie-di-ge"><i class="bi bi-circle"></i><span>Tipologie di GE</span></a></li>
+<li><a href="09b-gestione-ge.html#tipologie-di-ge"><i class="bi bi-circle"></i><span>Tipologie di GE</span></a>
+<ul>
+<li><a href="09b-gestione-ge.html#conversione-dei-ge-legacy"><i class="bi bi-circle"></i><span>Conversione dei GE legacy</span></a></li>
 <li><a href="09b-gestione-ge.html#conversioni-da-menu-900"><i class="bi bi-circle"></i><span>Funzioni GE dal menu 900</span></a></li>
 <li><a href="09b-gestione-ge.html#scadenza-del-ge-ricaricabile"><i class="bi bi-circle"></i><span>Scadenza del GE ricaricabile</span></a></li>
+</ul></li>
 </ul></li>
 <li class="nav-item"><a class="nav-link collapsed" href="10-connettivita-pos-e-dongle.html"><i class="bi bi-journal-text"></i><span>Connettività e dongle</span></a></li>
 <li class="nav-item"><a class="nav-link collapsed" href="10b-collegamento-rt-pos.html"><i class="bi bi-journal-text"></i><span>Collegamento RT-POS</span></a></li>
@@ -78,7 +81,7 @@
 <p>Il giornale elettronico può essere di tre tipi. Il tipo determina come decorre la durata e se il GE può essere esteso.</p>
 <div class="table-responsive"><table class="table table-bordered table-sm ecr-table"><thead><tr><th>Tipo</th><th>Durata</th><th>Ricaricabile</th></tr></thead><tbody><tr><td>Standard (legacy)</td><td>Legata all'utilizzo del registratore: quando la cassa resta ferma, il GE non consuma i giorni residui.</td><td>No</td></tr><tr><td>Fixed</td><td>Scadenza calcolata dalla durata residua del GE Standard, stimando sei giorni di utilizzo a settimana. Dopo la conversione il tempo decorre in giorni di calendario, anche se la cassa non viene usata.</td><td>No</td></tr><tr><td>Ricaricabile</td><td>Scadenza e durata massima complessiva di quattro anni dalla prima installazione. Il tempo decorre in giorni di calendario, indipendentemente dall'utilizzo.</td><td>Sì</td></tr><tr><td>Infinito</td><td>Nessuna scadenza. Si ottiene con SBLOCCO GE dal menu 900 e non può più essere riportato a Standard con RIPR. GE.</td><td>No</td></tr></tbody></table></div>
 <p>Il GE può essere anche portato a durata infinita, con la voce SBLOCCO GE descritta sotto. In quel caso non c'è più una scadenza da gestire e la voce RIPR. GE non è più disponibile per quel GE.</p>
-<h6 class="ecr-sub">Conversione dei GE legacy</h6>
+<h6 class="ecr-sub" id="conversione-dei-ge-legacy">Conversione dei GE legacy</h6>
 <p>Dopo l'aggiornamento del software, alcuni GE Standard vengono convertiti in Ricaricabili alla lettura del giornale elettronico. Per i GE Standard programmati per una durata uguale o inferiore a 365 giorni e installati dopo il 1° aprile 2025, la scadenza iniziale è di un anno. Negli altri casi la scadenza iniziale è di due anni. In entrambi i casi la durata massima complessiva è di quattro anni.</p>
 <p>Se dall'installazione è già passato più di un anno, la scadenza iniziale può risultare già raggiunta. Il GE resta comunque ricaricabile e la scadenza può essere estesa entro il limite complessivo.</p>
 <p>Alcuni GE Standard già in uso e fiscalizzati possono invece diventare Fixed.</p>

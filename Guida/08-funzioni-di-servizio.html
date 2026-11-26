@@ -44,14 +44,33 @@
 <ul class="nav-content">
 <li><a href="08-funzioni-di-servizio.html#panoramica"><i class="bi bi-circle"></i><span>Panoramica</span></a></li>
 <li><a href="08-funzioni-di-servizio.html#test-di-sistema"><i class="bi bi-circle"></i><span>Test di sistema</span></a></li>
-<li><a href="08-funzioni-di-servizio.html#censimento-fiscalizzazione-e-attivazione"><i class="bi bi-circle"></i><span>Censimento, fiscalizzazione e attivazione</span></a></li>
+<li><a href="08-funzioni-di-servizio.html#censimento-fiscalizzazione-e-attivazione"><i class="bi bi-circle"></i><span>Censimento, fiscalizzazione e attivazione</span></a>
+<ul>
+<li><a href="08-funzioni-di-servizio.html#censimento-902"><i class="bi bi-circle"></i><span>Censimento (902)</span></a></li>
+<li><a href="08-funzioni-di-servizio.html#fiscalizzazione-904"><i class="bi bi-circle"></i><span>Fiscalizzazione (904)</span></a></li>
+<li><a href="08-funzioni-di-servizio.html#attivazione-905"><i class="bi bi-circle"></i><span>Attivazione (905)</span></a></li>
+<li><a href="08-funzioni-di-servizio.html#disattivazione-906"><i class="bi bi-circle"></i><span>Disattivazione (906)</span></a></li>
+</ul></li>
 <li><a href="08-funzioni-di-servizio.html#modalita-demo-e-blocco-configurazione"><i class="bi bi-circle"></i><span>Modalità demo e blocco configurazione</span></a></li>
-<li><a href="08-funzioni-di-servizio.html#aggiornamento-del-firmware-e-del-software"><i class="bi bi-circle"></i><span>Aggiornamento del firmware e del software</span></a></li>
-<li><a href="08-funzioni-di-servizio.html#visita-annuale-e-interventi-tecnici"><i class="bi bi-circle"></i><span>Visita annuale e interventi tecnici</span></a></li>
+<li><a href="08-funzioni-di-servizio.html#aggiornamento-del-firmware-e-del-software"><i class="bi bi-circle"></i><span>Aggiornamento del firmware e del software</span></a>
+<ul>
+<li><a href="08-funzioni-di-servizio.html#aggiornamento-software-fiscale-978"><i class="bi bi-circle"></i><span>Aggiornamento software fiscale (978)</span></a></li>
+</ul></li>
+<li><a href="08-funzioni-di-servizio.html#visita-annuale-e-interventi-tecnici"><i class="bi bi-circle"></i><span>Visita annuale e interventi tecnici</span></a>
+<ul>
+<li><a href="08-funzioni-di-servizio.html#visita-annuale-981"><i class="bi bi-circle"></i><span>Visita annuale (981)</span></a></li>
+<li><a href="08-funzioni-di-servizio.html#registrazione-intervento-982"><i class="bi bi-circle"></i><span>Registrazione intervento (982)</span></a></li>
+<li><a href="08-funzioni-di-servizio.html#dati-del-laboratorio-983"><i class="bi bi-circle"></i><span>Dati del laboratorio (983)</span></a></li>
+</ul></li>
 <li><a href="08-funzioni-di-servizio.html#richiesta-codici-lotteria"><i class="bi bi-circle"></i><span>Richiesta codici lotteria</span></a></li>
 <li><a href="08-funzioni-di-servizio.html#log"><i class="bi bi-circle"></i><span>Log</span></a></li>
 <li><a href="08-funzioni-di-servizio.html#stampa-menu"><i class="bi bi-circle"></i><span>Stampa menu</span></a></li>
-<li><a href="08-funzioni-di-servizio.html#inizializzazione"><i class="bi bi-circle"></i><span>Inizializzazione</span></a></li>
+<li><a href="08-funzioni-di-servizio.html#inizializzazione"><i class="bi bi-circle"></i><span>Inizializzazione</span></a>
+<ul>
+<li><a href="08-funzioni-di-servizio.html#inizializzazione-soft"><i class="bi bi-circle"></i><span>Inizializzazione soft</span></a></li>
+<li><a href="08-funzioni-di-servizio.html#inizializzazione-hard"><i class="bi bi-circle"></i><span>Inizializzazione hard</span></a></li>
+<li><a href="08-funzioni-di-servizio.html#tasto-di-aiuto-e-sblocco-della-tastiera"><i class="bi bi-circle"></i><span>Tasto di aiuto e sblocco della tastiera</span></a></li>
+</ul></li>
 <li><a href="08-funzioni-di-servizio.html#differenze-tra-i-modelli"><i class="bi bi-circle"></i><span>Differenze tra i modelli</span></a></li>
 </ul></li>
 <li class="nav-item"><a class="nav-link collapsed" href="09-protezione-del-parco.html"><i class="bi bi-journal-text"></i><span>Protezione del parco</span></a></li>
@@ -84,30 +103,30 @@
 <p>La voce 499 stampa la revisione del software. La stampa contiene la revisione, il modello, la matricola e la scadenza del certificato.</p></div></div></div></div></section>
 <section class="section" id="censimento-fiscalizzazione-e-attivazione"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Censimento, fiscalizzazione e attivazione</h5>
 <p>Le voci 902 (Censimento RT), 904 (Fiscalizzazione), 905 (Attivazione RT) e 906 (Disattivazione RT) sono presenti su tutti i modelli. La fiscalizzazione richiede un censimento già eseguito e l'attivazione richiede un registratore già fiscalizzato.</p>
-<h6 class="ecr-sub">Censimento (902)</h6>
+<h6 class="ecr-sub" id="censimento-902">Censimento (902)</h6>
 <ul><li>Il censimento è possibile solo se il giornale elettronico è rilevato, il registratore è già serializzato e non è ancora censito. Non è eseguibile in modalità dimostrativa.</li><li>Il registratore chiede i dati del tecnico abilitato, stampa la matricola e chiede conferma. Poi invia la richiesta al servizio e salva il certificato ricevuto.</li><li>Il numero di ripristini è limitato: al raggiungimento del limite il registratore segnala l'errore e non esegue il censimento.</li></ul>
 <figure class="ecr-figure ecr-video"><video controls playsinline preload="metadata" src="video/censimento.mp4">Il browser non supporta il video.</video><figcaption>Operazione di censimento (902)</figcaption></figure>
-<h6 class="ecr-sub">Fiscalizzazione (904)</h6>
+<h6 class="ecr-sub" id="fiscalizzazione-904">Fiscalizzazione (904)</h6>
 <ul><li>Non è possibile se il registratore è già fiscalizzato, se non è serializzato, o se è serializzato ma non censito (salvo in modalità dimostrativa).</li><li>Richiede il registratore azzerato e la configurazione del giornale elettronico completata.</li></ul>
-<h6 class="ecr-sub">Attivazione (905)</h6>
+<h6 class="ecr-sub" id="attivazione-905">Attivazione (905)</h6>
 <ul><li>Non è possibile se manca il record di censimento, se il registratore non è fiscalizzato o se è già attivo.</li><li>Richiede il registratore azzerato e spazio disponibile nella memoria fiscale per le attivazioni.</li></ul>
-<h6 class="ecr-sub">Disattivazione (906)</h6>
+<h6 class="ecr-sub" id="disattivazione-906">Disattivazione (906)</h6>
 <ul><li>È possibile solo se il registratore è attivato, in attesa di servizio o in servizio telematico.</li><li>Non è possibile con il controllo di flusso XON/XOFF attivo o con una sequenza di simulazione in corso.</li></ul></div></div></div></div></section>
 <section class="section" id="modalita-demo-e-blocco-configurazione"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Modalità demo e blocco configurazione</h5>
 <p>La voce 950 attiva la modalità dimostrativa. La voce 951 blocca la configurazione. Per il blocco vedi il capitolo <a href="09-protezione-del-parco.html">Protezione del parco</a>.</p></div></div></div></div></section>
 <section class="section" id="aggiornamento-del-firmware-e-del-software"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Aggiornamento del firmware e del software</h5>
 <p>Il registratore ha tre voci di aggiornamento:</p>
 <ul><li><strong>970 Aggiornamento firmware da remoto:</strong> aggiorna il firmware ricevuto da remoto.</li><li><strong>978 Aggiornamento software fiscale:</strong> aggiorna il software da una chiavetta USB.</li><li><strong>979 Aggiornamento software non fiscale:</strong> aggiorna il software senza modifiche fiscali.</li></ul>
-<h6 class="ecr-sub">Aggiornamento software fiscale (978)</h6>
+<h6 class="ecr-sub" id="aggiornamento-software-fiscale-978">Aggiornamento software fiscale (978)</h6>
 <p>La voce 978 richiede il codice di autorizzazione fornito dal centro di assistenza. Condizioni, pacchetti e messaggi sono descritti nel capitolo <a href="12-aggiornamento-firmware.html">Aggiornamento firmware</a>.</p>
 <div class="ecr-callout ecr-warn"><div class="ecr-callout-title"><i class="bi bi-exclamation-triangle"></i> Attenzione</div><div class="ecr-callout-body"><p>l'aggiornamento software fiscale modifica il software del registratore. Eseguirlo solo nelle condizioni indicate nel capitolo <a href="12-aggiornamento-firmware.html">Aggiornamento firmware</a>.</p></div></div></div></div></div></div></section>
 <section class="section" id="visita-annuale-e-interventi-tecnici"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Visita annuale e interventi tecnici</h5>
-<h6 class="ecr-sub">Visita annuale (981)</h6>
+<h6 class="ecr-sub" id="visita-annuale-981">Visita annuale (981)</h6>
 <p>La voce 981 registra la visita annuale. Richiede il codice Visita fiscale e un registratore già fiscalizzato. Chiede la data nel formato GGMMAA.</p>
-<h6 class="ecr-sub">Registrazione intervento (982)</h6>
+<h6 class="ecr-sub" id="registrazione-intervento-982">Registrazione intervento (982)</h6>
 <p>La voce 982 registra un intervento tecnico. Richiede il codice Visita fiscale. I tipi di intervento sono elencati nel capitolo <a href="13-tabelle-e-codici.html">Tabelle e codici</a>.</p>
 <ul><li>Il registro contiene al massimo 10 interventi. Ogni chiusura occupa un posto nel registro. Quando il registro è pieno, il registratore segnala un errore.</li><li>I tipi 03 (verifica OK) e 04 (verifica KO) richiedono la lotteria istantanea configurata nella voce 822. Senza di essa il registratore segnala un errore.</li><li>Il tipo 07 (aggiornamento software) non è accettato se la stessa revisione è già registrata.</li><li>I tipi 06 e 07 stampano la nota in testo libero.</li></ul>
-<h6 class="ecr-sub">Dati del laboratorio (983)</h6>
+<h6 class="ecr-sub" id="dati-del-laboratorio-983">Dati del laboratorio (983)</h6>
 <p>La voce 983 inserisce e stampa i dati del tecnico, cioè la partita IVA del laboratorio e il codice fiscale del tecnico. Richiede il codice Visita fiscale.</p></div></div></div></div></section>
 <section class="section" id="richiesta-codici-lotteria"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Richiesta codici lotteria</h5>
 <p>La voce 984 richiede i codici per la lotteria.</p></div></div></div></div></section>
@@ -116,16 +135,16 @@
 <section class="section" id="stampa-menu"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Stampa menu</h5>
 <p>La voce 999 stampa l'elenco delle funzioni del menu.</p></div></div></div></div></section>
 <section class="section" id="inizializzazione"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Inizializzazione</h5>
-<h6 class="ecr-sub">Inizializzazione soft</h6>
+<h6 class="ecr-sub" id="inizializzazione-soft">Inizializzazione soft</h6>
 <p>L'inizializzazione soft è quella eseguita a ogni accensione normale. Il registratore mantiene le impostazioni e i dati; lo stampa come SOFT-INIT con data e ora.</p>
-<h6 class="ecr-sub">Inizializzazione hard</h6>
+<h6 class="ecr-sub" id="inizializzazione-hard">Inizializzazione hard</h6>
 <p>L'inizializzazione hard si avvia in uno di questi casi:</p>
 <ul><li>all'accensione, con il ponticello di inizializzazione hard inserito sulla scheda;</li><li>dopo un errore di memoria RAM, se la configurazione risulta valida: al riavvio successivo il registratore esegue un'inizializzazione hard;</li><li>dopo un aggiornamento del software.</li></ul>
 <p>L'inizializzazione hard riporta le opzioni ai valori di default. Cancella la PLU solo se la revisione del software è invariata e non è stato appena eseguito un aggiornamento, e azzera i contabili in memoria. Se il registratore è fiscalizzato, l'evento viene registrato nella memoria fiscale.</p>
 <p>Se l'inizializzazione hard è stata avviata dopo un errore di memoria RAM, la cassa può chiedere prima il codice COD. HW-INIT. Il codice è riservato al personale tecnico EDIT: se non è disponibile, contattare l'assistenza EDIT.</p>
 <p>Dopo l'inizializzazione hard il registratore chiede i dati del tecnico.</p>
 <figure class="ecr-figure ecr-video"><video controls playsinline preload="metadata" src="video/HardInit.mp4">Il browser non supporta il video.</video><figcaption>Procedura di inizializzazione hard</figcaption></figure>
-<h6 class="ecr-sub">Tasto di aiuto e sblocco della tastiera</h6>
+<h6 class="ecr-sub" id="tasto-di-aiuto-e-sblocco-della-tastiera">Tasto di aiuto e sblocco della tastiera</h6>
 <p>Il tasto 00 nel menu blocca la tastiera. Con la tastiera bloccata, premere un tasto mostra "TASTIERA BLOC." seguito da "PREMERE MENU-00". Premere MENU mostra "PREMI 00": premere 00 entro circa 2,5 secondi sblocca la tastiera. Non si usa un doppio tasto MENU.</p>
 <div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>se l'opzione di blocco tastiera con codice è attiva, lo sblocco richiede il codice di configurazione da PC.</p></div></div></div></div></div></div></section>
 <section class="section" id="differenze-tra-i-modelli"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Differenze tra i modelli</h5>

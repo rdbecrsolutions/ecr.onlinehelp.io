@@ -50,8 +50,16 @@
 <ul class="nav-content">
 <li><a href="12-aggiornamento-firmware.html#panoramica"><i class="bi bi-circle"></i><span>Panoramica</span></a></li>
 <li><a href="12-aggiornamento-firmware.html#requisiti-comuni"><i class="bi bi-circle"></i><span>Requisiti comuni</span></a></li>
-<li><a href="12-aggiornamento-firmware.html#aggiornamento-da-remoto-con-970"><i class="bi bi-circle"></i><span>Aggiornamento da remoto con 970</span></a></li>
-<li><a href="12-aggiornamento-firmware.html#aggiornamento-da-chiavetta-usb-con-978"><i class="bi bi-circle"></i><span>Aggiornamento da chiavetta USB con 978</span></a></li>
+<li><a href="12-aggiornamento-firmware.html#aggiornamento-da-remoto-con-970"><i class="bi bi-circle"></i><span>Aggiornamento da remoto con 970</span></a>
+<ul>
+<li><a href="12-aggiornamento-firmware.html#messaggi-dell-aggiornamento-da-remoto"><i class="bi bi-circle"></i><span>Messaggi dell'aggiornamento da remoto</span></a></li>
+</ul></li>
+<li><a href="12-aggiornamento-firmware.html#aggiornamento-da-chiavetta-usb-con-978"><i class="bi bi-circle"></i><span>Aggiornamento da chiavetta USB con 978</span></a>
+<ul>
+<li><a href="12-aggiornamento-firmware.html#pacchetti"><i class="bi bi-circle"></i><span>Pacchetti</span></a></li>
+<li><a href="12-aggiornamento-firmware.html#procedura"><i class="bi bi-circle"></i><span>Procedura</span></a></li>
+<li><a href="12-aggiornamento-firmware.html#messaggi-dell-aggiornamento-da-chiavetta"><i class="bi bi-circle"></i><span>Messaggi dell'aggiornamento da chiavetta</span></a></li>
+</ul></li>
 <li><a href="12-aggiornamento-firmware.html#aggiornamento-in-apparecchi-non-fiscalizzati-con-979"><i class="bi bi-circle"></i><span>Aggiornamento in apparecchi non fiscalizzati con 979</span></a></li>
 </ul></li>
 <li class="nav-item"><a class="nav-link collapsed" href="13-tabelle-e-codici.html"><i class="bi bi-journal-text"></i><span>Tabelle e codici</span></a></li>
@@ -81,17 +89,17 @@
 <p>La funzione 970 scarica e installa il firmware dal server di aggiornamento. Richiede il registratore collegato alla rete con accesso a internet.</p>
 <ol><li>Verificare che il registratore sia collegato alla rete. Vedere <a href="10-connettivita-pos-e-dongle.html">Connettività e dongle</a>.</li><li>Eseguire la chiusura fiscale.</li><li>Eseguire <strong>970</strong> e premere [menù].</li><li>Confermare l'operazione quando il display lo richiede.</li></ol>
 <p>Il registratore verifica la presenza di un nuovo firmware. Se non è disponibile alcun aggiornamento, il display mostra <strong>NESSUN NUOVO FW</strong>. Se il firmware è scaricato e verificato, il registratore passa direttamente alla nuova versione.</p>
-<h6 class="ecr-sub">Messaggi dell'aggiornamento da remoto</h6>
+<h6 class="ecr-sub" id="messaggi-dell-aggiornamento-da-remoto">Messaggi dell'aggiornamento da remoto</h6>
 <div class="table-responsive"><table class="table table-bordered table-sm ecr-table"><thead><tr><th>Messaggio</th><th>Significato</th></tr></thead><tbody><tr><td>NESSUN NUOVO FW</td><td>Nessun aggiornamento disponibile.</td></tr><tr><td>OP. COMPLETATA</td><td>Operazione terminata senza errori.</td></tr><tr><td>TIMEOUT SCADUTO</td><td>Il server non ha risposto nel tempo previsto. Ripetere 970.</td></tr><tr><td>ERR. CONNESSIONE</td><td>Errore di connessione con il server. Verificare la rete e ripetere 970.</td></tr><tr><td>ERRORE SERVER</td><td>Errore lato server. Ripetere 970 più tardi.</td></tr><tr><td>ERRORE RICHIESTA</td><td>Richiesta non valida.</td></tr><tr><td>ERRORE RISPOSTA</td><td>Risposta del server non valida.</td></tr><tr><td>ERR. HTTP seguito dal codice</td><td>Errore HTTP durante il download. Ripetere 970.</td></tr><tr><td>ERR. SCONOSCIUTO</td><td>Errore non classificato. Ripetere 970.</td></tr><tr><td>ERRORE LETTURA FLASH</td><td>Errore di lettura della memoria durante l'installazione.</td></tr><tr><td>ERRORE DIMENSIONE FW</td><td>Dimensione del firmware scaricato non corretta.</td></tr><tr><td>ERRORE CRC</td><td>Controllo di integrità del firmware fallito.</td></tr><tr><td>ERRORE HASH</td><td>Verifica del firmware fallita.</td></tr></tbody></table></div></div></div></div></div></section>
 <section class="section" id="aggiornamento-da-chiavetta-usb-con-978"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Aggiornamento da chiavetta USB con 978</h5>
 <p>La funzione 978 installa un pacchetto software copiato su una chiavetta USB.</p>
-<h6 class="ecr-sub">Pacchetti</h6>
+<h6 class="ecr-sub" id="pacchetti">Pacchetti</h6>
 <p>Il pacchetto ha estensione <strong>.ECS</strong>. Il registratore cerca i file il cui nome inizia con il prefisso del modello.</p>
 <div class="table-responsive"><table class="table table-bordered table-sm ecr-table"><thead><tr><th>Modello</th><th>Prefisso</th></tr></thead><tbody><tr><td>Smarty Plus</td><td>SMPL</td></tr><tr><td>Smarty evo</td><td>SMEVO</td></tr><tr><td>Smarty evo+</td><td>SMEVP</td></tr><tr><td>Zero Plus</td><td>ZERPL</td></tr><tr><td>Smarty Tour+</td><td>TOURP</td></tr><tr><td>Jolly</td><td>JOLLY</td></tr></tbody></table></div>
-<h6 class="ecr-sub">Procedura</h6>
+<h6 class="ecr-sub" id="procedura">Procedura</h6>
 <ol><li>Copiare il pacchetto .ECS nella directory principale della chiavetta USB.</li><li>Eseguire la chiusura fiscale.</li><li>Inserire la chiavetta USB.</li><li>Eseguire <strong>978</strong> e premere [menù].</li><li>Se richiesto, inserire il codice di autorizzazione della visita fiscale, fornito dal centro di assistenza.</li><li>Selezionare il pacchetto nell'elenco <strong>NUOVO SW:</strong> e confermare.</li><li>Attendere il completamento dell'operazione.</li></ol>
 <p>Il registratore può chiedere il codice di autorizzazione della visita fiscale prima di mostrare l'elenco dei pacchetti.</p>
-<h6 class="ecr-sub">Messaggi dell'aggiornamento da chiavetta</h6>
+<h6 class="ecr-sub" id="messaggi-dell-aggiornamento-da-chiavetta">Messaggi dell'aggiornamento da chiavetta</h6>
 <div class="table-responsive"><table class="table table-bordered table-sm ecr-table"><thead><tr><th>Messaggio</th><th>Significato</th></tr></thead><tbody><tr><td>NO FILES FOUND</td><td>Nessun pacchetto .ECS con il prefisso del modello sulla chiavetta.</td></tr><tr><td>CODICE ERRATO</td><td>Controllo di abilitazione del pacchetto non superato.</td></tr><tr><td>FW HEADER ERROR</td><td>Intestazione del pacchetto non valida.</td></tr><tr><td>SOFTWARE ERRATO</td><td>Pacchetto non compatibile con il boot o con il software installato.</td></tr><tr><td>FW CRC/START ERR</td><td>Verifica del pacchetto o avvio del software fallito.</td></tr><tr><td>ERR. ACCESS USB</td><td>Chiavetta non letta, oppure assente e senza file di aggiornamento nella memoria interna.</td></tr><tr><td>BOOT PROG ERROR</td><td>Errore durante la programmazione del boot.</td></tr></tbody></table></div>
 <div class="ecr-callout ecr-note"><div class="ecr-callout-title"><i class="bi bi-info-circle"></i> Nota</div><div class="ecr-callout-body"><p>senza chiavetta il registratore cerca un file di aggiornamento nella memoria interna. Se non lo trova compare ERR. ACCESS USB.</p></div></div>
 <div class="ecr-callout ecr-warn"><div class="ecr-callout-title"><i class="bi bi-exclamation-triangle"></i> Attenzione</div><div class="ecr-callout-body"><p>SOFTWARE ERRATO compare anche quando il software installato è più vecchio di quello registrato in memoria fiscale. In questo caso il registratore segnala anche OBBLIGO AGGIORN.</p></div></div></div></div></div></div></section>

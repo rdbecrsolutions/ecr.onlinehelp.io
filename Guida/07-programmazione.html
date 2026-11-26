@@ -47,9 +47,15 @@
 <li><a href="07-programmazione.html#tallon"><i class="bi bi-circle"></i><span>Tallon</span></a></li>
 <li><a href="07-programmazione.html#articoli-plu"><i class="bi bi-circle"></i><span>Articoli PLU</span></a></li>
 <li><a href="07-programmazione.html#modificatori"><i class="bi bi-circle"></i><span>Modificatori</span></a></li>
-<li><a href="07-programmazione.html#pagamenti"><i class="bi bi-circle"></i><span>Pagamenti</span></a></li>
+<li><a href="07-programmazione.html#pagamenti"><i class="bi bi-circle"></i><span>Pagamenti</span></a>
+<ul>
+<li><a href="07-programmazione.html#nuovo-tipo-di-pagamento"><i class="bi bi-circle"></i><span>Nuovo tipo di pagamento</span></a></li>
+</ul></li>
 <li><a href="07-programmazione.html#clienti"><i class="bi bi-circle"></i><span>Clienti</span></a></li>
-<li><a href="07-programmazione.html#iva"><i class="bi bi-circle"></i><span>IVA</span></a></li>
+<li><a href="07-programmazione.html#iva"><i class="bi bi-circle"></i><span>IVA</span></a>
+<ul>
+<li><a href="07-programmazione.html#ventilazione-iva"><i class="bi bi-circle"></i><span>Ventilazione IVA</span></a></li>
+</ul></li>
 <li><a href="07-programmazione.html#codici-ateco"><i class="bi bi-circle"></i><span>Codici ATECO</span></a></li>
 <li><a href="07-programmazione.html#messaggio-pubblicitario"><i class="bi bi-circle"></i><span>Messaggio pubblicitario</span></a></li>
 <li><a href="07-programmazione.html#cortesia"><i class="bi bi-circle"></i><span>Cortesia</span></a></li>
@@ -63,7 +69,10 @@
 <li><a href="07-programmazione.html#ora-trasmissioni"><i class="bi bi-circle"></i><span>Ora trasmissioni</span></a></li>
 <li><a href="07-programmazione.html#scheda-sd"><i class="bi bi-circle"></i><span>Scheda SD</span></a></li>
 <li><a href="07-programmazione.html#report-mail"><i class="bi bi-circle"></i><span>Report mail</span></a></li>
-<li><a href="07-programmazione.html#tastiera"><i class="bi bi-circle"></i><span>Tastiera</span></a></li>
+<li><a href="07-programmazione.html#tastiera"><i class="bi bi-circle"></i><span>Tastiera</span></a>
+<ul>
+<li><a href="07-programmazione.html#tasti-diretti"><i class="bi bi-circle"></i><span>Tasti diretti</span></a></li>
+</ul></li>
 <li><a href="07-programmazione.html#shortcut"><i class="bi bi-circle"></i><span>Shortcut</span></a></li>
 <li><a href="07-programmazione.html#autorizzazioni"><i class="bi bi-circle"></i><span>Autorizzazioni</span></a></li>
 <li><a href="07-programmazione.html#spegnimento-automatico"><i class="bi bi-circle"></i><span>Spegnimento automatico</span></a></li>
@@ -188,7 +197,7 @@
 <div class="ecr-callout ecr-diff"><div class="ecr-callout-title"><i class="bi bi-arrow-left-right"></i> Differenze tra i modelli</div><div class="ecr-callout-body"><ul><li>Altezza font (854): tutti i modelli tranne Zero Plus.</li><li>Smarty evo+: l'altezza del font dipende dall'opzione 9 (taglio carta).</li></ul></div></div></div></div></div></div></section>
 <section class="section" id="tastiera"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Tastiera</h5>
 <p>La voce 869 configura la tastiera. È disponibile su tutti i modelli tranne Zero Plus.</p>
-<h6 class="ecr-sub">Tasti diretti</h6>
+<h6 class="ecr-sub" id="tasti-diretti">Tasti diretti</h6>
 <p>I tasti diretti si programmano con la voce 869. La sequenza generale è:</p>
 <ol><li>Digitare 869 e premere MENU due volte.</li><li>Premere il tasto fisico da programmare e premere MENU.</li><li>Con le frecce scorrere fino alla voce (COMANDO, MODIFICATORE o PAGAMENTO) e premere MENU.</li><li>Digitare il numero della funzione e premere MENU.</li><li>Uscire dalla programmazione.</li></ol>
 <div class="table-responsive"><table class="table table-bordered table-sm ecr-table"><thead><tr><th>Tasto diretto</th><th>Voce</th><th>Numero</th></tr></thead><tbody><tr><td>Fuori servizio</td><td>COMANDO</td><td>909</td></tr><tr><td>Ristampa dell'ultimo scontrino</td><td>COMANDO</td><td>199</td></tr><tr><td>Chiusura Z fiscale</td><td>COMANDO</td><td>001</td></tr><tr><td>Prova acquisto</td><td>COMANDO</td><td>311</td></tr><tr><td>Annullo dell'intero scontrino</td><td>MODIFICATORE</td><td>99</td></tr><tr><td>Sconto percentuale su una battuta</td><td>MODIFICATORE</td><td>2</td></tr><tr><td>Sconto percentuale sul subtotale</td><td>MODIFICATORE</td><td>3</td></tr><tr><td>Sconto a valore su una battuta</td><td>MODIFICATORE</td><td>4</td></tr><tr><td>Sconto a valore sul subtotale</td><td>MODIFICATORE</td><td>5</td></tr><tr><td>Pagamento personalizzato</td><td>PAGAMENTO</td><td>numero del pagamento, per esempio 8</td></tr></tbody></table></div></div></div></div></div></section>

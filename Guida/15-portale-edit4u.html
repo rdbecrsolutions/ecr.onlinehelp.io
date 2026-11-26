@@ -56,11 +56,18 @@
 <li><a href="15-portale-edit4u.html#menu-e-home"><i class="bi bi-circle"></i><span>Menu e Home</span></a></li>
 <li><a href="15-portale-edit4u.html#parco-registratori"><i class="bi bi-circle"></i><span>Parco registratori</span></a></li>
 <li><a href="15-portale-edit4u.html#filtri"><i class="bi bi-circle"></i><span>Filtri</span></a></li>
-<li><a href="15-portale-edit4u.html#file-csv"><i class="bi bi-circle"></i><span>Scarica il file CSV</span></a></li>
+<li><a href="15-portale-edit4u.html#file-csv"><i class="bi bi-circle"></i><span>Scarica il file CSV</span></a>
+<ul>
+<li><a href="15-portale-edit4u.html#significato-dei-campi-principali"><i class="bi bi-circle"></i><span>Significato dei campi principali</span></a></li>
+</ul></li>
 <li><a href="15-portale-edit4u.html#aggiornamento-da-remoto"><i class="bi bi-circle"></i><span>Aggiornamento da remoto</span></a></li>
 <li><a href="15-portale-edit4u.html#scheda-del-registratore"><i class="bi bi-circle"></i><span>La scheda del registratore</span></a></li>
 <li><a href="15-portale-edit4u.html#telemetria"><i class="bi bi-circle"></i><span>Telemetria</span></a></li>
-<li><a href="15-portale-edit4u.html#avvisi"><i class="bi bi-circle"></i><span>Avvisi ed errori</span></a></li>
+<li><a href="15-portale-edit4u.html#avvisi"><i class="bi bi-circle"></i><span>Avvisi ed errori</span></a>
+<ul>
+<li><a href="15-portale-edit4u.html#quando-compare-un-avviso"><i class="bi bi-circle"></i><span>Quando compare un avviso</span></a></li>
+<li><a href="15-portale-edit4u.html#quando-compare-un-errore"><i class="bi bi-circle"></i><span>Quando compare un errore</span></a></li>
+</ul></li>
 <li><a href="15-portale-edit4u.html#associazione"><i class="bi bi-circle"></i><span>Associazione del registratore</span></a></li>
 <li><a href="15-portale-edit4u.html#consigli-pratici"><i class="bi bi-circle"></i><span>Consigli pratici</span></a></li>
 </ul></li>
@@ -130,7 +137,7 @@
 <section class="section" id="file-csv"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Scarica il file CSV</h5>
 <p>Selezionare uno o più registratori e premere <strong>SCARICA</strong>. Il portale produce un file CSV il cui nome contiene la data di download nel formato AAAAMMGG, ad esempio <code>devices_20261028.csv</code>.</p>
 <p>Per leggere il file in colonne con Excel, aprirlo e usare <strong>Dati &gt; Testo in colonne</strong>.</p>
-<h6 class="ecr-sub">Significato dei campi principali</h6>
+<h6 class="ecr-sub" id="significato-dei-campi-principali">Significato dei campi principali</h6>
 <ul>
 <li><strong>serial_number:</strong> matricola del registratore.</li>
 <li><strong>registry_id:</strong> codice del modello (ad esempio 85 = One Top, 92 = Smarty Evo).</li>
@@ -175,7 +182,7 @@
 </div></div></div></div></section>
 <section class="section" id="avvisi"><div class="row"><div class="col-lg-12"><div class="card"><div class="card-body"><h5 class="card-title">Avvisi ed errori</h5>
 <p>Il <strong>pallino giallo</strong> indica un <strong>avviso (warning)</strong>: una risorsa sta per esaurirsi o una scadenza si avvicina. Il <strong>pallino rosso</strong> indica un <strong>errore</strong>: una risorsa è esaurita o il certificato della macchina è scaduto.</p>
-<h6 class="ecr-sub">Quando compare un avviso</h6>
+<h6 class="ecr-sub" id="quando-compare-un-avviso">Quando compare un avviso</h6>
 <ul>
 <li><strong>Memoria fiscale quasi piena:</strong> resta meno del 10% dei posti per le chiusure fiscali. Ad esempio, su una capacità di 2.200 chiusure l'avviso compare da 219 posti residui in giù; con 220 posti residui non è ancora attivo. Non riguarda gli importi o il numero di scontrini.</li>
 <li><strong>Giornale elettronico:</strong> meno di 30 giorni residui; a 30 giorni l'avviso non è ancora attivo.</li>
@@ -184,7 +191,7 @@
 <li><strong>Verifica periodica:</strong> scadenza entro 30 giorni, compreso il trentesimo giorno. Contattare il tecnico per fissare l'appuntamento.</li>
 </ul>
 <p>Le risorse esaurite mantengono anche l'avviso; le scadenze già superate restano segnalate. Una scadenza non impostata non viene conteggiata: l'assenza del pallino non garantisce che tutti i dati siano stati programmati.</p>
-<h6 class="ecr-sub">Quando compare un errore</h6>
+<h6 class="ecr-sub" id="quando-compare-un-errore">Quando compare un errore</h6>
 <ul>
 <li>Memoria fiscale esaurita: non ci sono più posti per nuove chiusure.</li>
 <li>Giornale elettronico esaurito secondo i controlli del registratore.</li>
